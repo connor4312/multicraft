@@ -1,0 +1,502 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font: normal 10pt Arial,Helvetica,sans-serif;
+    text-shadow: 0px 1px 0px #ffffff;
+
+    background-color: #eef0f2;
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+
+#frame
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#border-left
+{
+    width: 25px;
+    height: 417px;
+    float:left;
+    background: url("../images/left.png") no-repeat right top;
+}
+
+#border-right
+{
+    width: 25px;
+    height: 417px;
+    float:right;
+    background: url("../images/right.png") no-repeat right top;
+}
+
+#page
+{
+    border: 1px solid #dee3e5;
+    border-top: 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    background: #f6f6f6;
+}
+
+#header
+{
+    background-image: url("../images/header.png");
+    background-repeat: repeat-x;
+    background-position: top;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+#logo_icon
+{
+    float: right;
+    margin-top: -11px;
+}
+
+#logo_text
+{
+    float: left;
+    margin-top: 2px;
+    margin-left: 9px;
+}
+
+#header_text
+{
+    float: left;
+    display: none;
+}
+
+#outer
+{
+}
+
+#content
+{
+    padding: 10px;
+    padding-top: 0px;
+}
+
+#sidebar
+{
+    padding: 0px 0px 0px 0px;
+}
+
+#footer
+{
+    padding: 10px;
+    margin: 10px 20px;
+    font-size: 0.8em;
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+}
+
+#logo
+{
+    padding: 20px 20px;
+    font-size: 200%;
+}
+
+#mainmenu
+{
+    height: 33px;
+    background:white url(../images/menubg.png) repeat-x left top;
+    overflow: hidden;
+}
+
+#mainmenu ul
+{
+    padding:6px 20px 5px 20px;
+    margin:0px;
+    float: left;
+    width: 70%;
+}
+
+#mainmenu ul li
+{
+    display: inline;
+}
+
+#mainmenu ul li a
+{
+    color:#555;
+    background-color:transparent;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+    padding: 8px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    line-height: 20px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+    color: #222;
+    background-color:#f4f4f4;
+    text-decoration:none;
+}
+
+#mainmenu .notice
+{
+    float: right;
+    width: 190px;
+    height: 18px;
+    overflow: auto;
+    padding:8px 20px 5px 20px;
+}
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+    padding:.8em;
+    margin-bottom:1em;
+    border:2px solid #ddd;
+}
+
+div.flash-error
+{
+    background:#FBE3E4;
+    color:#8a1f11;
+    border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+    background:#FFF6BF;
+    color:#514721;
+    border-color:#FFD324;
+}
+
+div.flash-success
+{
+    background:#E6EFC2;
+    color:#264409;
+    border-color:#C6D880;
+}
+
+div.flash-error a
+{
+    color:#8a1f11;
+}
+
+div.flash-notice a
+{
+    color:#514721;
+}
+
+div.flash-success a
+{
+    color:#264409;
+}
+
+div.form .rememberMe label
+{
+    display: inline;
+}
+
+div.view
+{
+    height: 35px;
+    margin: 10px 0;
+    border: 1px solid #dedede;
+}
+div.view a
+{
+    font: bold 12px Arial;
+    padding: 0px;
+    color: #444;
+    text-decoration: none;
+}
+
+div.view a:hover
+{
+    text-decoration: underline;
+}
+
+div.view:hover
+{
+    background-color: #efefef;
+}
+
+div.breadcrumbs
+{
+    font-size: 0.9em;
+    padding: 5px 20px;
+    padding-bottom: 0px;
+}
+
+div.breadcrumbs span
+{
+    font-weight: bold;
+}
+
+div.search-form
+{
+    padding: 10px;
+    margin: 10px 0;
+    background: #eee;
+}
+
+.portlet
+{
+    background: #F3F3F3;
+    border: 1px solid #777777;
+    border-radius: 4px;
+    box-shadow: 3px 3px 10px #DDDDDD;
+}
+
+.portlet-decoration
+{
+    padding: 3px 6px;
+    background-color: #999999;
+    margin-top: 0px;
+    text-shadow: 0px 1px 0px #555555;
+    box-shadow: 1px 1px 11px #777777 inset;
+}
+
+.portlet-title
+{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.portlet-content
+{
+    font-size:0.9em;
+    margin: 0 0 0px 0;
+    padding: 0;
+}
+
+.portlet-content ul
+{
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+}
+
+.portlet-content li
+{
+    padding: 0px 0 4px 0px;
+    position: relative;
+}
+
+.operations
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.operations img
+{
+    padding-right: 6px;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+}
+
+.operations li
+{
+    padding-bottom: 0px;
+}
+
+.operations li a
+{
+    margin-right: 0px;
+    display: block;
+    padding: 6px 0px 6px 30px;
+    text-decoration: none;
+}
+
+.operations li a:visited
+{
+    color: #444;
+}
+
+.operations li a:hover
+{
+    background: #ddd;
+    border-radius: 4px;
+}
+
+
+.leftbox
+{ 
+    margin-top: 10px;
+    margin-left: 14px;
+    margin-right: 14px;
+    float: left;
+    display: block;
+    width: 150px;
+    background-color: #f4f4f4;
+}
+
+.rightbox
+{ 
+    margin-top: 9px;
+    position: relative;
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: 765px;
+}
+
+.box_title
+{
+    margin: 0px;
+    width: auto;
+    height: 25px;
+    display: block;
+}
+
+.box_title h4
+{
+    padding: 1px 70px 1px 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.stdtable
+{
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+}
+
+.stdtable td
+{
+    margin: 0px;
+    padding: 2px;
+}
+
+.stdtable td.textcell
+{
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: left;
+}
+
+.stdtable td.pricecell
+{
+    text-align: center;
+}
+
+.stdtable td.titlecell
+{
+    padding: 4px;
+    border-bottom: 2px #000000 solid;
+    text-align: left;
+}
+
+.stdtable tr.even td
+{
+    margin: 0px;
+    background-color: #e5e5e5;
+}
+
+.stdtable tr.odd td
+{
+    margin: 0px;
+    background-color: #f4f4f4;
+}
+
+.stdtable tr.green td
+{
+    margin: 0px;
+    background-color: #dae4ec;
+}
+
+.stdtable tr.linerow td
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: #555;
+    height: 1px;
+}
+
+.stdtable tr.titlerow td
+{
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.stdtable tr.titlerow td.textcell
+{
+    text-align: left;
+    width: auto;
+}
+
+.stdtable tr.titlerow td.large
+{
+    width: auto;
+}
+
+.stdtable td.titlecell
+{
+    padding: 4px;
+    text-align: left;
+    border-right: 1px #000000 solid;
+}
+
+.stdtable tr td.amount
+{
+    padding-right: 10px;
+    text-align: right
+}
+
+a
+{
+    color: #444444;
+}
+
+.code
+{
+    white-space: pre;
+    overflow: auto;
+    font-family: "Courier New" Courier monospace;
+    margin: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    border: 1px solid #555;
+    background-color: #efefef;
+}
+
+.infoBox
+{
+    border: 1px solid grey;
+    padding: 5px;
+    padding-top: 6px;
+    padding-left: 30px;
+    font-size: 11px;
+    background: url("../images/icons/info.png") no-repeat;
+    background-position: 6px 6px;
+}
+
+.logArea
+{
+        border: 1px solid #dfdfdf;
+        background-color: #f4f4f4;
+        height: 400px;
+        width: 100%;
+}
+
+.pluginActionPending
+{
+    float: left;
+    padding-left: 8px;
+    padding-top: 2px;
+}

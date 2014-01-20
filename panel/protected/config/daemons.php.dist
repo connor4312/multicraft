@@ -1,0 +1,23 @@
+<?php
+
+// You can rename this file to daemons.php to configure additional per-daemon settings
+
+return array(
+    /* A list of daemons of the following format:
+    DaemonID => array(
+        'password' => DaemonPassword,
+    ),
+
+    For example:
+    1 => array(
+        'password' => 'abc',
+    ),
+    2 => array(
+        'password' => 'def',
+    ),
+
+
+    This will override the global daemon password for the daemons 1 (abc) and 2 (def).
+    All the other daemons will continue using the global daemon password that is defined in the config.php.
+    */
+);

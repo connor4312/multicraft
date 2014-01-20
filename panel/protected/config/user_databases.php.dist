@@ -1,0 +1,31 @@
+<?php
+
+return array(
+/*
+    MySQL database servers to be used for the user MySQL database feature. Daemons with no entry here will use
+    the settings configured in the panel.
+    One entry per daemon, using the following format:
+
+    DaemonID => array(
+        'host' => MySQL Host: Leave undefined or set to * for daemon IP. An empty string means no host.
+        'user' => MySQL User: Leave undefined or empty to use panel settings for both user and pass.
+        'pass' => MySQL Password: Depends on user setting.
+        'prefix' => Database Name Prefix: String to prepend to the database name. Undefined for panel settings.
+        'link' => Database Admin Link: Leave undefined for panel settings.
+    ),
+
+    Example:
+    1 => array(
+        'user'  => 'root',
+        'pass'  => 'passwd',
+    ),
+    2 => array(
+        'host' => '1.2.3.4',
+        'user' => 'root',
+        'pass' => 'passwd',
+    ),
+
+    Daemon 1 will use the database server on the local machine, daemon 2 will use the database server on 1.2.3.4.
+*/
+    
+); 

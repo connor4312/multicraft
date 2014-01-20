@@ -1,0 +1,93 @@
+<?php
+
+return array(
+    /// Database setttings for the control panel
+    /// Contains users (name, email, pw) and control panel settings
+    'panel_db' => 'sqlite:'.realpath(dirname(__FILE__).'/../data/').'/data.db',
+    /*
+    'panel_db' => 'mysql:host=localhost;dbname=multicraft_panel',
+    'panel_db_user' => 'root',
+    'panel_db_pass' => '',
+    */
+    /// Database settings for the daemon
+    /// Contains all the server information and is shared between
+    /// all the daemons.
+    //
+    'daemon_db' => 'sqlite:/home/minecraft/multicraft/data/data.db',
+    /*
+    'daemon_db' => 'mysql:host=localhost;dbname=multicraft_daemon',
+    'daemon_db_user' => 'root',
+    'daemon_db_pass' => 'testing',
+    */
+    // The daemon connection password, needs to match the password value in multicraf.conf
+    'daemon_password' => 'none',
+    // The root superuser
+    'superuser'=>'admin',
+    // only check version when logged in as superuser
+    'superuser_check_only'=>true,
+    // set this to true to enable the API
+    'api_enabled'=>false,
+    // set this to true to allow GET requests to the API
+    'api_allow_get'=>false,
+    // the name of the administrator
+    'admin_name'=>'Multicraft Administrator',
+    // this is used in the support page
+    'admin_email'=>'',
+    // hide the userlist in the main menu and only list users
+    // with roles and exact matches under "Manage Users" for regular users
+    'hide_userlist'=>true,
+    // disable the buil-in FTP client
+    'ftp_client_disabled'=>false,
+    // disable AJAX updates on pages like log/chat/serverview, etc.
+    'ajax_updates_disabled'=>false,
+    // timeout for daemon communication in seconds
+    'timeout' => 5,
+    // the theme, empty for default or the name of the folder in "themes/"
+    'theme' => '',
+    // the language, empty for english or the name of the folder in "protected/messages/"
+    'language' => '',
+    // the maximum number of login attempts before blocking the login temporarily
+    'login_tries' => 4,
+    // the interval in which to count the login attempts and after which to unblock the login
+    'login_interval' => 300,
+    // use AJAX to refresh servers one by one after the list is loaded
+    'ajax_serverlist' => false,
+    // allow users to generate status banners for their server
+    'status_banner' => true,
+    // Send a welcome email when a new user is created
+    'mail_welcome' => false,
+    // Send a notification email when a server is assigned to a user
+    'mail_assign' => false,
+    // use an SQLite database to cache the database schema
+    'sqlitecache_schema' => false,
+    // use an SQLite database to cache daemon query results
+    'sqlitecache_commands' => false,
+    // Allow Users to Create a MySQL Database
+    'user_mysql' => false,
+    // User MySQL DB information
+    'user_mysql_host' => '',
+    'user_mysql_user' => '',
+    'user_mysql_pass' => '',
+    'user_mysql_prefix' => '',
+    'user_mysql_admin' => '',
+    // Allow Users to run the Chunkster tool
+    'user_chunkster' => false,
+    // Disable User Registration
+    'register_disabled' => true,
+    // Reset Token Valid for (hours)
+    'reset_token_hours' => 0,
+    // Default Display IP
+    'default_display_ip'=>'',
+    // Show assigned amount of server memory to user
+    'show_memory'=>true,
+    // A comma separated list of IPs allowed to log in as a superuser, empty for any IP
+    'admin_ips'=>'',
+    // A comma separated list of IPs allowed to use the API, empty for any IP
+    'api_ips'=>'',
+    // Enable CSRF validation
+    'enable_csrf_validation'=>false,
+    // Enable cookie validation
+    'enable_cookie_validation'=>true,
+    // Enable BukGet plugin browser
+    'use_bukget'=>false,
+);

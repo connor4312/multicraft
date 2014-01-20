@@ -1,0 +1,4 @@
+Source: http://www.yiiframework.com/extension/mail
+License: New BSD License (http://www.opensource.org/licenses/bsd-license.php)
+Developed by: jonah
+

@@ -1,0 +1,252 @@
+table.detail-view .null
+{
+    color: pink;
+}
+
+table.detail-view
+{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+}
+
+table.detail-view th, table.detail-view td
+{
+    font-size: 0.9em;
+    padding: 0.3em 0.6em;
+    vertical-align: middle;
+    overflow: visible;
+    width: 20%;
+}
+
+table.detail-view th
+{
+    vertical-align: middle;
+    font-weight: normal;
+    width: 40%;
+    height: 32px;
+}
+
+table.detail-view tr.odd
+{
+    border-bottom: 1px solid #dedede;
+}
+
+table.detail-view tr.even
+{
+    border-bottom: 1px solid #dedede;
+}
+
+table.detail-view tr.odd th
+{
+}
+
+table.detail-view tr.even th
+{
+}
+
+table.detail-view tr:last-child
+{
+    border-bottom: 0px;
+}
+
+table.detail-view tr.linerow
+{
+    margin: 0px;
+    padding: 0px;
+    height: 0px;
+    border-bottom: 1px solid black;
+}
+
+table.detail-view tr.titlerow
+{
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+    border-bottom: 1px solid #555;
+}
+
+table.detail-view tr.titlerow th
+{
+    padding: 4px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+table.detail-view .hintRow
+{
+    width: 40%;
+}
+
+table.detail-view .hint
+{
+    position: relative;
+    height: 22px;
+}
+table.detail-view .hintIcon
+{
+    position: absolute;
+    top: 3px;
+}
+table.detail-view .hintText
+{
+    display: none;
+    position: absolute;
+    top: -3px;
+    left: 20px;
+    border: 1px solid #FFD324;
+    padding: 6px 6px;
+    background-color: #FFF6BF;
+    z-index: 1;
+}
+
+/*Embedded forms*/
+
+table.detail-view input
+{
+    width: 185px;
+}
+
+table.detail-view select
+{
+    min-width: 190px;
+    color: #555;
+    border: 1px solid #aaa;
+    padding: 3px;
+    background-image: url("../images/inputfield.png");
+    border-radius: 2px;
+    box-shadow: 0px 1px 2px #DDDDDD;
+
+}
+table.detail-view input[type="text"]
+{ 
+    width: 180px;
+    color: #555;
+    border: 1px solid #aaa;
+    padding: 3px;
+    background-image: url("../images/inputfield.png");
+    border-radius: 2px;
+    box-shadow: 0px 1px 2px #DDDDDD;
+}
+
+table.detail-view input[type="submit"], table.detail-view input[type="button"]
+{ 
+    width: 190px;
+    color: #444;
+    border: 1px solid #777;
+    padding: 3px;
+    border-radius: 2px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#dfdfdf));
+    background: -o-linear-gradient(top, #f6f6f6, #dfdfdf);
+    background: -moz-linear-gradient(top , #f6f6f6, #dfdfdf);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#f6f6f6', EndColorStr='#dfdfdf');
+}
+
+table.detail-view input[type="submit"][disabled], table.detail-view input[type="button"][disabled],
+table.detail-view input[type="submit"][disabled]:hover, table.detail-view input[type="button"][disabled]:hover,
+table.detail-view input[type="submit"][disabled]:active, table.detail-view input[type="button"][disabled]:active
+{
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    cursor: default;
+}
+
+table.detail-view input[type="submit"]:hover, table.detail-view input[type="button"]:hover
+{
+    position: relative;
+    cursor: pointer;
+    background: -o-linear-gradient(top, #e6e6e6, #cfcfcf);
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#cfcfcf));
+    background: -moz-linear-gradient(top , #e6e6e6, #cfcfcf);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#e6e6e6', EndColorStr='#cfcfcf');
+}
+table.detail-view input[type="submit"]:active, table.detail-view input[type="button"]:active
+{
+    position: relative;
+    left: 1px;
+    top: 1px;
+}
+
+table.detail-view  input[type="checkbox"]
+{ 
+    width: auto;
+}
+
+table.detail-view fieldset
+{
+    border: 1px solid #DDD;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    -moz-border-radius:7px;
+}
+
+table.detail-view .note
+{
+    font-style: italic;
+}
+
+table.detail-view span.required
+{
+    color: #FF6666;
+}
+
+table.detail-view div.error label,
+table.detail-view label.error,
+table.detail-view span.error
+{
+    color: #C00;
+}
+
+table.detail-view div.error input,
+table.detail-view div.error textarea,
+table.detail-view div.error select,
+table.detail-view input.error,
+table.detail-view textarea.error,
+table.detail-view select.error
+{
+    background: #FEE;
+    border-color: #C00;
+}
+
+table.detail-view div.success input,
+table.detail-view div.success textarea,
+table.detail-view div.success select,
+table.detail-view input.success,
+table.detail-view textarea.success,
+table.detail-view select.success
+{
+    background: #E6EFC2;
+    border-color: #C6D880;
+}
+
+
+.errorSummary
+{
+    border: 2px solid #C00;
+    padding: 7px 7px 12px 7px;
+    margin: 0 0 20px 0;
+    background: #FEE;
+    font-size: 0.9em;
+}
+
+table.detail-view .errorMessage
+{
+    color: red;
+    font-size: 0.9em;
+}
+
+table.detail-view .errorSummary p
+{
+    margin: 0;
+    padding: 5px;
+}
+
+table.detail-view .errorSummary ul
+{
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+

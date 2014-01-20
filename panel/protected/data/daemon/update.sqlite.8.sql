@@ -1,0 +1,15 @@
+alter table `schedule` add `args` text not null default '';
+alter table `schedule` add `hidden` integer not null default 0;
+alter table `command` add `hidden` integer not null default 0;
+create index `idx_cmd_server` on `command`(`server_id`);
+create index `idx_cmd_svprereq` on `command`(`server_id`,`prereq`);
+create index `idx_srv_deflevel` on `server`(`default_level`);
+create index `idx_srv_dir` on `server`(`dir`);
+create index `idx_srv_ip` on `server`(`ip`);
+create index `idx_srv_name` on `server`(`name`);
+create index `idx_srv_suspdmn` on `server`(`suspended`,`daemon_id`);
+create index `idx_fussv_perms` on `ftp_user_server`(`perms`);
+create index `idx_plr_svname` on `player`(`server_id`,`name`);
+create index `idx_plr_svstatus` on `player`(`server_id`,`status`);
+create index `idx_sch_statusts` on `schedule`(`status`,`scheduled_ts`);
+create index `idx_plr_server` on `player`(`server_id`);
