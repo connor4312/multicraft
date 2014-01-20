@@ -25,14 +25,14 @@ if (!$model->isNewRecord)
                 'confirm'=>Yii::t('mc', 'Are you sure you want to delete this item?'),
                 'csrf'=>true,
             ),
-            'icon'=>'config',
+            'icon'=>'minus-circle',
         ),
     );
 }
 $this->menu[] = array(
     'label'=>Yii::t('mc', 'Back'),
     'url'=>array('index'),
-    'icon'=>'back'
+    'icon'=>'arrow-left'
 );
 
 $form=$this->beginWidget('CActiveForm', array(

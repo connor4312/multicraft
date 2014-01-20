@@ -17,12 +17,12 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Create Command'),
         'url'=>array('create'),
-        'icon'=>'command_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/index'),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 

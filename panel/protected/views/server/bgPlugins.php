@@ -20,13 +20,13 @@ if (!$installed)
     $this->menu[] = array(
         'label'=>Yii::t('mc', 'Currently Installed'),
         'url'=>array('server/bgPlugins', 'id'=>$model->id, 'installed'=>true),
-        'icon'=>'plugin',
+        'icon'=>'puzzle-piece',
     );
 }
 $this->menu[] = array(
     'label'=>Yii::t('mc', 'Back'),
     'url'=>array(($installed ? 'server/bgPlugins' : 'server/view'), 'id'=>$model->id),
-    'icon'=>'back',
+    'icon'=>'arrow-left',
 );
 
 echo CHtml::beginForm('', 'GET');

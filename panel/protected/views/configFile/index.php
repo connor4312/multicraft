@@ -18,12 +18,12 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'New Config File Setting'),
         'url'=>array('create'),
-        'icon'=>'config'
+        'icon'=>'gear'
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('daemon/index'),
-        'icon'=>'back'
+        'icon'=>'arrow-left'
     ),
 );
 

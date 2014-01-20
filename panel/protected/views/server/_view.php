@@ -10,11 +10,11 @@
 <div class="view">
     <?php
     $pl = 0;
-    $img = $data->suspended ? 'offline.png' : 'changing.png';
+    $img = $data->suspended ? '<i class="fa fa-times"></i>' : '<i class="fa fa-refresh fa-spin"></i>';
     if (!Yii::app()->params['ajax_serverlist'])
     {
         $pl = $data->getOnlinePlayers();
-        $img = $pl >= 0 ? 'online.png' : 'offline.png';
+        $img = $pl >= 0 ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
     }
     ?>
     <table style="height: 100%; table-layout: fixed">
@@ -25,7 +25,7 @@
     </colgroup>
     <tr>
         <td style="padding-left: 10px" id="sv_icon_<?php echo $data->id ?>">
-            <?php echo Theme::img($img) ?>
+            <?php echo $img ?>
         </td>
         <td style="width: 50%; max-width: 330px; overflow: hidden; vertical-align: middle">
             <?php echo CHtml::link(CHtml::encode($data->name), array('view', 'id'=>$data->id), array('style'=>'display: block; max-height: 28px')); ?></a>

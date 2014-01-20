@@ -34,7 +34,7 @@ $this->menu=array(
 $this->menu[] = array(
     'label'=>Yii::t('mc', 'Back'),
     'url'=>($sv ? array('schedule/index', 'sv'=>$sv) : array('schedule/admin')),
-    'icon'=>'back',
+    'icon'=>'arrow-left',
 );
 
 echo CHtml::css('#ival_do {width: auto;}');

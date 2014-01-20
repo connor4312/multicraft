@@ -18,18 +18,18 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Create Command'),
         'url'=>array('create', 'sv'=>$sv),
-        'icon'=>'command_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Manage Commands'),
         'url'=>array('admin'),
         'visible'=>Yii::app()->user->isSuperuser(),
-        'icon'=>'command',
+        'icon'=>'terminal',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/view', 'id'=>$sv),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

@@ -20,7 +20,7 @@ if ($id)
         array(
             'label'=>Yii::t('mc', 'Back'),
             'url'=>array('server/view', 'id'=>$id),
-            'icon'=>'back',
+            'icon'=>'arrow-left',
         )
     );
 }

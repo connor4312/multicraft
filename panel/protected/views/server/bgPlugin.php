@@ -19,7 +19,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/bgPlugins', 'id'=>$model->id, 'installed'=>$installed),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

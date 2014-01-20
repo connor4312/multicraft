@@ -16,27 +16,27 @@ $this->menu=array(
         array(
             'label'=>Yii::t('admin', 'Update Minecraft'),
             'url'=>array('daemon/updateMC'),
-            'icon'=>'update',
+            'icon'=>'caret-square-o-up',
         ),
         array(
             'label'=>Yii::t('admin', 'Multicraft Status'),
             'url'=>array('daemon/status'),
-            'icon'=>'status',
+            'icon'=>'bar-chart-o',
         ),
         array(
             'label'=>Yii::t('admin', 'Panel Configuration'),
             'url'=>array('daemon/panelConfig'),
-            'icon'=>'config',
+            'icon'=>'gear',
         ),
         array(
             'label'=>Yii::t('admin', 'Statistics'),
             'url'=>array('daemon/statistics'),
-            'icon'=>'statistics',
+            'icon'=>'dashboard',
         ),
         array(
             'label'=>Yii::t('admin', 'Operations'),
             'url'=>array('daemon/operations'),
-            'icon'=>'operations',
+            'icon'=>'bolt',
         ),
         array(
             'label'=>Yii::t('admin', 'Config File Settings'),

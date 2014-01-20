@@ -24,7 +24,7 @@ if (Yii::app()->user->isSuperuser())
     $this->menu[] =  array(
         'label'=>Yii::t('mc', 'Create User'),
         'url'=>array('create'),
-        'icon'=>'user_new',
+        'icon'=>'plus',
     );
 }
 ?>

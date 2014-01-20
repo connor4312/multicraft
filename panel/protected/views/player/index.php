@@ -18,19 +18,19 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Create Player'),
         'url'=>array('create', 'sv'=>$sv),
-        'icon'=>'player_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Manage Players'),
         'url'=>array('admin'),
         'visible'=>Yii::app()->user->isSuperuser(),
-        'icon'=>'player',
+        'icon'=>'gamepad',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/view',
         'id'=>$sv),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

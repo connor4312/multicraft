@@ -8,6 +8,11 @@ module.exports = function(grunt) {
           cwd: 'static',
           src: ['**/*.{jpg,ico,gif,png,js}'],
           dest: 'panel/static'
+        }, {
+          expand: true,
+          cwd: 'bower_components/font-awesome/fonts/',
+          src: ['*-webfont.*'],
+          dest: 'panel/static/font/'
         }]
       },
       dist: {
@@ -16,6 +21,11 @@ module.exports = function(grunt) {
           cwd: 'static',
           src: ['**/*.{jpg,ico}'],
           dest: 'panel/static'
+        }, {
+          expand: true,
+          cwd: 'bower_components/font-awesome/fonts/',
+          src: ['*-webfont.*'],
+          dest: 'panel/static/font/'
         }]
       }
     },

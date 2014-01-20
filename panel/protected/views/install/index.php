@@ -13,7 +13,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label'=>Yii::t('mc', 'Back'), 'url'=>array('index', 'step'=>$prevStep), 'icon'=>'back', 'visible'=>$prevStep && $prevStep != $step),
+    array('label'=>Yii::t('mc', 'Back'), 'url'=>array('index', 'step'=>$prevStep), 'icon'=>'arrow-left', 'visible'=>$prevStep && $prevStep != $step),
 );
 
 Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/detailview.css');

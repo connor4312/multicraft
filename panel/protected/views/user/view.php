@@ -41,7 +41,7 @@ if (Yii::app()->user->isSuperuser()  && !$model->isNewRecord)
                     'params'=>array('action'=>'new_api_key'),
                     'csrf'=>true,
                 ),
-                'icon'=>'key_new',
+                'icon'=>'plus',
             );
     }
     else
@@ -55,7 +55,7 @@ if (Yii::app()->user->isSuperuser()  && !$model->isNewRecord)
                     'params'=>array('action'=>'del_api_key'),
                     'csrf'=>true,
                 ),
-                'icon'=>'key_del',
+                'icon'=>'minus-circle',
             );
     }
 }
@@ -64,7 +64,7 @@ if (Yii::app()->user->isSuperuser() || Yii::app()->params['hide_userlist'] !== t
     $this->menu[] = array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('user/index'),
-        'icon'=>'back'
+        'icon'=>'arrow-left'
     );
 }
 ?>

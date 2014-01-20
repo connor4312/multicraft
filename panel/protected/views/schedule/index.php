@@ -18,18 +18,18 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'New Task'),
         'url'=>array('create', 'sv'=>$sv),
-        'icon'=>'schedule_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Manage Tasks'),
         'url'=>array('admin'),
         'visible'=>Yii::app()->user->isSuperuser(),
-        'icon'=>'schedule',
+        'icon'=>'calendar',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/view', 'id'=>$sv),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

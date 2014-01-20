@@ -22,7 +22,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Create Database'),
         'url'=>'#',
-        'icon'=>'mysql_new',
+        'icon'=>'plus',
         'linkOptions'=>array(
             'submit'=>array('mysqlDb', 'cmd'=>'create', 'id'=>$model->id),
             'confirm'=>Yii::t('mc', 'This creates a new MySQL database for this server.'),
@@ -59,7 +59,7 @@ $this->menu=array(
 $this->menu[] = array(
     'label'=>Yii::t('mc', 'Back'),
     'url'=>array('server/view', 'id'=>$model->id),
-    'icon'=>'back',
+    'icon'=>'arrow-left',
 );
 ?>
 

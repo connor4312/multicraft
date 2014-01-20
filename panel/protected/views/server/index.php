@@ -22,12 +22,12 @@ if (Yii::app()->user->isSuperuser())
         array(
             'label'=>Yii::t('mc', 'Create Server'),
             'url'=>array('create'),
-            'icon'=>'create',
+            'icon'=>'plus',
         ),
         array(
             'label'=>Yii::t('mc', 'Manage Server Data'),
             'url'=>'javascript:showSub("manage")',
-            'icon'=>'closed',
+            'icon'=>'th-list',
             'linkOptions'=>array('id'=>'manage_main'),
             'submenuOptions'=>array('id'=>'manage'),
             'items'=>array(
@@ -35,25 +35,25 @@ if (Yii::app()->user->isSuperuser())
                     'label'=>Yii::t('mc', 'Manage Players'),
                     'url'=>array('player/admin'),
                     'visible'=>Yii::app()->user->isSuperuser(),
-                    'icon'=>'player',
+                    'icon'=>'gamepad',
                 ),
                 array(
                     'label'=>Yii::t('mc', 'Manage Commands'),
                     'url'=>array('command/admin'),
                     'visible'=>Yii::app()->user->isSuperuser(),
-                    'icon'=>'command',
+                    'icon'=>'terminal',
                 ),
                 array(
                     'label'=>Yii::t('mc', 'Manage Tasks'),
                     'url'=>array('schedule/admin'),
                     'visible'=>Yii::app()->user->isSuperuser(),
-                    'icon'=>'schedule',
+                    'icon'=>'calendar',
                 ),
                 array(
                     'label'=>Yii::t('mc', 'Manage Servers'),
                     'url'=>array('server/admin'),
                     'visible'=>Yii::app()->user->isSuperuser(),
-                    'icon'=>'server',
+                    'icon'=>'desktop',
                 ),
             ),
         ),
@@ -76,7 +76,7 @@ else
             'label'=>Yii::t('mc', 'All Servers'),
             'url'=>array('server/index'),
             'visible'=>!Yii::app()->user->isGuest,
-            'icon'=>'back'
+            'icon'=>'arrow-left'
         );
     }
 }

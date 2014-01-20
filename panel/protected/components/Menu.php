@@ -7,7 +7,7 @@ class Menu extends CMenu
     protected function renderMenuItem($item)
     {
         if (isset($item['icon']))
-            $item['label'] .= Theme::img('icons/'.$item['icon'].'.png');
+            $item['label'] = '<i class="fa fa-' . $item['icon'] . '"></i> ' . $item['label'];
         return parent::renderMenuItem($item);
     }
 }

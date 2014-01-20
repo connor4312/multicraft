@@ -19,12 +19,12 @@ $this->menu=array(
         'label'=>Yii::t('mc', 'Permissions Plugin'),
         'url'=>array('server/editPermissionsConfig', 'id'=>$model->id),
         'visible'=>$perm,
-        'icon'=>'config',
+        'icon'=>'gear',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/view', 'id'=>$model->id),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

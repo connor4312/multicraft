@@ -15,12 +15,12 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Welcome'),
         'url'=>array('', 'view'=>'home'),
-        'icon'=>'welcome',
+        'icon'=>'home',
     ),
     array(
         'label'=>Yii::t('mc', 'Help'),
         'url'=>'#',
-        'icon'=>'help',
+        'icon'=>'info',
         'linkOptions'=>array(
             'submit'=>'http://multicraft.org/site/docs',
             'confirm'=>Yii::t('mc', "You are leaving your control panel.\n\nYou will be forwarded to the documentation on the official Multicraft website.")),
@@ -28,7 +28,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'About'),
         'url'=>array('', 'view'=>'about'),
-        'icon'=>'about',
+        'icon'=>'square',
     ),
 );
 

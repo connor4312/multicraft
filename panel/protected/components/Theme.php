@@ -37,13 +37,13 @@ class Theme extends CTheme
     static function css($file)
     {
         Theme::slash($file);
-        return Theme::themeFile('css'.$file);
+        return Theme::themeFile('static/css'.$file);
     }
 
     static function img($file, $alt = '', $htmlOptions = array())
     {
         Theme::slash($file);
-        return CHtml::image(Theme::themeFile('images'.$file), $alt, $htmlOptions);
+        return CHtml::image(Theme::themeFile('static/img'.$file), $alt, $htmlOptions);
     }
 
     public function getViewPath()

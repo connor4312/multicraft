@@ -8,26 +8,34 @@
  **/
 ?>
 <?php $this->beginContent('//layouts/main'); ?>
-<div class="container">
-    <div class="leftbox">
-        <div id="sidebar">
-        <?php
-            $this->beginWidget('zii.widgets.CPortlet', array(
-                'title'=>end($this->breadcrumbs),
-                'hideOnEmpty'=>false,
+<div class="col-md-3" id="sidebar">
+    <?php
+        $this->beginWidget('zii.widgets.CPortlet', array(
+            'title'=>end($this->breadcrumbs),
+            'hideOnEmpty'=>false,
+        ));
+        $this->widget('application.components.Menu', array(
+            'items'=>$this->menu,
+            'htmlOptions'=>array('class'=>'operations'),
+        ));
+        $this->endWidget();
+    ?>
+</div>
+<div class="col-md-9 col-md-offset-3">
+
+    <?php
+        if (count($this->breadcrumbs) > 1) {
+            $this->widget('zii.widgets.CBreadcrumbs', array(
+                'homeLink'=>'',
+                'links'=>$this->breadcrumbs,
+                'tagName' => 'ol',
+                'htmlOptions' => array('class' => 'breadcrumb'),
+                'separator' => '',
+                'activeLinkTemplate' => '<li><a href="{url}">{label}</a></li>',
+                'inactiveLinkTemplate' => '<li class="active">{label}</li>',
             ));
-            $this->widget('application.components.Menu', array(
-                'items'=>$this->menu,
-                'htmlOptions'=>array('class'=>'operations'),
-            ));
-            $this->endWidget();
-        ?>
-        </div><!-- sidebar -->
-    </div>
-    <div class="rightbox">
-        <div id="content">
-            <?php echo $content; ?>
-        </div><!-- content -->
-    </div>
+        }
+    ?>
+    <?php echo $content; ?>
 </div>
 <?php $this->endContent(); ?>

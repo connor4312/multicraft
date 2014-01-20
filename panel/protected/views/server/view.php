@@ -41,23 +41,23 @@ $this->menu=array(
         'label'=>Yii::t('mc', 'Chat'),
         'url'=>array('chat', 'id'=>$model->id),
         'visible'=>$chat,
-        'icon'=>'chat'
+        'icon'=>'comments'
     ),
     array(
         'label'=>$command ? Yii::t('mc', 'Console') : Yii::t('mc', 'Log'),
         'url'=>array('log', 'id'=>$model->id),
         'visible'=>$viewLog,
-        'icon'=>'console'
+        'icon'=>'terminal'
     ),
     array(
         'label'=>Yii::t('mc', 'Players'),
         'url'=>array('/player/index', 'sv'=>$model->id),
-        'visible'=>$manageUsers, 'icon'=>'player'
+        'visible'=>$manageUsers, 'icon'=>'gamepad'
     ),
     array(
         'label'=>Yii::t('mc', 'Files'),
         'url'=>'javascript:showSub("files")',
-        'icon'=>'closed',
+        'icon'=>'files-o',
         'linkOptions'=>array('id'=>'files_main'),
         'submenuOptions'=>array('id'=>'files'),
         'visible'=>$editConfigs || $bgPlugins || $plugins || $manageUsers || $backup,
@@ -66,39 +66,39 @@ $this->menu=array(
                 'label'=>Yii::t('mc', 'Config Files'),
                 'url'=>array('configs', 'id'=>$model->id),
                 'visible'=>$editConfigs,
-                'icon'=>'config'
+                'icon'=>'gear'
             ),
             array(
                 'label'=>Yii::t('mc', 'BukGet Plugins'),
                 'url'=>array('bgPlugins', 'id'=>$model->id),
                 'visible'=>$bgPlugins ? true : false,
-                'icon'=>'plugin'
+                'icon'=>'puzzle-piece'
             ),
             array(
                 'label'=>Yii::t('mc', 'Local Plugins'),
                 'url'=>array('plugins', 'id'=>$model->id),
                 'visible'=>$plugins,
-                'icon'=>'plugin'
+                'icon'=>'puzzle-piece'
             ),
             array(
                 'label'=>Yii::t('mc', 'FTP File Access'),
                 'url'=>array((Yii::app()->params['ftp_client_disabled'] !== true) ? '/ftpClient/index'
                     : 'ftp', 'id'=>$model->id),
                 'visible'=>$manageUsers,
-                'icon'=>'file'
+                'icon'=>'link'
             ),
             array(
                 'label'=>Yii::t('mc', 'Backup'),
                 'url'=>array('backup', 'id'=>$model->id),
                 'visible'=>$backup,
-                'icon'=>'backup'
+                'icon'=>'save'
             ),
         )
     ),
     array(
         'label'=>Yii::t('mc', 'Advanced'),
         'url'=>'javascript:showSub("advanced")',
-        'icon'=>'closed',
+        'icon'=>'wrench',
         'linkOptions'=>array('id'=>'advanced_main'),
         'submenuOptions'=>array('id'=>'advanced'),
         'visible'=>$manageUsers || $schedule || $mysql,
@@ -107,13 +107,13 @@ $this->menu=array(
                 'label'=>Yii::t('mc', 'Commands'),
                 'url'=>array('/command/index', 'sv'=>$model->id),
                 'visible'=>$manageUsers,
-                'icon'=>'command'
+                'icon'=>'terminal'
             ),
             array(
                 'label'=>Yii::t('mc', 'Scheduled Tasks'),
                 'url'=>array('/schedule/index', 'sv'=>$model->id),
                 'visible'=>$schedule,
-                'icon'=>'schedule'),
+                'icon'=>'calendar'),
             array(
                 'label'=>Yii::t('mc', 'Users'),
                 'url'=>array('users', 'id'=>$model->id),
@@ -124,7 +124,7 @@ $this->menu=array(
                 'label'=>Yii::t('mc', 'MySQL Database'),
                 'url'=>array('mysqlDb', 'id'=>$model->id),
                 'visible'=>$mysql,
-                'icon'=>'mysql'
+                'icon'=>'rocket'
             ),
         )
     ),
@@ -132,12 +132,12 @@ $this->menu=array(
         'label'=>Yii::t('mc', 'Delete Server'),
         'url'=>array('delete', 'id'=>$model->id),
         'visible'=>$delete,
-        'icon'=>'delete'
+        'icon'=>'minus-circle'
     ),
 );
 }
 else
-    $this->menu = array(array('label'=>Yii::t('mc', 'Back'), 'url'=>array('index'), 'icon'=>'back'));
+    $this->menu = array(array('label'=>Yii::t('mc', 'Back'), 'url'=>array('index'), 'icon'=>'arrow-left'));
 
 echo CHtml::script('
     imgOpen = "'.Theme::themeFile('images/icons/open.png').'";

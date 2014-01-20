@@ -24,7 +24,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/view', 'id'=>$model->id),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

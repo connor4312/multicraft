@@ -17,12 +17,12 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'New Task'),
         'url'=>array('create'),
-        'icon'=>'schedule_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/index'),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

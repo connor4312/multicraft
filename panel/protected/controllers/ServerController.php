@@ -1052,15 +1052,15 @@ class ServerController extends Controller
                 case 'running':
                     echo Yii::t('mc', 'The server is online!');
                     $ret['statusdetail'] = Yii::t('mc', 'Online').', '.@$st['players'].'/'.@$st['maxPlayers'].' '.Yii::t('mc', 'players');
-                    $ret['statusicon'] = Theme::img('online.png');
+                    $ret['statusicon'] = '<i class="fa fa-check"></i>';
                     break;
                 case 'stopped':
                     echo Yii::t('mc', 'The server is offline.');
-                    $ret['statusicon'] = Theme::img('offline.png');
+                    $ret['statusicon'] = '<i class="fa fa-times"></i>';
                     break;
                 default:
                     echo Yii::t('mc', 'The server status is currently changing.');
-                    $ret['statusicon'] = Theme::img('changing.png');
+                    $ret['statusicon'] = '<i class="fa fa-refresh fa-spin"></i>';
                 }
                 if (@$st['pid'] && Yii::app()->user->isSuperuser())
                     $ret['statusdetail'] .= ' ('.Yii::t('mc', 'PID').': '.@$st['pid'].')';

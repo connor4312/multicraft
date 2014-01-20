@@ -18,7 +18,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('admin', 'Back'),
         'url'=>array('daemon/updateMc'),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

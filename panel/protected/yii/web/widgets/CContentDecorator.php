@@ -73,7 +73,7 @@ class CContentDecorator extends COutputProcessor
 		if($viewFile!==false)
 		{
 			$data=$this->data;
-			$data['content']=$content.base64_decode('PGRpdiBzdHlsZT0icGFkZGluZzogMTBweDsgbWFyZ2luOiAxMHB4IDIwcHg7IGZvbnQtc2l6ZTogMC44ZW07IHRleHQtYWxpZ246IGNlbnRlcjsgYm9yZGVyLXRvcDogMXB4IHNvbGlkICNkZmRmZGY7Ij5Qb3dlcmVkIGJ5IDxhIGhyZWY9Imh0dHA6Ly93d3cubXVsdGljcmFmdC5vcmciPk11bHRpY3JhZnQgQ29udHJvbCBQYW5lbDwvYT48L2Rpdj4=');
+			$data['content']=$content;
 			return $owner->renderFile($viewFile,$data,true);
 		}
 		else

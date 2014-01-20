@@ -33,7 +33,7 @@ $this->menu=array(
 $this->menu[] = array(
     'label'=>Yii::t('mc', 'Back'),
     'url'=>($sv ? array('player/index', 'sv'=>$sv) : array('player/admin')),
-    'icon'=>'back',
+    'icon'=>'arrow-left',
 );
 
 ?>

@@ -1,1 +1,109 @@
+/* Bootstrap ******************************************************************/
 @import "../../bower_components/bootstrap/less/bootstrap.less";
+@brand-primary:         #2CB2FF;
+@body-bg:               #D9D9D9;
+
+/* Font Awesome ***************************************************************/
+@import "../../bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: '../font';
+
+/* Theme **********************************************************************/
+
+@page-bg: #fff;
+@page-shadow: 0 0 100px rgba(0, 0, 0, 0.75);
+@page-shadow-length: 150px;
+
+@header-color-primary: #fff;
+@header-color-secondary: #ccc;
+
+#page {
+	> .container {
+		background: @page-bg;
+		position: relative;
+
+		&:before {
+			content: "";
+			width: 100%;
+			height: @page-shadow-length;
+			position: absolute;
+			box-shadow: @page-shadow;
+			z-index: -5;
+			border-radius: 0 0 25% 25%;
+		}
+	}
+}
+
+#header {
+	#gradient.vertical(@brand-primary, darken(@brand-primary, 10%));
+
+	h1 {
+		margin: 0;
+		line-height: 2em;
+		font-size: 3em;
+		padding: 0 0.5em;
+		color: @header-color-primary;
+
+		small {
+			color: @header-color-secondary;
+			font-size: 0.4em;
+			margin-left: 0.4em;
+		}
+	}
+}
+
+#navbar {
+	margin: 0 -(@grid-gutter-width / 2);
+}
+
+#sidebar {
+	position: absolute;
+	height: 100%;
+	background: #F5F5F5;
+
+	@media (max-width: @screen-sm-min) {
+		position: static;
+	}
+
+	.portlet-content{
+		a {
+			color: #777;
+			display: block;
+			padding: 5px 15px;
+			border-bottom: 1px solid #eee;
+			border-top: 1px solid #fff;
+
+			&:hover {
+				text-decoration: none;
+				background: #fff;
+				color: @brand-primary;
+				text-shadow: 0 -1px 0 #fff;
+				border-right: 1px solid @brand-primary;
+			}
+		}
+
+		.fa {
+			width: 1em;
+			text-align: center;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		ul {
+			margin: 0 -15px;
+			padding: 0;
+		}
+	}
+
+	.portlet-title {
+		font-size: 1.2em;
+		color: #999;
+		margin: 10px 0 0;
+	}
+}
+
+#content {
+	position: relative;
+	min-height: @page-shadow-length;
+}

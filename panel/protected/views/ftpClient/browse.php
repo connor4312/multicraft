@@ -23,3 +23,4 @@ Yii::app()->getClientScript()->registerCoreScript('jquery');
 
 
 <?php echo $body ?>
+<div class="clearfix"></div>

@@ -16,7 +16,7 @@ $this->menu=array(
     array(
         'label'=>Yii::t('admin', 'Back'),
         'url'=>array('daemon/index'),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 ?>

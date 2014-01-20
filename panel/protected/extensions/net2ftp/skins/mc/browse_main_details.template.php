@@ -6,7 +6,7 @@ $controller->menu = array(
     array('label'=>Yii::t('mc', 'Create Directory'), 'url'=>"javascript:submitBrowseForm('$directory_js', '', 'newdir', '');"),
     array('label'=>Yii::t('mc', 'Create File'), 'url'=>"javascript:submitBrowseForm('$directory_js', '', 'edit', 'newfile');"),
     array('label'=>Yii::t('mc', 'Upload'), 'url'=>"javascript:submitBrowseForm('$directory_js', '', 'upload', '');"),
-    array('label'=>Yii::t('mc', 'Back'), 'url'=>array('ftpClient/login', 'id'=>@$_GET['id']), 'icon'=>'back'),
+    array('label'=>Yii::t('mc', 'Back'), 'url'=>array('ftpClient/login', 'id'=>@$_GET['id']), 'icon'=>'arrow-left'),
 );
 
 function format_bytes($size) {

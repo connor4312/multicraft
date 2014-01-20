@@ -17,12 +17,12 @@ $this->menu=array(
     array(
         'label'=>Yii::t('mc', 'Create Player'),
         'url'=>array('create'),
-        'icon'=>'player_new',
+        'icon'=>'plus',
     ),
     array(
         'label'=>Yii::t('mc', 'Back'),
         'url'=>array('server/index'),
-        'icon'=>'back',
+        'icon'=>'arrow-left',
     ),
 );
 
