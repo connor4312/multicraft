@@ -39,11 +39,8 @@ class Controller extends CController
             Yii::app()->theme = 'platform'.DIRECTORY_SEPARATOR.$pf;
         }
 
-        Yii::app()->widgetFactory->widgets['CGridView']['cssFile']      = Theme::css('gridview.css');
-        Yii::app()->widgetFactory->widgets['CDetailView']['cssFile']    = Theme::css('detailview.css');
         Yii::app()->widgetFactory->widgets['CDetailView']['itemTemplate'] =
             "<tr class=\"{class}\"><th>{label}</th><td>{value}</td><td class=\"hintRow\">{hint}</td></tr>\n";
-        Yii::app()->widgetFactory->widgets['CLinkPager']['cssFile']     = Theme::css('pager.css');
 
         if (@Yii::app()->params['installer'] === 'show'
             || (Yii::app()->params['superuser_check_only'] && !Yii::app()->user->isSuperuser()))

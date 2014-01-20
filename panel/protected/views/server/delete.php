@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     Yii::t('mc', 'Delete')
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 
 $this->menu=array(
     array(

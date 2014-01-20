@@ -81,8 +81,8 @@ else
     }
 }
 echo CHtml::script('
-    imgOpen = "'.Theme::themeFile('images/icons/open.png').'";
-    imgClosed = "'.Theme::themeFile('images/icons/closed.png').'";
+    imgOpen = "<i class=\'fa fa-chevron-down\'></i>";
+    imgClosed = "<i class=\'fa fa-chevron-right\'></i>";
     menuShown = {}
     function showSub(name)
     {

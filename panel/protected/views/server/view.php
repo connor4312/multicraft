@@ -11,22 +11,12 @@ $this->breadcrumbs=array(
     $model->isNewRecord ? Yii::t('mc', 'New Server') : ($my ? 'Server' : CHtml::encode($model->name)),
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 echo CHtml::css('
 .adv { display: none; }
 
 #advanced { display: none; }
 #files { display: none; }
-
-#buttons input
-{
-    width: auto;
-    margin-left: -1px;
-    margin-right: 4px;
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 ');
 
 if (!$model->isNewRecord)
@@ -140,8 +130,8 @@ else
     $this->menu = array(array('label'=>Yii::t('mc', 'Back'), 'url'=>array('index'), 'icon'=>'arrow-left'));
 
 echo CHtml::script('
-    imgOpen = "'.Theme::themeFile('images/icons/open.png').'";
-    imgClosed = "'.Theme::themeFile('images/icons/closed.png').'";
+    imgOpen = "<i class=\'fa fa-chevron-down\'></i>";
+    imgClosed = "<i class=\'fa fa-chevron-right\'></i>";
     menuShown = {}
     function showSub(name)
     {
@@ -176,17 +166,17 @@ echo CHtml::script('
             'type'=>'POST', 'data'=>array('ajax'=>'start', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
          ),
-        $data['buttons'][0] != '1' ? array() : array('disabled'=>'disbled'));
+        $data['buttons'][0] != '1' ? array('class' => 'btn btn-sucess') : array('disabled'=>'disabled', 'class' => 'btn btn-sucess'));
     echo CHtml::ajaxButton(Yii::t('mc', 'Stop'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'stop', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
         ),
-        $data['buttons'][1] != '1' ? array() : array('disabled'=>'disbled'));
+        $data['buttons'][1] != '1' ? array('class' => 'btn btn-danger') : array('disabled'=>'disabled', 'class' => 'btn btn-danger'));
     echo CHtml::ajaxButton(Yii::t('mc', 'Restart'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'restart', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
         ),
-        $data['buttons'][2] != '1' ? array() : array('disabled'=>'disbled'));
+        $data['buttons'][2] != '1' ? array('class' => 'btn btn-info') : array('disabled'=>'disabled', 'class' => 'btn btn-info'));
 ?>
     </div>
     <div id="buttons-ajax" style="display: none">
@@ -366,7 +356,7 @@ else
             'value'=>$form->checkBox($settings,'user_name')
                 .' '.$form->error($settings,'user_name'));
     }
-    $attribs[] = array('label'=>Theme::img('icons/closed.png', '', array('id'=>'advImg')), 'type'=>'raw',
+    $attribs[] = array('label'=>'<div id="advImg"><i class="fa fa-chevron-right" onclick="return checkAdv()"></i></div>', 'type'=>'raw',
             'value'=>CHtml::link(Yii::t('mc', 'Show Advanced Options'), '#', array('id'=>'advTxt', 'onclick'=>'return checkAdv()')));
     if (Yii::app()->user->isSuperuser())
     {
@@ -501,26 +491,15 @@ if ($edit)
 <?php if (!$model->isNewRecord): ?>
 <br/>
 
-<table style="width: 100%" class="stdtable">
-<tr class="titlerow"> 
-    <td><?php echo Yii::t('mc', 'Connected players') ?></td>
-</tr>
-<tr class="linerow">
-    <td></td>
-</tr>
-<tr>
-    <td>
-        <?php if ($getPlayers): ?>
-        <!-- PLAYERS -->
-        <table class="stdtable">
-        <tbody id="players-ajax">
+<h3><?php echo Yii::t('mc', 'Connected players') ?></h3>
+
+<?php if ($getPlayers): ?>
+<table class="table table-striped table-bordered">
+    <tbody id="players-ajax">
         <?php echo $data['players'] ?>
-        </tbody>
-        </table>
-        <?php endif ?>
-    </td>
-</tr>
+    </tbody>
 </table>
+<?php endif ?>
 
 <?php
     echo CHtml::script('
@@ -574,7 +553,7 @@ echo CHtml::script('
     function checkAdv()
     {
         advShow = !advShow;
-        $("#advImg").attr("src", advShow ? imgOpen : imgClosed);
+        $("#advImg").html(advShow ? imgOpen : imgClosed);
         $("#advTxt").html(advShow ? txtOpen : txtClosed);
         $(".adv").toggle(advShow);
         return false;

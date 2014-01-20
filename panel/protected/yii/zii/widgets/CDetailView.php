@@ -112,11 +112,11 @@ class CDetailView extends CWidget
 	 * they will be assigned to the items sequentially and repeatedly.
 	 * Defaults to <code>array('odd', 'even')</code>.
 	 */
-	public $itemCssClass=array('odd','even');
+	public $itemCssClass=array();
 	/**
 	 * @var array the HTML options used for {@link tagName}
 	 */
-	public $htmlOptions=array('class'=>'detail-view');
+	public $htmlOptions=array('class'=>'table table-striped table-bordered detail-view');
 	/**
 	 * @var string the base script URL for all detail view resources (e.g. javascript, CSS file, images).
 	 * Defaults to null, meaning using the integrated detail view resources (which are published as assets).
@@ -148,26 +148,6 @@ class CDetailView extends CWidget
 		if($this->nullDisplay===null)
 			$this->nullDisplay='<span class="null">'.Yii::t('zii','Not set').'</span>';
 		$this->htmlOptions['id']=$this->getId();
-
-		if($this->baseScriptUrl===null)
-			$this->baseScriptUrl=Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('zii.widgets.assets')).'/detailview';
-
-		if($this->cssFile!==false)
-		{
-			if($this->cssFile===null)
-				$this->cssFile=$this->baseScriptUrl.'/styles.css';
-			Yii::app()->getClientScript()->registerCssFile($this->cssFile);
-		}
-
-		Yii::app()->getClientScript()->registerScript('detailview-hint', '
-$(".hint").live("hover",
-	function (e) {
-		if (e.type == "mouseenter")
-			$(this).children(".hintText").stop(true, true).slideDown("fast");
-		else if (e.type == "mouseleave")
-			$(this).children(".hintText").hide();
-	}
-);');
 	}
 
 	/**
@@ -191,7 +171,7 @@ $(".hint").live("hover",
 					throw new CException(Yii::t('zii','The attribute must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.'));
 				$attribute=array(
 					'name'=>$matches[1],
-					'type'=>isset($matches[3]) ? $matches[3] : 'text',
+					'type'=>isset($matches[3]) ? $matches[3] : 'text'
 				);
 				if(isset($matches[5]))
 					$attribute['label']=$matches[5];
@@ -227,9 +207,9 @@ $(".hint").live("hover",
 
 			if (strlen(@$attribute['hint']))
 			{
-				$tr['{hint}'] = '<div class="hint">'.Theme::img('icons/hint.png', '', array('class'=>'hintIcon'))
-					.'<span class="hintText">'. $attribute['hint'].'</span></div>';
+				$tr['{hint}'] = '<a class="hint" data-content="' . $attribute['hint'] . '"><i class="fa fa-question"></i></a>';
 			}
+
 			else
 				$tr['{hint}'] = '';
 

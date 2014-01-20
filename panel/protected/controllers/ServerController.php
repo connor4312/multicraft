@@ -999,12 +999,13 @@ class ServerController extends Controller
             else:
             ?>
                 <tr>
-                    <td class="odd" style="text-align: center">
-                    <?php if (strlen($error))
-                        echo Yii::t('mc', 'Error getting player list: ').$this->errStr($error);
-                    else
-                        echo Yii::t('mc', 'No players online');
-                    ?>
+                    <td>
+                        <div class="alert alert-danger"><?php if (strlen($error))
+                                echo Yii::t('mc', 'Error getting player list: ').$this->errStr($error);
+                            else
+                                echo Yii::t('mc', 'No players online');
+                            ?>
+                        </div>
                     </td>
                 </tr>
             <?php

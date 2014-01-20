@@ -71,7 +71,7 @@ $attr[] = set_t($p, 'user_mysql_user', Yii::t('admin', 'User DB Username'), Yii:
 $attr[] = set_t($p, 'user_mysql_pass', Yii::t('admin', 'User DB Password'), '', 'mysql');
 $attr[] = set_t($p, 'user_mysql_prefix', Yii::t('admin', 'User DB Prefix'), Yii::t('admin', 'The user database is named prefix + server ID'), 'mysql');
 $attr[] = set_t($p, 'user_mysql_admin', Yii::t('admin', 'User DB Admin Link'), Yii::t('admin', 'For example a link to phpMyAdmin. "*" will be replaced with the daemon IP'), 'mysql');
-$attr[] = array('label'=>Theme::img('icons/closed.png', '', array('id'=>'advImg', 'onclick'=>'return checkAdv()')),
+$attr[] = array('label'=>'<div id="advImg"><i class="fa fa-chevron-right" onclick="return checkAdv()"></i></div>',
     'type'=>'raw', 'value'=>CHtml::link(Yii::t('admin', 'Show Advanced Options'), '#',
         array('id'=>'advTxt', 'onclick'=>'return checkAdv()')));
 $attr[] = set_s($p, 'ftp_client_disabled', Yii::t('admin', 'Disable the integrated FTP client (net2ftp)'), '', true);
@@ -108,14 +108,14 @@ echo CHtml::endForm();
 
 echo CHtml::script('
     advShow = false;
-    imgOpen = "'.Theme::themeFile('images/icons/open.png').'";
-    imgClosed = "'.Theme::themeFile('images/icons/closed.png').'";
+    imgOpen = "<i class=\'fa fa-chevron-down\'></i>";
+    imgClosed = "<i class=\'fa fa-chevron-right\'></i>";
     txtOpen = "'.Yii::t('admin', 'Hide Advanced Options').'";
     txtClosed = "'.Yii::t('admin', 'Show Advanced Options').'";
     function checkAdv()
     {
         advShow = !advShow;
-        $("#advImg").attr("src", advShow ? imgOpen : imgClosed);
+        $("#advImg").htmk(advShow ? imgOpen : imgClosed);
         $("#advTxt").html(advShow ? txtOpen : txtClosed);
         $(".adv").toggle(advShow);
         return false;

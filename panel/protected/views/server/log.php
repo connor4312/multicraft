@@ -23,50 +23,33 @@ $this->menu = array(
 );
 ?>
 
-<table class="stdtable">
-<tr class="titlerow">
-    <td>
-        <div style="float: left; display: inline; margin-right: 10px" id="statusicon-ajax"><?php echo $data['statusicon'] ?></div><?php echo Yii::t('mc', 'Server') ?> <?php echo $command ? Yii::t('mc', 'Console') : Yii::t('mc', 'Log') ?>
-    </td>
-</tr>
-<tr class="linerow">
-    <td></td>
-</tr>
-<tr>
-    <td>
-        <?php if ($command): ?>
-        <?php echo CHtml::beginForm() ?>
-        <table class="stdtable" style="width: 100%">
-        <tr>
-            <td>
-                <div style="display:none">
-                    <input type="text" name="ieBugWorkaround"/>
-                </div>
-                <input type="text" id="command" name="command" value="" style="width: 100%"/>
-            </td>
-            <td>&nbsp;
-                <?php echo CHtml::ajaxSubmitButton(Yii::t('mc', 'Send'), '', array('type'=>'POST',
-                        'data'=>array('ajax'=>'command', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
-                        'command'=>"js:$('#command').val()"), 'success'=>'js:command_response'
-                    )) ?>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <div class="flash-error" id="command-error" style="display: none"></div>
-            </td>
-        </tr>
-        </table>
-        <?php echo CHtml::endForm() ?>
-        <?php endif ?>
-        <!-- LOG -->
-        <?php echo CHtml::textarea('log-ajax', $data['log'], array('class'=>'logArea', 'readonly'=>'readonly')) ?>
-        <?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear log'), '', array('type'=>'POST',
-            'data'=>array('ajax'=>'clearLog', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
-            'success'=>'js:command_response')) ?>
-    </td>
-</tr>
-</table>
+<div class="row">
+    <h3>
+        <div class="pull-left" id="statusicon-ajax"><?php echo $data['statusicon'] ?></div>
+        <?php echo Yii::t('mc', 'Server') ?> <?php echo $command ? Yii::t('mc', 'Console') : Yii::t('mc', 'Log') ?>
+    </h3>
+</div>
+
+<?php if ($command): ?>
+<?php echo CHtml::beginForm() ?>
+<div class="input-group">
+    <input type="text" id="command" name="command" value="" class="form-control">
+    <span class="input-group-btn">
+        <?php echo CHtml::ajaxSubmitButton(Yii::t('mc', 'Send'), '', array('type'=>'POST',
+                'data'=>array('ajax'=>'command', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
+                'command'=>"js:$('#command').val()"), 'success'=>'js:command_response'
+            ), array('class' => 'btn btn-primary')) ?>
+    </span>
+</div>
+<div class="alert alert-warning" id="command-error" style="display: none"></div>
+
+<?php echo CHtml::endForm() ?>
+<?php endif ?>
+<!-- LOG -->
+<?php echo CHtml::textarea('log-ajax', $data['log'], array('class'=>'logArea', 'readonly'=>'readonly')) ?>
+<?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear log'), '', array('type'=>'POST',
+    'data'=>array('ajax'=>'clearLog', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
+    'success'=>'js:command_response')) ?>
 
 <?php $this->printRefreshScript(); ?>
 <?php echo CHtml::script('

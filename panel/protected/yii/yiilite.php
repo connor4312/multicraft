@@ -4874,7 +4874,7 @@ EOD;
 	}
 	public static function ajax($options)
 	{
-		Yii::app()->getClientScript()->registerCoreScript('jquery');
+		
 		if(!isset($options['url']))
 			$options['url']=new CJavaScriptExpression('location.href');
 		else

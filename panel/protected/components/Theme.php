@@ -40,6 +40,12 @@ class Theme extends CTheme
         return Theme::themeFile('static/css'.$file);
     }
 
+    static function js($file)
+    {
+        Theme::slash($file);
+        return Theme::themeFile('static/js'.$file);
+    }
+
     static function img($file, $alt = '', $htmlOptions = array())
     {
         Theme::slash($file);

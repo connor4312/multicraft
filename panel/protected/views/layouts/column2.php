@@ -21,8 +21,7 @@
         $this->endWidget();
     ?>
 </div>
-<div class="col-md-9 col-md-offset-3">
-
+<div class="col-md-9 col-md-offset-3 col-toppad">
     <?php
         if (count($this->breadcrumbs) > 1) {
             $this->widget('zii.widgets.CBreadcrumbs', array(

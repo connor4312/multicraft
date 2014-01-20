@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
     Yii::t('mc', 'MySQL Database'),
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 
 if (!strlen(@$info[0]))
 {

@@ -13,6 +13,9 @@ module.exports = function(grunt) {
           cwd: 'bower_components/font-awesome/fonts/',
           src: ['*-webfont.*'],
           dest: 'panel/static/font/'
+        }, {
+          src: 'bower_components/bootstrap/dist/js/bootstrap.js',
+          dest: 'panel/static/js/bootstrap.js'
         }]
       },
       dist: {
@@ -26,6 +29,9 @@ module.exports = function(grunt) {
           cwd: 'bower_components/font-awesome/fonts/',
           src: ['*-webfont.*'],
           dest: 'panel/static/font/'
+        }, {
+          src: 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          dest: 'panel/static/js/bootstrap.js'
         }]
       }
     },

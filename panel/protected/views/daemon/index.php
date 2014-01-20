@@ -45,17 +45,16 @@ $this->menu=array(
         ),
     );
 
-Yii::app()->clientScript->registerCssFile(Theme::css('detailview.css'));
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 ?>
 
 <?php echo CHtml::beginForm() ?>
 <?php echo CHtml::hiddenField('submit', 'true') ?>
-<table class="detail-view">
+<table class="table table-striped table-bordered">
 <tr class="titlerow">
-    <td><?php echo Yii::t('admin', 'Setting') ?></td>
-    <td></td>
-    <td><?php echo Yii::t('admin', 'Default') ?></td>
+    <td class="table-col-label"><?php echo Yii::t('admin', 'Setting') ?></td>
+    <td class="table-col-input"></td>
+    <td class="table-col-default"><?php echo Yii::t('admin', 'Default') ?></td>
 </tr>
 <?php
 echo CHtml::css('.adv { display: none; }');
@@ -64,7 +63,7 @@ $adv = false;
 foreach ($settings as $name=>$setting): ?>
 <?php if (@$setting['adv'] && !$adv): ?>
 <tr class="<?php echo ($i++ % 2) ? 'even' : 'odd' ?>"style="height: 32px" >
-    <td><?php echo Theme::img('icons/closed.png', '', array('id'=>'advImg', 'onclick'=>'return checkAdv()')) ?></td>
+    <td id="advImg"><i class="fa fa-chevron-right" onclick="return checkAdv()"></i></td>
     <td><?php echo CHtml::link(Yii::t('admin', 'Show Advanced Options'), '#', array('id'=>'advTxt', 'onclick'=>'return checkAdv()')) ?></td>
     <td></td>
 </tr>
@@ -79,7 +78,16 @@ foreach ($settings as $name=>$setting): ?>
     <td><?php echo CHtml::dropDownList('Setting['.$name.']', $setting['value'], $setting['unit']) ?></td>
     <td><?php echo $setting['unit'][$setting['default']] ?></td>
     <?php else: ?>
-    <td><?php echo CHtml::textField('Setting['.$name.']', $setting['value']).' '.$setting['unit'] ?></td>
+    <td>
+         <?php if (!empty($setting['unit'])): ?>
+            <div class="input-group">
+                <?php echo CHtml::textField('Setting['.$name.']', $setting['value']) ?>
+                <span class="input-group-addon"><?php echo $setting['unit'] ?></span>
+            </div>
+        <?php else: ?>
+            <?php echo CHtml::textField('Setting['.$name.']', $setting['value']) ?>
+        <?php endif ?>
+    </td>
     <td><?php echo $setting['default'].' '.$setting['unit'] ?></td>
     <?php endif ?>
 </tr>
@@ -93,14 +101,14 @@ foreach ($settings as $name=>$setting): ?>
 <?php
 echo CHtml::script('
     advShow = false;
-    imgOpen = "'.Theme::themeFile('images/icons/open.png').'";
-    imgClosed = "'.Theme::themeFile('images/icons/closed.png').'";
+    imgOpen = "<i class=\'fa fa-chevron-down\'></i>";
+    imgClosed = "<i class=\'fa fa-chevron-right\'></i>";
     txtOpen = "'.Yii::t('admin', 'Hide Advanced Options').'";
     txtClosed = "'.Yii::t('admin', 'Show Advanced Options').'";
     function checkAdv()
     {
         advShow = !advShow;
-        $("#advImg").attr("src", advShow ? imgOpen : imgClosed);
+        $("#advImg").html(advShow ? imgOpen : imgClosed);
         $("#advTxt").html(advShow ? txtOpen : txtClosed);
         $(".adv").toggle(advShow);
         return false;

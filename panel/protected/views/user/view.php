@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
     $model->isNewRecord ? Yii::t('mc', 'New User') : CHtml::encode($model->name),
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 
 if (Yii::app()->user->isSuperuser() && !$model->isNewRecord && $model->name != Yii::app()->user->superuser)
 {

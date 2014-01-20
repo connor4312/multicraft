@@ -468,6 +468,7 @@ class CHtml
 	public static function submitButton($label='submit',$htmlOptions=array())
 	{
 		$htmlOptions['type']='submit';
+		$htmlOptions['class']='btn btn-primary btn-block';
 		return self::button($label,$htmlOptions);
 	}
 
@@ -552,6 +553,21 @@ class CHtml
 	}
 
 	/**
+	 * Adds a given class to the HTMLOptions
+	 * @param array $htmlOptions
+	 * @param string $class
+	 * @return array
+	 */
+	protected static function addOpt($htmlOptions, $class) {
+		if (!isset($htmlOptions['class'])) {
+			$htmlOptions['class'] = '';
+		}
+		$htmlOptions['class'] .= ' ' . $class;
+
+		return $htmlOptions;
+	}
+
+	/**
 	 * Generates a text field input.
 	 * @param string $name the input name
 	 * @param string $value the input value
@@ -563,6 +579,8 @@ class CHtml
 	 */
 	public static function textField($name,$value='',$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
+
 		self::clientChange('change',$htmlOptions);
 		return self::inputField('text',$name,$value,$htmlOptions);
 	}
@@ -592,6 +610,8 @@ class CHtml
 	 */
 	public static function passwordField($name,$value='',$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
+		
 		self::clientChange('change',$htmlOptions);
 		return self::inputField('password',$name,$value,$htmlOptions);
 	}
@@ -624,6 +644,8 @@ class CHtml
 	 */
 	public static function textArea($name,$value='',$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
+		
 		$htmlOptions['name']=$name;
 		if(!isset($htmlOptions['id']))
 			$htmlOptions['id']=self::getIdByName($name);
@@ -762,6 +784,8 @@ class CHtml
 	 */
 	public static function dropDownList($name,$select,$data,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
+		
 		$htmlOptions['name']=$name;
 		if(!isset($htmlOptions['id']))
 			$htmlOptions['id']=self::getIdByName($name);
@@ -1036,7 +1060,7 @@ EOD;
 	 */
 	public static function ajax($options)
 	{
-		Yii::app()->getClientScript()->registerCoreScript('jquery');
+		
 		if(!isset($options['url']))
 			$options['url']=new CJavaScriptExpression('location.href');
 		else
@@ -1212,6 +1236,7 @@ EOD;
 	 */
 	public static function activeTextField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('text',$model,$attribute,$htmlOptions);
@@ -1232,6 +1257,7 @@ EOD;
 	 */
 	public static function activeUrlField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('url',$model,$attribute,$htmlOptions);
@@ -1252,6 +1278,7 @@ EOD;
 	 */
 	public static function activeEmailField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('email',$model,$attribute,$htmlOptions);
@@ -1272,6 +1299,7 @@ EOD;
 	 */
 	public static function activeNumberField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('number',$model,$attribute,$htmlOptions);
@@ -1292,6 +1320,7 @@ EOD;
 	 */
 	public static function activeRangeField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('range',$model,$attribute,$htmlOptions);
@@ -1312,6 +1341,7 @@ EOD;
 	 */
 	public static function activeDateField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('date',$model,$attribute,$htmlOptions);
@@ -1346,6 +1376,7 @@ EOD;
 	 */
 	public static function activePasswordField($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		return self::activeInputField('password',$model,$attribute,$htmlOptions);
@@ -1364,6 +1395,7 @@ EOD;
 	 */
 	public static function activeTextArea($model,$attribute,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		self::clientChange('change',$htmlOptions);
 		if($model->hasErrors($attribute))
@@ -1511,6 +1543,7 @@ EOD;
 	 */
 	public static function activeDropDownList($model,$attribute,$data,$htmlOptions=array())
 	{
+		$htmlOptions = self::addOpt($htmlOptions,'form-control');
 		self::resolveNameID($model,$attribute,$htmlOptions);
 		$selection=self::resolveValue($model,$attribute);
 		$options="\n".self::listOptions($selection,$data,$htmlOptions);

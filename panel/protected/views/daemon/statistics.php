@@ -21,8 +21,7 @@ $this->menu=array(
     ),
 );
 
-Yii::app()->clientScript->registerCssFile(Theme::css('detailview.css'));
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 
 function trclass($reset = false)
 {

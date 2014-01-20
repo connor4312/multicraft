@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     Yii::t('mc', 'FTP Server Login'),
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 
 if ($id)
 {

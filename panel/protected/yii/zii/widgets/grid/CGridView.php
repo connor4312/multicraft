@@ -297,13 +297,6 @@ class CGridView extends CBaseListView
 		if($this->baseScriptUrl===null)
 			$this->baseScriptUrl=Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('zii.widgets.assets')).'/gridview';
 
-		if($this->cssFile!==false)
-		{
-			if($this->cssFile===null)
-				$this->cssFile=$this->baseScriptUrl.'/styles.css';
-			Yii::app()->getClientScript()->registerCssFile($this->cssFile);
-		}
-
 		$this->initColumns();
 	}
 

@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
     Yii::t('mc', 'FTP'),
 );
 
-Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 ?>
 
 <?php echo $css; ?>
