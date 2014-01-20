@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+
+<IfModule mod_autoindex.c>
+IndexIgnore */*
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .? - [S=2]
+
+# redirect to installer if the request ends with install.php
+RewriteRule /install\.php$ install.php [L]
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+</IfModule>

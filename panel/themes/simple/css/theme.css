@@ -1,0 +1,63 @@
+#border-left
+{
+    background: url("../../../images/left.png") no-repeat right top;
+}
+
+#border-right
+{
+    background: url("../../../images/right.png") no-repeat right top;
+}
+
+#header
+{
+    background-image: url("../../../images/header.png");
+    height: 89px;
+}
+
+#mainmenu
+{
+    height: 23px;
+    background-color: #dfdfdf;
+    overflow: hidden;
+}
+
+#mainmenu ul
+{
+    padding: 0;
+    padding-top:2px;
+    margin:0px;
+    float: left;
+    width: 950px;
+}
+
+#mainmenu ul li
+{
+    display: inline;
+}
+
+#mainmenu ul li a
+{
+    font-weight: normal;
+    padding: 0;
+    color:#444;
+    background-color:transparent;
+    font-size:12px;
+    text-decoration:none;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+    color: #222;
+    background-color: transparent;
+    text-decoration:underline;
+}
+
+.infoBox
+{
+    background: url("../../../images/icons/info.png") no-repeat;
+    background-position: 6px 6px;
+}
+
