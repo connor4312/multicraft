@@ -113,10 +113,10 @@ class Controller extends CController
     ?>
 <script type="text/javascript">
 /*<![CDATA[*/
-    function refresh(type)
+    function refresh(type, cb)
     {
         <?php echo CHtml::ajax(array('type'=>'POST', 'dataType'=>'json',
-                'success'=>'js:(type == "all") ? set_data : $.noop()', 'data'=>array('ajax'=>'refresh', 'type'=>'js:type',
+                'success'=>'cb || set_data', 'data'=>array('ajax'=>'refresh', 'type'=>'js:type',
                     Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
                 )
             )) ?>
@@ -163,13 +163,10 @@ class Controller extends CController
         <?php echo ($callback ? $callback.'();' : '') ?>        
         scheduleRefresh();
     }
-    function scheduleRefresh()
+    function scheduleRefresh(cb)
     {
-        setTimeout(function() { refresh('all'); }, <?php echo $this->ajaxUpdateInterval ?>);
+        setTimeout(function() { refresh('all', cb || null); }, <?php echo $this->ajaxUpdateInterval ?>);
     }
-    $(document).ready(function() {
-        scheduleRefresh();
-    });
 
     function kickPlayer(id)
     {

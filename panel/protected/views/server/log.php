@@ -29,11 +29,11 @@ $this->menu = array(
         <?php echo Yii::t('mc', 'Server') ?> <?php echo $command ? Yii::t('mc', 'Console') : Yii::t('mc', 'Log') ?>
     </h3>
 </div>
-
+<br>
 <?php if ($command): ?>
 <?php echo CHtml::beginForm() ?>
 <div class="input-group">
-    <input type="text" id="command" name="command" value="" class="form-control">
+    <input type="text" id="command" name="command" value="" class="form-control" data-focus>
     <span class="input-group-btn">
         <?php echo CHtml::ajaxSubmitButton(Yii::t('mc', 'Send'), '', array('type'=>'POST',
                 'data'=>array('ajax'=>'command', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
@@ -46,13 +46,14 @@ $this->menu = array(
 <?php echo CHtml::endForm() ?>
 <?php endif ?>
 <!-- LOG -->
-<?php echo CHtml::textarea('log-ajax', $data['log'], array('class'=>'logArea', 'readonly'=>'readonly')) ?>
+<div id="console"></div>
 <?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear log'), '', array('type'=>'POST',
     'data'=>array('ajax'=>'clearLog', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
     'success'=>'js:command_response')) ?>
 
 <?php $this->printRefreshScript(); ?>
 <?php echo CHtml::script('
+    scheduleRefresh(function(d){multicraft.console(d, "log");});
     function command_response(data)
     {
         $("#command").focus();
@@ -66,9 +67,5 @@ $this->menu = array(
             $("#command-error").hide()
             $("#command").val("")
         }
-        setTimeout(function() { refresh("log"); }, 500);
-    }
-
-    $(document).ready(function() {
-        $("#command").focus();
-    });'); ?>
+        setTimeout(function() { refresh("log", function(d){multicraft.console(d, "log");});}, 500);
+    }'); ?>

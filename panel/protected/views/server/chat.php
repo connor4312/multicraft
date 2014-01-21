@@ -23,69 +23,55 @@ $this->menu = array(
 );
 
 ?>
-
-<table style="width: 100%" class="stdtable">
-<tr class="titlerow"> 
-    <td><?php echo Yii::t('mc', 'Connected players') ?></td>
-    <td></td>
-    <td><div style="float: left; display: inline; margin-right: 10px" id="statusicon-ajax"><?php echo $data['statusicon'] ?></div><?php echo Yii::t('mc', 'Chat') ?></td>
-</tr>
-<tr class="linerow">
-    <td></td>
-    <td style="width: 5px; background-color: transparent"></td>
-    <td></td>
-</tr>
-<tr>
-    <td style="width: 25%; vertical-align: top">
+<div class="row">
+    <h3>
+        <div class="pull-left" id="statusicon-ajax"><?php echo $data['statusicon'] ?></div>
+        <?php echo Yii::t('mc', 'Chat') ?>
+    </h3>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-3">
         <?php if ($getPlayers): ?>
         <!-- PLAYERS -->
         <table class="stdtable">
-        <tbody id="players-ajax">
-        <?php echo $data['players'] ?>
-        </tbody>
+            <tbody id="players-ajax">
+                <?php echo $data['players'] ?>
+            </tbody>
         </table>
         <?php endif ?>
-    </td>
-    <td></td>
-    <td>
+    </div>
+    <div class="col-md-9">
         <?php if ($getChat): ?>
         <!-- CHAT -->
         <?php if ($chat): ?>
         <?php echo CHtml::beginForm() ?>
-        <table class="stdtable" style="width: 100%">
-        <tr>
-            <td>
-                <input type="text" id="message" name="message" value="" style="width: 100%"/>
-                <div style="display:none">
-                    <input type="text" name="ieBugWorkaround"/>
-                </div>
-            </td>
-            <td>&nbsp;
+
+        <div class="input-group">
+            <input type="text" id="message" name="message" value="" class="form-control" data-focus>
+            <span class="input-group-btn">
                 <?php echo CHtml::ajaxSubmitButton(Yii::t('mc', 'Send'), '', array('type'=>'POST',
                         'data'=>array('ajax'=>'chat', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
                         'message'=>"js:$('#message').val()"), 'success'=>'js:chat_response'
-                    )) ?>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <div class="flash-error" id="chat-error" style="display: none"></div>
-            </td>
-        </tr>
-        </table>
+                    ), array('class' => 'btn btn-primary')) ?>
+            </span>
+        </div>
+        <div class="alert alert-error" id="chat-error" style="display: none"></div>
+
+
         <?php echo CHtml::endForm() ?>
         <?php endif ?>
-        <?php echo CHtml::textarea('chat-ajax', $data['chat'], array('class'=>'logArea', 'readonly'=>'readonly')) ?>
+        <div id="console"></div>
         <?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear chat'), '', array('type'=>'POST',
                 'data'=>array('ajax'=>'clearChat', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
                 'success'=>'js:chat_response')) ?>
         <?php endif ?>
-    </td>
-</tr>
-</table>
+    </div>
+</div>
 
 <?php $this->printRefreshScript(); ?>
 <?php echo CHtml::script('
+    scheduleRefresh(function(d){multicraft.console(d, "chat");});
     function chat_response(data)
     {
         $("#message").focus();
@@ -99,9 +85,6 @@ $this->menu = array(
             $("#chat-error").hide()
             $("#message").val("")
         }
-        setTimeout(function() { refresh("chat"); }, 500);
+        setTimeout(function() { refresh("chat", function(d){multicraft.console(d, "chat");});}, 500);
     }
-
-    $(document).ready(function() {
-        $("#message").focus();
-    });'); ?>
+    '); ?>
