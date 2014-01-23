@@ -12,7 +12,7 @@
     <?php
         $this->beginWidget('zii.widgets.CPortlet', array(
             'title'=>end($this->breadcrumbs),
-            'hideOnEmpty'=>false,
+            'hideOnEmpty'=>false
         ));
         $this->widget('application.components.Menu', array(
             'items'=>$this->menu,

@@ -947,7 +947,7 @@ class ServerController extends Controller
 
     private function errStr($error)
     {
-        return CHtml::encode($error);
+        return $error;
     }
 
     private function ajaxRefresh($server, $type)

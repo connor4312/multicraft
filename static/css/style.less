@@ -1,20 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,700);
 
+/* Font Awesome ***************************************************************/
+@import "../../bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: '../font';
+
 /* Bootstrap ******************************************************************/
 @import "../../bower_components/bootstrap/less/bootstrap.less";
 @font-family-sans-serif:  'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 @headings-font-weight:    300;
 @brand-primary:           #2CB2FF;
 @body-bg:                 #D9D9D9;
-
-/* Bootstrap Additions ********************************************************/
-.col-toppad {
-	padding-top: @grid-gutter-width / 2;
-}
-
-/* Font Awesome ***************************************************************/
-@import "../../bower_components/font-awesome/less/font-awesome.less";
-@fa-font-path: '../font';
 
 /* Theme **********************************************************************/
 
@@ -57,6 +52,10 @@
 @solarized-blue:      #268bd2;
 @solarized-cyan:      #2aa198;
 @solarized-green:     #859900;
+
+.col-toppad {
+	padding-top: @grid-gutter-width / 2;
+}
 
 html, body {
 	height: 100%;
@@ -129,36 +128,43 @@ html, body {
 		position: static;
 	}
 
-	.portlet-content{
-		a {
-			color: @sidebar-link-color;
-			display: block;
-			padding: 5px (@grid-gutter-width / 2);
-			border-bottom: 1px solid #eee;
-			border-top: 1px solid #fff;
+	a {
+		color: @sidebar-link-color;
+		display: block;
+		padding: 5px (@grid-gutter-width / 2);
+		border-bottom: 1px solid #eee;
+		border-top: 1px solid #fff;
 
-			&:hover {
-				text-decoration: none;
-				background: #fff;
-				color: @sidebar-hover;
-				text-shadow: 0 -1px 0 #fff;
-				border-right: 1px solid @sidebar-hover;
-			}
+		&:hover {
+			text-decoration: none;
+			background: #fff;
+			color: @sidebar-hover;
+			text-shadow: 0 -1px 0 #fff;
+			border-right: 1px solid @sidebar-hover;
 		}
+	}
 
-		.fa {
-			width: 1em;
-			text-align: center;
-		}
+	.fa {
+		width: 1em;
+		text-align: center;
+	}
 
-		li {
-			list-style-type: none;
-		}
+	li {
+		list-style-type: none;
 
 		ul {
-			margin: 0 -(@grid-gutter-width / 2);
-			padding: 0;
+			margin: 0;
+			background: #fdfdfd;
+
+			a {
+				border-bottom-color: #efefef;
+			}
 		}
+	}
+
+	ul {
+		margin: 0 -(@grid-gutter-width / 2);
+		padding: 0;
 	}
 
 	.portlet-title {
@@ -167,6 +173,14 @@ html, body {
 		margin: 10px 0 0;
 		font-weight: 300;
 		text-transform: uppercase;
+	}
+}
+
+.grid-view {
+	.summary {
+		font-size: 0.8em;
+		color: #999;
+		margin: -10px 0 10px;
 	}
 }
 
