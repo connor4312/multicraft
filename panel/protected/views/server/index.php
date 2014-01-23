@@ -136,6 +136,6 @@ if (!!Yii::app()->params['ajax_serverlist'])
     'ajaxUpdate'=>false,
     'sortableAttributes'=>array(
         'name'=>Yii::t('mc', 'Name'),
-    ),
+    )
 ));
 

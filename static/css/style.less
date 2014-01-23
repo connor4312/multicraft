@@ -176,11 +176,46 @@ html, body {
 	}
 }
 
-.grid-view {
+.grid-view, .list-view {
 	.summary {
 		font-size: 0.8em;
 		color: #999;
 		margin: -10px 0 10px;
+	}
+}
+
+.sorter {
+	color: #999;
+	margin: -2em 0 0 0;
+	text-align: right;
+
+	a {
+		display: inline-block;
+		padding: 5px;
+	}
+
+	ul {
+		display: inline;
+		padding: 0;
+	}
+
+	li {
+		list-style-type: none;
+		display: inline;
+	}
+}
+
+.view {
+	border-right: 1px solid @brand-primary;
+	padding: 10px;
+
+	&:hover {
+		background: @brand-primary;
+		color: #fff;
+
+		a {
+			color: #fff;
+		}
 	}
 }
 
