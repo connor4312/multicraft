@@ -28,6 +28,7 @@
     <meta charset="UTF-8" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo Theme::css('style.css') ?>" media="screen, projection" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

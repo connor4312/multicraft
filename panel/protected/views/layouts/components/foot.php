@@ -3,7 +3,6 @@
 <footer>
     Powered by <a href="http://www.multicraft.org">Multicraft Control Panel</a>
 </footer>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="<?php echo Theme::js('bootstrap.js') ?>"></script>
 <script src="<?php echo Theme::js('multicraft.js') ?>"></script>
 </body>
