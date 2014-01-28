@@ -28,10 +28,10 @@ $broadcastMsg = Yii::t('admin', "Warning: This will affect all servers running o
 $playersCleanupMsg = Yii::t('admin', 'Warning: This will delete all players that haven\'t been explicitly assigned a role. This will be the vast majority of player entries and the "last seen", "quit reason" and "IPs" information for these players will be lost. Proceed?');
 $cmdcacheCleanupMsg = Yii::t('admin', 'This clears the table that caches daemon queries, Proceed?');
 
-function addButton($label, $name, $msg = false)
+function addButton($label, $name, $msg = false, $opts = array())
 {
     global $broadcastMsg;
-    return CHtml::submitButton($label, array('name'=>$name,
+    return CHtml::submitButton($label, $opts + array('name'=>$name,
         'confirm'=>($msg ? $msg : $broadcastMsg.$label)));
 }
 function beginForm($daemon_id)
@@ -58,34 +58,32 @@ else
     $attribs[] = array('label'=>Yii::t('admin', 'No daemons found'));
 $attribs[] = array('label'=>Yii::t('admin', 'Active Servers'), 'type'=>'raw', 'value'=>
         beginForm($daemon_id)
-        .'<table><tr><td>'.addButton(Yii::t('admin', 'Start'), 'active_start').'</td>'
-        .'<td>'.addButton(Yii::t('admin', 'Stop'), 'active_stop').'</td></tr>'
-        .'<tr><td>'.addButton(Yii::t('admin', 'Restart'), 'active_restart').'</td>'
-        .'<td>'.addButton(Yii::t('admin', 'Suspend'), 'active_suspend').'</td></tr></table>',
+        .'<div class="row"><div class="col-md-3">'.addButton(Yii::t('admin', 'Start'), 'active_start', false, array('class' => 'btn btn-success btn-block')).'</div>'
+        .'<div class="col-md-3">'.addButton(Yii::t('admin', 'Stop'), 'active_stop', false, array('class' => 'btn btn-danger btn-block')).'</div>'
+        .'<div class="col-md-3">'.addButton(Yii::t('admin', 'Restart'), 'active_restart', false, array('class' => 'btn btn-deafult btn-block')).'</div>'
+        .'<div class="col-md-3">'.addButton(Yii::t('admin', 'Suspend'), 'active_suspend', false, array('class' => 'btn btn-warning btn-block')).'</div></div>',
 );
 $attribs[] = array('label'=>Yii::t('admin', 'Suspended Servers'), 'type'=>'raw', 'value'=>
-        '<table><tr><td>'.addButton(Yii::t('admin', 'Resume'), 'suspended_resume').'</td></tr></table>',
+        '<div class="row"><div class="col-md-3">' . addButton(Yii::t('admin', 'Resume'), 'suspended_resume', false, array('class' => 'btn btn-default btn-block')) . '</div></div>',
 );
 $attribs[] = array('label'=>Yii::t('admin', 'Running Servers'), 'type'=>'raw', 'value'=>
-        '<table><tr><td>'.addButton(Yii::t('admin', 'Stop'), 'run_stop').'</td></tr>'
-        .'<tr><td>'.addButton(Yii::t('admin', 'Restart'), 'run_restart').'</td></tr></table>'
+        '<div class="row"><div class="col-md-3">'.addButton(Yii::t('admin', 'Stop'), 'run_stop', false, array('class' => 'btn btn-danger btn-block')).'</div>'
+        .'<div class="col-md-3">'.addButton(Yii::t('admin', 'Restart'), 'run_restart', false, array('class' => 'btn btn-block btn-default')).'</div></div>'
         .CHtml::endForm(),
 );
 $attribs[] = array('label'=>Yii::t('admin', 'Chat'), 'type'=>'raw', 'value'=>
         beginForm($daemon_id)
-        .'<table><tr><td>'.Yii::t('admin', 'Sender').'</td></tr>'
-        .'<tr><td>'.CHtml::textField('from', @$_GET['from']).'</td></tr>'
-        .'<tr><td>'.Yii::t('admin', 'Message').'</td></tr>'
-        .'<tr><td>'.CHtml::textField('message', @$_GET['message'], array('style'=>'width: 294px')).'</td></tr>'
-        .'<tr><td>'.addButton(Yii::t('admin', 'Broadcast'), 'run_chat').'</td></td></table>'
+        .'<div class="row"><div class="col-md-6"><div class="form-group"><label>'.Yii::t('admin', 'Sender').'</label>'
+        .CHtml::textField('from', @$_GET['from']).'</div>'
+        .'<div class="form-group"><label>'.Yii::t('admin', 'Message').'</label>'
+        .CHtml::textField('message', @$_GET['message']).'</div>'
+        .addButton(Yii::t('admin', 'Broadcast'), 'run_chat').'</div></div>'
         .CHtml::endForm(),
 );
 $attribs[] = array('label'=>Yii::t('admin', 'Console'), 'type'=>'raw', 'value'=>
         beginForm($daemon_id)
-        .'<table><tr><td>'.CHtml::textField('command', @$_GET['command'], array('style'=>'width: 294px'))
-        .'<div style="display:none"><input type="text" name="ieBugWorkaround"/></div>'
-        .'</td></tr>'
-        .'<tr><td>'.addButton(Yii::t('admin', 'Execute'), 'run_console').'</td></tr></table>'
+        .'<div class="input-group col-md-6">'.CHtml::textField('command', @$_GET['command'])
+        .'<span class="input-group-btn">'.addButton(Yii::t('admin', 'Execute'), 'run_console', false, array('style' => 'width:80px')).'</span></div>'
         .CHtml::endForm(),
 );
 

@@ -468,7 +468,8 @@ class CHtml
 	public static function submitButton($label='submit',$htmlOptions=array())
 	{
 		$htmlOptions['type']='submit';
-		$htmlOptions['class']='btn btn-primary btn-block';
+		if (!isset($htmlOptions['class']))
+			$htmlOptions['class'] = 'btn btn-primary btn-block';
 		return self::button($label,$htmlOptions);
 	}
 
