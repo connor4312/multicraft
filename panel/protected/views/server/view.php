@@ -160,28 +160,25 @@ echo CHtml::script('
     $statusIcon = ob_get_clean();
     ob_start();
     ?>
-    <div id="buttons">
 <?php
     echo CHtml::ajaxButton(Yii::t('mc', 'Start'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'start', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
          ),
         $data['buttons'][0] != '1' ? array('class' => 'btn btn-success') : array('disabled'=>'disabled', 'class' => 'btn btn-success'));
+    echo '&nbsp;';
     echo CHtml::ajaxButton(Yii::t('mc', 'Stop'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'stop', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
         ),
         $data['buttons'][1] != '1' ? array('class' => 'btn btn-danger') : array('disabled'=>'disabled', 'class' => 'btn btn-danger'));
+    echo '&nbsp;';
     echo CHtml::ajaxButton(Yii::t('mc', 'Restart'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'restart', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
         ),
         $data['buttons'][2] != '1' ? array('class' => 'btn btn-info') : array('disabled'=>'disabled', 'class' => 'btn btn-info'));
 ?>
-    </div>
-    <div id="buttons-ajax" style="display: none">
-        <?php echo $data['buttons'] ?>
-    </div>
 <?php
     $statusButtons = ob_get_clean(); 
     endif ?>
@@ -503,8 +500,8 @@ if ($edit)
 
 <?php
     echo CHtml::script('
-        function buttonChange() {
-            dis = $("#buttons-ajax").html();
+        function set_buttons_data(dis) {
+            dis = dis.buttons;
             for (i = 0; i < 3; i++)
             {
                 if (dis[i] != "1")
@@ -514,8 +511,9 @@ if ($edit)
             }
         }
     ');
-    $this->printRefreshScript('buttonChange'); ?>
-
+    $this->printRefreshScript(); 
+    echo CHTML::script('scheduleRefresh();');
+    ?>
 <?php endif ?>
 
 <?php

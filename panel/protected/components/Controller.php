@@ -116,7 +116,7 @@ class Controller extends CController
     function refresh(type, cb)
     {
         <?php echo CHtml::ajax(array('type'=>'POST', 'dataType'=>'json',
-                'success'=>'cb || set_data', 'data'=>array('ajax'=>'refresh', 'type'=>'js:type',
+                'success'=>'js:(type == "all") ? cb || set_data : $.noop()', 'data'=>array('ajax'=>'refresh', 'type'=>'js:type',
                     Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,
                 )
             )) ?>
