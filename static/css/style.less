@@ -57,21 +57,31 @@
 /* Theme Variables - You should not have to change anything except this section,
    at least for your basic theming needs **************************************/
 
+@brand-primary-contrast: contrast(@brand-primary);
+
 // Main page colors
 @page-bg: #fff;
 @page-shadow: 0 0 100px rgba(0, 0, 0, 0.75);
 @page-shadow-length: 150px;
+@page-border-standard-color: #ccc;
+@page-border-lighter-color: #ddd;
+@page-light-text-color: #555;
+@page-muted-color: #888;
 
 // Colors for the page header
 @header-color-primary: #fff;
 @header-color-secondary: #ccc;
+
+// Titles
+@title-font-size: 20px;
 
 // Settings for the page sidebar
 @sidebar-bg: #F5F5F5;
 @sidebar-link-color: #777;
 @sidebar-title-color: #999;
 @sidebar-title-size: 1.2em;
-@sidebar-hover: @brand-primary;
+@sidebar-hover-color: @brand-primary;
+@sidebar-hover-background: #fff;
 
 // Footer settings
 @footer-height: 50px;
@@ -81,6 +91,16 @@
 @footer-bg-border: #ccc;
 @footer-color: #bbb;
 @footer-link-color: #aaa;
+
+// "Mini" page setting
+@mini-width: 400px;
+@mini-top-spacing: 100px;
+@mini-content-padding: 15px;
+@mini-content-border-radius: @border-radius-base * 2;
+@mini-content-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+@mini-background-darkness: 0.05;
+@mini-background-height: 676px;
+@mini-background-offset: -100px;
 
 // Detailview settings
 @detailview-title-colwidth: 25%;
@@ -159,23 +179,23 @@ html, body {
 	table {
 		.titlerow, .titlerow td, .titlerow th {
 			background: none;
-			border-color: #fff;
-			border-bottom: 1px solid #ccc;
-			font-size: 20px;
-			font-weight: 300;
+			border-color: @page-bg;
+			border-bottom: 1px solid @page-border-standard-color;
+			@title-font-size: 20px;
+			@headings-font-weight: 300;
 		}
 	}
 }
 
 /* "Mini" page layout *********************************************************/
 #mini {
-	margin: 100px auto 0;
-	width: 400px;
+	margin: @mini-top-spacing auto 0;
+	width: @mini-width;
 	background: #fff;
-	padding: 0 15px;
-	border-radius: 10px;
+	padding: 0 @mini-content-padding;
+	border-radius: @mini-content-border-radius;
 	overflow: hidden;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: @mini-content-shadow;
 	text-align: center;
 
 	#logo small {
@@ -185,25 +205,25 @@ html, body {
 
 	.nav {
 		float: none;
-		margin: 0 auto -15px;
+		margin: 0 auto -(@grid-gutter-width / 2);
 		display: inline-block;
 	}
 
 	#content {
-		padding: 15px;
+		padding: @grid-gutter-width / 2;
 		text-align: left;
 	}
 }
 
 #watermark-logo {
 	width: 100%;
-	height: 676px;
+	height: @mini-background-height;
 	position: fixed;
 	left: 0;
-	margin: -100px 0 0;
+	margin: @mini-background-offset 0 0;
 	background: url('../img/watermark.png') center center no-repeat;
 	z-index: -100;
-	opacity: 0.07;
+	opacity: @mini-background-darkness;
 }
 
 .introbar {
@@ -217,21 +237,21 @@ html, body {
 	a {
 		display: block;
 		font-size: 1.7em;
-		border-top: 1px solid #ddd;
+		border-top: 1px solid @page-border-lighter-color;
 		margin: 15px -15px -15px;
 		line-height: 2.2em;
 		font-weight: 300;
-		color: #555;
+		color: @page-light-text-color;
 		padding: 0 0 0 30px;
 		.transition(0.3s);
 
 		&:hover {
-			color: #fff;
+			color: @brand-primary-contrast;
 			background: @brand-primary;
 			text-decoration: none;
 
 			.fa {
-				color: #fff;
+				color: @brand-primary-contrast;
 			}
 		}
 	}
@@ -240,7 +260,7 @@ html, body {
 #about {
 
 	a {
-		border-top: 1px solid #ccc;
+		border-top: 1px solid @page-border-standard-color;
 		display: block;
 		text-align: center;
 		margin: 10px 0 0;
@@ -249,7 +269,7 @@ html, body {
 
 	img {
 		max-width: 100%;
-		border-radius: 8px;
+		border-radius: @border-radius-large;
 	}
 }
 
@@ -293,15 +313,15 @@ html, body {
 		color: @sidebar-link-color;
 		display: block;
 		padding: 5px (@grid-gutter-width / 2);
-		border-bottom: 1px solid #eee;
-		border-top: 1px solid #fff;
+		border-bottom: 1px solid darken(@sidebar-bg, 10%);
+		border-top: 1px solid lighten(@sidebar-bg, 10%);
 
 		&:hover {
 			text-decoration: none;
-			background: #fff;
-			color: @sidebar-hover;
+			background: @sidebar-hover-background;
+			color: @sidebar-hover-color;
 			text-shadow: 0 -1px 0 #fff;
-			border-right: 1px solid @sidebar-hover;
+			border-right: 1px solid @sidebar-hover-color;
 		}
 	}
 
@@ -315,10 +335,10 @@ html, body {
 
 		ul {
 			margin: 0;
-			background: #fdfdfd;
+			background: lighten(@sidebar-bg, 10%);
 
 			a {
-				border-bottom-color: #efefef;
+				border-bottom-color: darken(@sidebar-bg, 5%);
 			}
 		}
 	}
@@ -332,7 +352,7 @@ html, body {
 		font-size: @sidebar-title-size;
 		color: @sidebar-title-color;
 		margin: 10px 0 0;
-		font-weight: 300;
+		font-weight: @headings-font-weight;
 		line-height: 2.5em;
 	}
 }
@@ -378,13 +398,13 @@ html, body {
 	}
 
 	td.default {
-		color: #888;
+		color: @page-muted-color;
 		width: 15%;
 	}
 
 	.summary {
 		font-size: 0.8em;
-		color: #999;
+		color: @page-muted-color;
 		margin: -10px 0 10px;
 	}
 
@@ -397,11 +417,11 @@ html, body {
 		background: @page-bg;
 		font-size: 1.4em;
 		font-weight: 400;
-		color: #555;
+		color: @page-light-text-color;
 
 		small {
 			font-size: 0.6em;
-			color: #2cb2ff;
+			color: @brand-primary;
 		}
 	}
 
@@ -433,7 +453,7 @@ html, body {
 }
 
 .server-list {
-	border: 1px solid #eee;
+	border: 1px solid @page-border-lighter-color;
 	border-right: 1px solid @brand-primary;
 	padding: 10px;
 	margin: 5px 10px;
@@ -445,10 +465,10 @@ html, body {
 
 	&:hover {
 		background: @brand-primary;
-		color: #fff;
+		color: @brand-primary-contrast;
 
 		a {
-			color: #fff;
+			color: @brand-primary-contrast;
 		}
 	}
 }
@@ -469,7 +489,7 @@ html, body {
 h3 {
 	font-size: 20px;
 	font-weight: 300;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid @page-border-standard-color;
 	margin: 0;
 	padding: @table-cell-padding;
 
@@ -499,7 +519,7 @@ h3 {
 
 	.info {
 		text-align: center;
-		border-top: 1px solid #ddd;
+		border-top: 1px solid @page-border-lighter-color;
 		padding: 10px 0;
 	}
 }
@@ -508,7 +528,7 @@ h3 {
 /* Console and chat element, syntax highlights ********************************/
 
 #console {
-	background: #fdf6e3;
+	background: @solarized-base3;
 	margin: 10px 0;
 	border-radius: 3px;
 	overflow: hidden;

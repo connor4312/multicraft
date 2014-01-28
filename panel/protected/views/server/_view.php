@@ -17,13 +17,13 @@
         $img = $pl >= 0 ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>';
     }
     ?>
-    <div class="col-lg-1">
+    <div class="col-xs-1">
         <?php echo $img ?>
     </div>
-    <div class="col-lg-6">
+    <div class="col-xs-6">
         <?php echo CHtml::link(CHtml::encode($data->name), '#'); ?></a>
     </div>
-    <div class="col-md-5">
+    <div class="col-xs-5">
         <span id="sv_status_<?php echo $data->id ?>">
         <?php
         if ($data->suspended)
