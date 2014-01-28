@@ -116,7 +116,7 @@ class CDetailView extends CWidget
 	/**
 	 * @var array the HTML options used for {@link tagName}
 	 */
-	public $htmlOptions=array('class'=>'table table-striped table-bordered detail-view');
+	public $htmlOptions=array('class'=>'table table-striped detail-view');
 	/**
 	 * @var string the base script URL for all detail view resources (e.g. javascript, CSS file, images).
 	 * Defaults to null, meaning using the integrated detail view resources (which are published as assets).

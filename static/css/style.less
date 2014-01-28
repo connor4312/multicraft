@@ -11,21 +11,69 @@
 @brand-primary:           #2CB2FF;
 @body-bg:                 #D9D9D9;
 
-/* Theme **********************************************************************/
+/* Bootstrap mixin overrides **************************************************/
 
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      opacity: 1;
+      background-color: @page-bg;
+      border-color: @border;
+      border-width: 2px;
+      color: contrast(@page-bg, darken(@page-bg, 30%), lighten(@page-bg, 30%));
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: #fff;
+  }
+}
+
+/* Theme Variables - You should not have to change anything except this section,
+   at least for your basic theming needs **************************************/
+
+// Main page colors
 @page-bg: #fff;
 @page-shadow: 0 0 100px rgba(0, 0, 0, 0.75);
 @page-shadow-length: 150px;
 
+// Colors for the page header
 @header-color-primary: #fff;
 @header-color-secondary: #ccc;
 
+// Settings for the page sidebar
 @sidebar-bg: #F5F5F5;
 @sidebar-link-color: #777;
 @sidebar-title-color: #999;
 @sidebar-title-size: 1.2em;
 @sidebar-hover: @brand-primary;
 
+// Footer settings
 @footer-height: 50px;
 @footer-margin: 30px;
 @footer-bg-start: tint(@body-bg, 50%);
@@ -34,6 +82,12 @@
 @footer-color: #bbb;
 @footer-link-color: #aaa;
 
+// Detailview settings
+@detailview-title-colwidth: 25%;
+@detailview-help-colwidth: 2em;
+@detailview-help-size: 1.25em; // Must be in em's
+
+// Settings for the console, and syntax highlight colors
 @console-max-height: 500px;
 
 @solarized-base03:    #002b36;
@@ -53,10 +107,12 @@
 @solarized-cyan:      #2aa198;
 @solarized-green:     #859900;
 
+/* Tweaks to Bootstrap coreish stuff ******************************************/
 .col-toppad {
 	padding-top: @grid-gutter-width / 2;
 }
 
+/* Styles for the sticky footer ***********************************************/
 html, body {
 	height: 100%;
 }
@@ -97,6 +153,7 @@ html, body {
 	}
 }
 
+/* Styles for the page header *************************************************/
 #header {
 	#gradient.vertical(@brand-primary, darken(@brand-primary, 10%));
 
@@ -115,10 +172,13 @@ html, body {
 	}
 }
 
+/* Adjustment for full-width navbar *******************************************/
 #navbar {
 	margin: 0 -(@grid-gutter-width / 2);
 }
 
+
+/* Styling for the page sidebar ***********************************************/
 #sidebar {
 	position: absolute;
 	height: 100%;
@@ -176,6 +236,10 @@ html, body {
 	}
 }
 
+/* Start the content styling **************************************************/
+
+
+/* Grid and list view stylings ************************************************/
 .grid-view, .list-view {
 	.summary {
 		font-size: 0.8em;
@@ -183,7 +247,33 @@ html, body {
 		margin: -10px 0 10px;
 	}
 }
+.detail-view {
+	td, th {
+		line-height: @input-height-base !important;
+	}
 
+	th {
+		width: @detailview-title-colwidth;
+	}
+
+	.hintRow {
+		width: @detailview-help-colwidth;
+
+		a {
+			display: inline-block;
+			width: 1.25em;
+			height: 1.25em;
+			border: 1px solid #ccc;
+			font-size: @detailview-help-size;
+			line-height: 1.25em;
+			border-radius: 50%;
+			cursor: pointer;
+			text-align: center;
+		}
+	}
+}
+
+/* Sorter and title elements above some detailviews ***************************/
 .sorter {
 	color: #999;
 	margin: -2em 0 0 0;
@@ -224,10 +314,8 @@ html, body {
 	min-height: @page-shadow-length;
 }
 
-.table-col-input, .detail-view td:nth-child(2) {
-	width: 40%;
-}
 
+/* Y/Zii core element styling/fixes *******************************************/
 #statusicon-ajax i {
 	font-size: 0.75em;
 	line-height: 2.25em;
@@ -250,6 +338,9 @@ h3 {
 		margin: 0 0.5em 0 0;
 	}
 }
+
+
+/* Console and chat element, syntax highlights ********************************/
 
 #console {
 	background: #fdf6e3;

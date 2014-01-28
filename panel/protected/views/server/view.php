@@ -166,7 +166,7 @@ echo CHtml::script('
             'type'=>'POST', 'data'=>array('ajax'=>'start', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
          ),
-        $data['buttons'][0] != '1' ? array('class' => 'btn btn-sucess') : array('disabled'=>'disabled', 'class' => 'btn btn-sucess'));
+        $data['buttons'][0] != '1' ? array('class' => 'btn btn-success') : array('disabled'=>'disabled', 'class' => 'btn btn-success'));
     echo CHtml::ajaxButton(Yii::t('mc', 'Stop'), '', array(
             'type'=>'POST', 'data'=>array('ajax'=>'stop', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
             'success'=>'function(e) {if (e) alert(e);}'
