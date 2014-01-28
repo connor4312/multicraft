@@ -33,59 +33,52 @@ $this->menu=array(
 </div>
 <?php endif ?>
 <?php echo CHtml::beginForm() ?>
-<table class="stdtable" style="width: 100%">
+
+<?php echo CHtml::dropDownList('daemon_id', $daemon_id, array(''=>Yii::t('admin', 'All Daemons')) + McBridge::get()->conStrings()) ?>
+
+<table class="table table-striped detail-view">
 <tr class="titlerow">
-    <td width="170"><?php echo Yii::t('admin', 'Daemon') ?></td>
-    <td colspan="3"><?php echo CHtml::dropDownList('daemon_id', $daemon_id, array(''=>Yii::t('admin', 'All Daemons')) + McBridge::get()->conStrings()) ?></td>
+    <td colspan="2"><?php echo Yii::t('admin', 'Add Files') ?></td>
 </tr>
 <tr>
-    <td colspan="4">&nbsp;</td>
-</tr>
-<tr class="titlerow">
-    <td width="170"><?php echo Yii::t('admin', 'Add Files') ?></td>
-    <td width="60"></td>
-    <td></td>
-    <td width="80"></td>
-</tr>
-<tr class="linerow"><td colspan="4"></td></tr>
-<tr>
-    <td colspan="4">&nbsp;</td>
-</tr>
-<tr>
+    <th>
+        Download Target
+    </th>
     <td>
         <?php echo CHtml::textField('download-target', @$_POST['download-target']) ?>
     </td>
-    <td>
+</tr>
+<tr>
+    <th>
         <?php echo Yii::t('admin', 'File URL') ?>
-    </td>
+    </th>
     <td>
         <?php echo CHtml::textField('download-file', @$_POST['download-file'], array('style'=>'width: 95%')) ?>
     </td>
-    <td> </td>
 </tr>
 <tr>
-    <td></td>
-    <td>
+    <th>
         <?php echo Yii::t('admin', 'Conf URL') ?>
-    </td>
+    </th>
     <td>
         <?php echo CHtml::textField('download-conf', @$_POST['download-conf'],  array('style'=>'width: 95%')) ?>
     </td>
+</tr>
+<tr>
+    <th>
+        &nbsp;
+    </th>
     <td>
         <?php
         echo CHtml::submitButton(Yii::t('admin', 'Add'), array('name'=>'do_download'));
         ?>
     </td>
 </tr>
-<tr>
-    <td colspan="4">&nbsp;</td>
-</tr>
+</table>
+
+<table class="table table-striped detail-view">
 <tr class="titlerow">
-    <td colspan="4"><?php echo Yii::t('admin', 'Remove Files') ?></td>
-</tr>
-<tr class="linerow"><td colspan="4"></td></tr>
-<tr>
-    <td colspan="4">&nbsp;</td>
+    <td colspan="2"><?php echo Yii::t('admin', 'Remove Files') ?></td>
 </tr>
 <tr>
     <td>
@@ -108,12 +101,6 @@ $this->menu=array(
 </tr>
 </table>
 <?php echo CHtml::endForm() ?>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 <div class="infoBox">
 <?php echo Yii::t('admin', 'The target filename should always be of the format "example.jar". The downloaded files will automatically be named "example.jar" and "example.jar.conf" no matter how they were named in their original location. To skip one of the files you can simply leave the URL field empty.') ?><br/>
 <br/>

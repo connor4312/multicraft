@@ -115,8 +115,6 @@ $this->menu=array(
     });
     ') ?>
 
-<br/>
-<br/>
 <div class="infoBox">
 <?php echo Yii::t('admin', 'If you get an error when downloading the JAR file, try downloading and installing the .conf file first in case the JAR download location has changed in the configuration.') ?><br/>
 <br/>
