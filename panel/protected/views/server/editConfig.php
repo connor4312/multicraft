@@ -24,7 +24,7 @@ $this->menu = array(
 );
 
 if ($error): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo CHtml::encode($error) ?>
 </div>
 

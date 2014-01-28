@@ -30,13 +30,13 @@ $this->menu=array(
 ?>
 
 <?php if(Yii::app()->user->hasFlash('server')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('server'); ?>
 </div>
 <?php endif ?>
 
 <?php if ($error): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo $error ?>
 </div>
 <?php endif ?>

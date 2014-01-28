@@ -23,12 +23,12 @@ $this->menu=array(
 );
 ?>
 <?php if(Yii::app()->user->hasFlash('files-success')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('files-success'); ?>
 </div>
 <?php endif ?>
 <?php if(Yii::app()->user->hasFlash('files-error')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('files-error'); ?>
 </div>
 <?php endif ?>

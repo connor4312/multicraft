@@ -86,6 +86,7 @@
 @detailview-title-colwidth: 25%;
 @detailview-help-colwidth: 2em;
 @detailview-help-size: 1.25em; // Must be in em's
+@detailview-btn-max-width: 300px;
 
 // Settings for the console, and syntax highlight colors
 @console-max-height: 500px;
@@ -240,16 +241,10 @@ html, body {
 
 
 /* Grid and list view stylings ************************************************/
-.grid-view, .list-view {
-	.summary {
-		font-size: 0.8em;
-		color: #999;
-		margin: -10px 0 10px;
-	}
-}
-.detail-view {
+
+.detail-view, .list-view  {
 	td, th {
-		line-height: @input-height-base !important;
+		vertical-align: middle !important;
 	}
 
 	th {
@@ -270,6 +265,26 @@ html, body {
 			cursor: pointer;
 			text-align: center;
 		}
+	}
+
+	.btn {
+		max-width: @detailview-btn-max-width;
+		margin: 0 auto;
+	}
+
+	td.default {
+		color: #888;
+		width: 15%;
+	}
+
+	.summary {
+		font-size: 0.8em;
+		color: #999;
+		margin: -10px 0 10px;
+	}
+
+	.alert {
+		margin-bottom: 0;
 	}
 }
 

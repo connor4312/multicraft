@@ -127,7 +127,7 @@ echo CHtml::script('
 <br/>
 
 <?php if(Yii::app()->user->hasFlash('operations')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('operations'); ?>
 </div>
 <?php endif ?>

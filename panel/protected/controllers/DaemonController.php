@@ -600,11 +600,11 @@ class DaemonController extends Controller
     {
         $ret = McBridge::get()->cmd($daemon, 'version');
         $status = array();
-        $status['class'] = 'flash-success';
+        $status['class'] = 'alert alert-success';
         if (!$ret['success'])
         {
             $status['version'] = $status['remote'] = Yii::t('admin', 'Unknown');
-            $status['class'] = 'flash-error';
+            $status['class'] = 'alert alert-danger';
             $status['time'] = Yii::t('admin', 'Failed to get version:').' '.CHtml::encode($ret['error']);
         }
         else
@@ -618,7 +618,7 @@ class DaemonController extends Controller
             $status['remote'] = $data['remote'];
             $status['info'] = @$data['info'];
             if ($status['remote'] != 'Unknown' && $status['version'] != $status['remote'])
-                $status['class'] = 'flash-notice';
+                $status['class'] = 'alert alert-warning';
         }
         return $status;
     }
@@ -629,12 +629,12 @@ class DaemonController extends Controller
 
         $content = '';   
         $time = '';   
-        $class = 'flash-success';
+        $class = 'alert alert-success';
         $fails = 0;
         if (!$ret['success'])
         {
             $content = CHtml::encode($ret['error']);
-            $class = 'flash-error';
+            $class = 'alert alert-danger';
         }
         else
         {
@@ -674,9 +674,9 @@ class DaemonController extends Controller
                 }
             }
             if ($fails == count($data))
-                $class = 'flash-error';
+                $class = 'alert alert-danger';
             else if ($fails)
-                $class = 'flash-notice';
+                $class = 'alert alert-warning';
         }
         $status = array();
         $status['class'] = $class;

@@ -50,7 +50,7 @@ $this->menu=array(
 
 <?php echo CHtml::beginForm() ?>
 <?php echo CHtml::hiddenField('submit', 'true') ?>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered detail-view">
 <tr class="titlerow">
     <td class="table-col-label"><?php echo Yii::t('admin', 'Setting') ?></td>
     <td class="table-col-input"></td>
@@ -70,13 +70,13 @@ foreach ($settings as $name=>$setting): ?>
 <?php $adv = true ?>
 <?php endif ?>
 <tr class="<?php echo ($i++ % 2) ? 'even' : 'odd' ?><?php echo (@$setting['adv'] ? ' adv' : '') ?>">
-    <td><?php echo CHtml::label($setting['label'], 'Setting['.$name.']') ?></td>
+    <th><?php echo CHtml::label($setting['label'], 'Setting['.$name.']') ?></th>
     <?php if ($setting['unit'] == 'bool'): ?>
     <td><?php echo CHtml::checkBox('Setting['.$name.']', $setting['value']) ?></td>
-    <td><?php echo $setting['default'] ? Yii::t('admin', 'true') : Yii::t('admin', 'false') ?></td>
+    <td class="default"><?php echo $setting['default'] ? Yii::t('admin', 'true') : Yii::t('admin', 'false') ?></td>
     <?php elseif (is_array($setting['unit'])): ?>
     <td><?php echo CHtml::dropDownList('Setting['.$name.']', $setting['value'], $setting['unit']) ?></td>
-    <td><?php echo $setting['unit'][$setting['default']] ?></td>
+    <td class="default"><?php echo $setting['unit'][$setting['default']] ?></td>
     <?php else: ?>
     <td>
          <?php if (!empty($setting['unit'])): ?>
@@ -88,7 +88,7 @@ foreach ($settings as $name=>$setting): ?>
             <?php echo CHtml::textField('Setting['.$name.']', $setting['value']) ?>
         <?php endif ?>
     </td>
-    <td><?php echo $setting['default'].' '.$setting['unit'] ?></td>
+    <td class="default"><?php echo $setting['default'].' '.$setting['unit'] ?></td>
     <?php endif ?>
 </tr>
 <?php endforeach ?>

@@ -28,35 +28,29 @@ $this->menu=array(
 ?>
 
 <form action="" method="post">
-<table class="stdtable" style="width: auto">
-<tr class="titlerow">
-    <td><?php echo Yii::t('admin', 'Update file:') ?>
-    </td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>
+<h3>Update file</h3>
+<br>
+<div class="row">
+    <div class="col-md-3">
         <?php echo CHtml::dropDownList('update-target', '', $jars) ?>
-    </td>
-    <td>
-        <?php echo CHtml::dropDownList('update-file', '', $file) ?>
-    </td>
-    <td></td>
-    <td>
+    </div>
+    <div class="col-md-3">
+         <?php echo CHtml::dropDownList('update-file', '', $file) ?>
+    </div>
+    <div class="col-md-6">
         <?php echo Yii::t('admin', 'All Servers:') ?>
         <?php
         echo CHtml::ajaxSubmitButton(Yii::t('admin', 'Download'), '', array('type'=>'POST',
             'data'=>array('ajax'=>'start', 'target'=>"js:$('#update-target').val()",
             'file'=>"js:$('#update-file').val()", Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
-            'success'=>'update_response'));
+            'success'=>'update_response'), array('class' => 'btn btn-default'));
+        echo '&nbsp;';
         echo CHtml::ajaxSubmitButton(Yii::t('admin', 'Install'), '', array('type'=>'POST',
             'data'=>array('ajax'=>'install', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
-            'success'=>'update_response'));
+            'success'=>'update_response'), array('class' => 'btn btn-primary'));
         ?>
-    </td>
-</tr>
-</table>
+    </div>
+</div>
 </form>
 <br/>
 
@@ -67,6 +61,7 @@ $this->menu=array(
     'loadingCssClass'=>'',
     'beforeAjaxUpdate'=>'function(id){ stopRefreshList(id); }',
     'afterAjaxUpdate'=>'function(id, data){ scheduleRefreshList(id, data); }',
+    'itemsTagName' => 'table',
 )); ?>
 
 <?php echo CHtml::script('

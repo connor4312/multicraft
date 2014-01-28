@@ -101,7 +101,7 @@ $this->endWidget();
 ?>
 
 <?php if(Yii::app()->user->hasFlash('server')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('server'); ?>
 </div>
 <?php endif ?>

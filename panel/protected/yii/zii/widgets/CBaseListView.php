@@ -80,7 +80,7 @@ abstract class CBaseListView extends CWidget
 	/**
 	 * @var string the CSS class name for the container of all data item display. Defaults to 'items'.
 	 */
-	public $itemsCssClass='items  table table-striped table-bordered';
+	public $itemsCssClass='items  table table-striped';
 	/**
 	 * @var string the CSS class name for the summary text container. Defaults to 'summary'.
 	 */

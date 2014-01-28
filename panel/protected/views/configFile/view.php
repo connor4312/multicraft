@@ -70,7 +70,7 @@ $this->endWidget();
 
 ?>
 <?php if(Yii::app()->user->hasFlash('configFile')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('configFile'); ?>
 </div>
 <?php endif ?>

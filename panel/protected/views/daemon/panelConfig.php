@@ -26,7 +26,7 @@ echo CHtml::beginForm();
 echo CHtml::hiddenField('submit_settings', 'true');
 
 if(Yii::app()->user->hasFlash('panel_config')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('panel_config'); ?>
 </div>
 <?php endif;

@@ -21,15 +21,15 @@ $this->menu=array(
 ?>
 
 <?php if (Yii::app()->user->hasFlash('reset-success')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('reset-success'); ?>
 </div>
 <?php elseif (Yii::app()->user->hasFlash('reset-error')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('reset-error'); ?>
 </div>
 <?php elseif ($state =='info'): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::t('mc', 'Invalid request') ?>
 </div>
 <?php endif ?>

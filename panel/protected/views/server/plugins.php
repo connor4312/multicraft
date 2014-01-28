@@ -24,12 +24,12 @@ $this->menu=array(
 ?>
 
 <?php if(Yii::app()->user->hasFlash('server')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('server'); ?>
 </div>
 <?php endif ?>
 <?php if(Yii::app()->user->hasFlash('plugin_unpack')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('plugin_unpack'); ?>
 </div>
 <?php endif ?>

@@ -482,7 +482,7 @@ if ($edit)
 ?>
 
 <?php if(Yii::app()->user->hasFlash('server')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('server'); ?>
 </div>
 <?php endif ?>

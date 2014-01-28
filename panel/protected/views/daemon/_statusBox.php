@@ -16,7 +16,7 @@ $status = $this->getDaemonStatus($data->id);
 </div>
 </div>
 <div style="clear: both"></div>
-<div class="<?php echo $status['class'] ?>" style="padding: 0px; margin: 0px">
+<div>
     <table class="stdtable">
     <tr>
         <td style="padding: 4px" width="20%"><?php echo Yii::t('admin', 'Address') ?></td>
@@ -57,7 +57,7 @@ $status = $this->getDaemonStatus($data->id);
     </tr>
     <tr>
         <td colspan="6">
-            <?php echo @$status['info'] ?>
+            <div class="<?php echo $status['class'] ?>"><?php echo @$status['info'] ?></div>
         </td>
     </tr>
     </table>

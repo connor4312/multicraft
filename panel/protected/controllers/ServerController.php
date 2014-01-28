@@ -1150,7 +1150,7 @@ class ServerController extends Controller
                 
             $dis = array('disabled'=>'disbled');
             $start = $download = false;
-            $cls = 'flash-success';
+            $cls = 'alert alert-success';
             switch ($backup[0]['status'])
             {
             case 'none':
@@ -1169,7 +1169,7 @@ class ServerController extends Controller
                 if (!$error)
                     $error = $backup[0]['message'];
                 $content = $error ? $error : Yii::t('mc', 'Error during backup, please check the daemon log');
-                $cls = 'flash-error';
+                $cls = 'alert alert-danger';
                 $start = true;
                 break;
             }
@@ -1188,6 +1188,7 @@ class ServerController extends Controller
             {
                 $opt = $download ? array() : $dis;
                 $opt['onClick'] = 'backup_download()';  
+                $opt['class'] = 'btn btn-default';
                 echo CHtml::button(Yii::t('mc', 'Download'), $opt);
             }
             else if (@$backup[0]['ftp'])
@@ -1266,7 +1267,7 @@ class ServerController extends Controller
                 $msg = $row[2];
 
             ?>
-            <div class="flash-<?php echo $flash ?>">
+            <div class="alert alert-<?php echo $flash ?>">
                 <span style="float: right">
                     <?php echo CHtml::link(Yii::t('mc', 'Dismiss'), array('dismiss', 'id'=>$server->id)) ?>
                 </span>

@@ -64,7 +64,7 @@ $this->menu[] = array(
 ?>
 
 <?php if(Yii::app()->user->hasFlash('server_error')): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo Yii::app()->user->getFlash('server_error'); ?>
 </div>
 <?php endif ?>

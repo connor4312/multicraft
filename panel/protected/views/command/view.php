@@ -97,7 +97,7 @@ if ($edit)
     $this->endWidget();
 ?>
 <?php if(Yii::app()->user->hasFlash('command')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('command'); ?>
 </div>
 <?php endif ?>

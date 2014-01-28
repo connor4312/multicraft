@@ -129,7 +129,7 @@ $(function() { chIval($("#ival_do").is(":checked")); });
 ?>
 
 <?php if(Yii::app()->user->hasFlash('schedule')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('schedule'); ?>
 </div>
 <?php endif ?>

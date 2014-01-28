@@ -26,7 +26,7 @@ $this->menu = array(
 echo CHtml::css('table.detail-view .stdtable td { border: none }' );
 
 if ($error): ?>
-<div class="flash-error">
+<div class="alert alert-danger">
     <?php echo $error ?>
 </div>
 

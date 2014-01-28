@@ -136,7 +136,7 @@ echo CHtml::script('$("#apiKeyBox").focus(function() { this.select(); });');
 ?>
 
 <?php if(Yii::app()->user->hasFlash('user')): ?>
-<div class="flash-success">
+<div class="alert alert-success">
     <?php echo Yii::app()->user->getFlash('user'); ?>
 </div>
 <?php endif ?>
