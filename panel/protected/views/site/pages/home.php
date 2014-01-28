@@ -36,6 +36,15 @@ $this->menu=array(
 <br/>
 <?php echo Yii::t('mc', 'Welcome to <b>{Multicraft}</b>, the Minecraft server control panel.', array('{Multicraft}'=>CHtml::link('Multicraft', 'http://www.multicraft.org'))) ?><br/>
 
+<div class="introbar">
+    <?php echo CHtml::link('<i class="fa fa-key"></i> <span>Log In</span>', array('site/login')) ?>
+    <?php echo CHtml::link('<i class="fa fa-question"></i> <span>Help</span>', 'http://multicraft.org/site/docs', array(
+        'submit'=>'http://multicraft.org/site/docs',
+        'confirm'=>Yii::t('mc', "You are leaving your control panel.\n\nYou will be forwarded to the documentation on the official Multicraft website.")))
+    ?>
+    <?php echo CHtml::link('<i class="fa fa-star"></i> <span>About</span>', array('', 'view'=>'about')) ?>
+</div>
+
 <?php if (Yii::app()->params['demo_mode'] == 'enabled'): ?>
 <br/>
 <br/>

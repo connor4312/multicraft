@@ -30,13 +30,13 @@ $this->breadcrumbs=array(
     'enableAjaxValidation'=>false,
 )); ?>
 
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'name'); ?>
         <?php echo $form->textField($model,'name'); ?>
         <?php echo $form->error($model,'name'); ?>
     </div>
 
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'password'); ?>
         <?php echo $form->passwordField($model,'password'); ?>
         <?php echo $form->error($model,'password'); ?>
@@ -46,21 +46,21 @@ $this->breadcrumbs=array(
         <?php endif ?>
     </div>
 
-    <div class="row rememberMe">
-        <?php echo $form->checkBox($model,'rememberMe'); ?>
-        <?php echo $form->label($model,'rememberMe'); ?>
-        <?php echo $form->error($model,'rememberMe'); ?>
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            <?php echo $form->checkBox($model,'rememberMe'); ?>
+            <?php echo $form->label($model,'rememberMe'); ?>
+            <?php echo $form->error($model,'rememberMe'); ?>
+        </div>
+        
+        <div class="col-lg-6 form-group">
+            <?php echo $form->checkBox($model,'ignoreIp'); ?>
+            <?php echo $form->label($model,'ignoreIp'); ?>
+            <?php echo $form->error($model,'ignoreIp'); ?>
+        </div>
     </div>
 
-    <div class="row rememberMe">
-        <?php echo $form->checkBox($model,'ignoreIp'); ?>
-        <?php echo $form->label($model,'ignoreIp'); ?>
-        <?php echo $form->error($model,'ignoreIp'); ?>
-    </div>
-
-    <div class="row buttons">
-        <?php echo CHtml::submitButton(Yii::t('mc', 'Login')); ?>
-    </div>
+    <?php echo CHtml::submitButton(Yii::t('mc', 'Login')); ?>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->

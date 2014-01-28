@@ -20,24 +20,24 @@ $this->breadcrumbs=array(
 
 <?php echo $form->errorSummary($model); ?>
 
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'name'); ?>
         <?php echo $form->textField($model,'name'); ?>
         <?php echo $form->error($model,'name'); ?>
     </div>
 
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'password'); ?>
         <?php echo $form->passwordField($model,'password'); ?>
         <?php echo $form->error($model,'password'); ?>
     </div>
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'confirmPassword'); ?>
         <?php echo $form->passwordField($model,'confirmPassword'); ?>
         <?php echo $form->error($model,'confirmPassword'); ?>
     </div>
 
-    <div class="row">
+    <div class="form-group">
         <?php echo $form->labelEx($model,'email'); ?>
         <?php echo $form->textField($model,'email'); ?>
         <?php echo $form->error($model,'email'); ?>
@@ -52,8 +52,7 @@ $this->breadcrumbs=array(
         <?php $this->widget('CCaptcha'); ?><br/>
         <?php echo $form->textField($model, 'verifyCode'); ?>
         </div>
-        <p class="hint"><?php echo Yii::t('mc', 'Please enter the letters as they are shown in the image above.') ?>
-        <br/><?php echo Yii::t('mc', 'Letters are not case-sensitive.') ?></p>
+        <p class="hint"><?php echo Yii::t('mc', 'Please enter the letters as they are shown in the image above.') ?> <?php echo Yii::t('mc', 'Letters are not case-sensitive.') ?></p>
 </div>
 <?php endif; ?>
 
