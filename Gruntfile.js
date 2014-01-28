@@ -16,6 +16,9 @@ module.exports = function(grunt) {
         }, {
           src: 'bower_components/bootstrap/dist/js/bootstrap.js',
           dest: 'panel/static/js/bootstrap.js'
+        }, {
+          src: 'bower_components/jquery-knob/js/jquery.knob.js',
+          dest: 'panel/static/js/jquery.knob.js'
         }]
       },
       dist: {
@@ -46,6 +49,9 @@ module.exports = function(grunt) {
           src: ['js/*.js'],
           dest: 'panel/static',
           ext: '.js'
+        }, {
+          src: 'bower_components/jquery-knob/js/jquery.knob.js',
+          dest: 'panel/static/js/jquery.knob.js'
         }]
       }
     },

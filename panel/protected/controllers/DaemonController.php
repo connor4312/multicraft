@@ -516,6 +516,11 @@ class DaemonController extends Controller
         $players = $row[1];
         $memory = $row[2];
 
+        $sql = 'select sum(`memory`) from `daemon`';
+        $cmd = Yii::app()->bridgeDb->createCommand($sql);
+        $row = $cmd->queryRow(false);
+        $totalMemory = $row[0];
+
         $sql = 'select count(*), sum(`players`), sum(`memory`) from `server` where `suspended`!=1';
         $cmd = Yii::app()->bridgeDb->createCommand($sql);
         $row = $cmd->queryRow(false);
@@ -536,8 +541,9 @@ class DaemonController extends Controller
             'activeSvPerDaemon' => ($dmns ? ($activeServers / $dmns) : 0),
             'slots' => $players,
             'activeSlots' => $activePlayers,
-            'memory' => number_format($memory).' '.Yii::t('admin', 'MB'),
-            'activeMemory' => number_format($activeMemory).' '.Yii::t('admin', 'MB'),
+            'memory' => $memory,
+            'activeMemory' => $activeMemory,
+            'totalMemory' => $totalMemory,
         ));
     }
 

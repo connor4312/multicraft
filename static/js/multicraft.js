@@ -1,9 +1,30 @@
 multicraft = {}; // Globally scoped object for talking to other incline Yii Js
 
 $(document).ready(function() {
-	/***************************************************************************
-	 * Page bindings and effects
-	 **************************************************************************/
+
+	/**
+	 * Function to get LESS vars via the scooper. This nifty solution based off:
+	 * http://stackoverflow.com/questions/10362445/passing-less-variable-to-javascript
+	 */
+	var less = {};
+	$.each(document.styleSheets,function(i,sheet) {
+		$.each(sheet.cssRules,function(i,rule) {
+			var sRule = rule.cssText;
+			if (rule.selectorText == "#scooper") {
+
+				parts = rule.style.content.replace('\'', '').split('|');
+				for (i in parts) {
+					n = parts[i].split(':');
+					less[n[0]] = n[1];
+				}
+				less['font-family-sans-serif'] = rule.style['font-family'];
+
+				return true;
+			}
+		});
+	});
+
+	/* Page bindings and effects **********************************************/
 	$('.hint').popover({
 		trigger: 'hover',
 		delay: 100,
@@ -12,9 +33,37 @@ $(document).ready(function() {
 
 	$('[data-focus]').focus();
 
-	/***************************************************************************
-	 * Console and chat functions
-	 **************************************************************************/
+	$('.dial').each(function() {
+		var data = {};
+		var n = $(this).attr('data-append');
+
+		data.inline = false;
+		data.thickness = 0.05;
+		data.font = less['font-family-sans-serif'];
+		data.fontWeight = less['headings-font-weight'];
+		data.fgColor = less['brand-primary'];
+		data.inputColor = '#666';
+		data.bgColor = '#ccc';
+
+		$(this).knob(data);
+	});
+
+	/* Updates on the statistics page *****************************************/
+
+	if ($('#player_dial').length) {
+		var $dial = $('#player_dial');
+		var $players = $('#players');
+		var $percent = $('#player_percent');
+		var players_total = $dial.attr('data-max');
+
+		setInterval(function() {
+			var players = $players.html();
+			$dial.val(players).trigger('change');
+			$percent.html(Math.round(players / players_total * 100).toString());
+		}, 5000);
+	}
+
+	/* Console and chat functions *********************************************/
 	$('#console').on('click', '.sx-ip-addr', function() {
 		var ip = $(this).html();
 		$.get('http://freegeoip.net/json/' + ip, function(data) {

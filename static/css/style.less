@@ -6,7 +6,7 @@
 
 /* Bootstrap ******************************************************************/
 @import "../../bower_components/bootstrap/less/bootstrap.less";
-@font-family-sans-serif:  'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @headings-font-weight:    300;
 @brand-primary:           #2CB2FF;
 @body-bg:                 #D9D9D9;
@@ -107,6 +107,13 @@
 @solarized-blue:      #268bd2;
 @solarized-cyan:      #2aa198;
 @solarized-green:     #859900;
+
+/* "Scooper" to transmit LESS variables for JS use *****************************/
+#scooper {
+	font-family: @font-family-sans-serif;
+	content: "headings-font-weight:@{headings-font-weight}|brand-primary:@{brand-primary}|body-bg:@{body-bg}|page-bg:@{page-bg}";
+	display: none;
+}
 
 /* Tweaks to Bootstrap coreish stuff ******************************************/
 .col-toppad {
@@ -469,6 +476,31 @@ h3 {
 	.fa {
 		line-height: 1em !important;
 		margin: 0 0.5em 0 0;
+	}
+}
+
+/* Statistics page ************************************************************/
+.suspended {
+	font-size: 0.6em;
+	color: #999;
+}
+
+.stat {
+	.title {
+		display: block;
+		height: inherit;
+		border: 1px solid @brand-primary;
+		border-radius: 4px;
+		padding: 8px 4px;
+		font-size: 0.9em;
+		text-align: center;
+		margin: 10px 0;
+	}
+
+	.info {
+		text-align: center;
+		border-top: 1px solid #ddd;
+		padding: 10px 0;
 	}
 }
 
