@@ -24,6 +24,7 @@ $this->menu=array(
 echo Yii::t('admin', 'Your current panel version is {v}', array('{v}' => $this->version));
 ?>
 <br/>
+<br/>
 
 <?php $w = $this->widget('zii.widgets.CListView', array(
     'emptyText'=>Yii::t('admin', 'No daemons found.').'<br/><br/>'.Yii::t('admin', 'Please check that at least one daemon is started and that it uses the same database you configured as the daemon database using the control panel installer.'),

@@ -10,15 +10,12 @@
 $status = $this->getDaemonStatus($data->id);
 ?>
 
+<h4><?php echo ($data->name ? CHtml::encode($data->name) : Yii::t('admin', 'Daemon')) ?> <small>ID <?php echo $data->id ?> (<?php echo CHtml::link(Yii::t('admin', 'Remove connection'), array('removeDaemon', 'id'=>$data->id),
+        array('confirm'=>Yii::t('admin', 'This will only remove the daemon entry for this server from the database. If the daemon is still running or is started again this entry will be put back in.'))) ?>)</small></h4>
+
 <div>
-<div style="float: left"><b><?php echo ($data->name ? CHtml::encode($data->name) : Yii::t('admin', 'Daemon')) ?> ID <?php echo $data->id ?></b> (<?php echo CHtml::link(Yii::t('admin', 'Remove connection'), array('removeDaemon', 'id'=>$data->id),
-        array('confirm'=>Yii::t('admin', 'This will only remove the daemon entry for this server from the database. If the daemon is still running or is started again this entry will be put back in.'))) ?>)
-</div>
-</div>
-<div style="clear: both"></div>
-<div>
-    <table class="stdtable">
-    <tr>
+    <table class="table table-striped">
+    <tr class="display-upper">
         <td style="padding: 4px" width="20%"><?php echo Yii::t('admin', 'Address') ?></td>
         <td style="padding: 4px" width="10%"><?php echo Yii::t('admin', 'Servers') ?></td>
         <td style="padding: 4px" width="20%"><?php echo Yii::t('admin', 'Memory') ?></td>
@@ -26,7 +23,7 @@ $status = $this->getDaemonStatus($data->id);
         <td style="padding: 4px" width="10%"><?php echo Yii::t('admin', 'Latest') ?></td>
         <td style="padding: 4px" width="30%"><?php echo Yii::t('admin', 'Last Check') ?></td>
     </tr>
-    <tr class="titlerow">
+    <tr class="display-sub">
         <td>
             <?php echo CHtml::encode($data->ip.':'.$data->port) ?>
         </td>
@@ -40,10 +37,10 @@ $status = $this->getDaemonStatus($data->id);
         </td>
         <td>
             <?php
-            echo $data->usedMemory;
+            echo $data->usedMemory . '<small>';
             if (isset($data->memory) && $data->memory)
                 echo ' / '.$data->memory
-            ?> MB
+            ?> MB </small>
         </td>
         <td>
             <?php echo $status['version'] ?>
@@ -57,7 +54,9 @@ $status = $this->getDaemonStatus($data->id);
     </tr>
     <tr>
         <td colspan="6">
-            <div class="<?php echo $status['class'] ?>"><?php echo @$status['info'] ?></div>
+            <?php if (@$status['info']): ?>
+                <div class="<?php echo $status['class'] ?>"><?php echo @$status['info'] ?></div>
+            <?php endif ?>
         </td>
     </tr>
     </table>
