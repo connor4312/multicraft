@@ -113,6 +113,11 @@
 	padding-top: @grid-gutter-width / 2;
 }
 
+.muted {
+	color: #999;
+	font-size: 0.8em;
+}
+
 /* Styles for the sticky footer ***********************************************/
 html, body {
 	height: 100%;
@@ -224,6 +229,22 @@ html, body {
 		}
 	}
 }
+/* The About page *************************************************************/
+#about {
+
+	a {
+		border-top: 1px solid #ccc;
+		display: block;
+		text-align: center;
+		margin: 10px 0 0;
+		padding-top: 10px;
+	}
+
+	img {
+		max-width: 100%;
+		border-radius: 8px;
+	}
+}
 
 /* Styles for the page header *************************************************/
 #header {
@@ -311,6 +332,11 @@ html, body {
 
 /* Start the content styling **************************************************/
 
+#content {
+	> h1:first-child, > h2:first-child, > h3:first-child {
+		margin-top: 0;
+	}
+}
 
 /* Grid and list view stylings ************************************************/
 
