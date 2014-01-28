@@ -9,6 +9,8 @@
 
 class SiteController extends Controller
 {
+    public $layout='//layouts/mini';
+
     public function actions()
     {
         return array(
