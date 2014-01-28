@@ -115,7 +115,7 @@ echo CHtml::script('
     function checkAdv()
     {
         advShow = !advShow;
-        $("#advImg").htmk(advShow ? imgOpen : imgClosed);
+        $("#advImg").html(advShow ? imgOpen : imgClosed);
         $("#advTxt").html(advShow ? txtOpen : txtClosed);
         $(".adv").toggle(advShow);
         return false;
