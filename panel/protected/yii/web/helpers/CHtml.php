@@ -23,16 +23,16 @@ class CHtml
 	/**
 	 * @var string the CSS class for displaying error summaries (see {@link errorSummary}).
 	 */
-	public static $errorSummaryCss='errorSummary';
+	public static $errorSummaryCss='alert alert-danger';
 	/**
 	 * @var string the CSS class for displaying error messages (see {@link error}).
 	 */
-	public static $errorMessageCss='errorMessage';
+	public static $errorMessageCss='alert alert-danger';
 	/**
 	 * @var string the CSS class for highlighting error inputs. Form inputs will be appended
 	 * with this CSS class if they have input errors.
 	 */
-	public static $errorCss='error';
+	public static $errorCss='has-error';
 	/**
 	 * @var string the CSS class for required labels. Defaults to 'required'.
 	 * @see label

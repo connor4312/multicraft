@@ -165,7 +165,7 @@ class CActiveForm extends CWidget
 	 * @var string the CSS class name for error messages. Defaults to 'errorMessage'.
 	 * Individual {@link error} call may override this value by specifying the 'class' HTML option.
 	 */
-	public $errorMessageCssClass='errorMessage';
+	public $errorMessageCssClass='alert alert-danger';
 	/**
 	 * @var array additional HTML attributes that should be rendered for the form tag.
 	 */
