@@ -45,7 +45,7 @@
             else
             {
                 $items[] = array(
-                    'label'=>Yii::t('mc', 'Logout ({name})', array('{name}'=>Yii::app()->user->name)),
+                    'label'=>Yii::t('mc', 'Logout', array('{name}'=>Yii::app()->user->name)),
                     'url'=>array('/site/logout'),
                 );
             }

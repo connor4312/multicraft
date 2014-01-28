@@ -88,7 +88,7 @@ if ($step != end(InstallController::$steps))
 if (count($p['actions'])): ?>
 <b><?php echo InstallController::$stepLabels[$idx] ?></b><br/>
 <br/>
-<div class="alert alert-<?php echo $p['success'] ? 'success' : 'notice' ?>">
+<div class="alert alert-<?php echo $p['success'] ? 'success' : 'info' ?>">
 <ul style="margin-bottom: 0">
     <?php foreach ($p['actions'] as $a): ?>
     <li><?php echo $a ?></li>

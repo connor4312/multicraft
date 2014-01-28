@@ -22,6 +22,9 @@ This installer will guide you through the Multicraft Server Manager setup.<br/>
 To disable the installer please remove the file "installer.php".<br/>
 <br/>
 <?php echo CHtml::beginForm(array('index', 'step'=>'requirements'), 'get') ?>
-<?php echo CHtml::submitButton('Start Installation') ?>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4"><?php echo CHtml::submitButton('Start Installation') ?></div>
+</div>
 <?php echo CHtml::endForm() ?>
 </div>
+<br>

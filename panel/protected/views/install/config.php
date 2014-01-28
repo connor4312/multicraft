@@ -19,5 +19,8 @@ The configuration file exists and is writeable, you are ready to begin the insta
 <br/>
 <br/>
 <?php echo CHtml::beginForm(array('index', 'step'=>'panel')) ?>
-<?php echo CHtml::submitButton('Continue') ?>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4"><?php echo CHtml::submitButton('Continue') ?></div>
+</div>
 <?php echo CHtml::endForm() ?>
+<br>

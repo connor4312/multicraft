@@ -59,23 +59,29 @@ td.failed
 }
 ');
 ?>
-<?php if($p['result']>0): ?>
-Your server configuration satisfies all requirements.
-<?php elseif($p['result']<0): ?>
-Your server configuration satisfies the minimum requirements. Please pay attention to the warnings listed below if you intend to use the corresponding functionality.
-<?php else: ?>
-Unfortunately your server configuration does not satisfy the requirements.
-<?php endif; ?>
-<br/><br/>
-<?php if ($p['result'] != 0): ?>
-    <?php echo CHtml::beginForm(array('index', 'step'=>'config')) ?>
-    <?php echo CHtml::submitButton('Continue') ?>
-    <?php echo CHtml::endForm() ?>
-<?php else: ?>
-    <?php echo CHtml::beginForm(array('index', 'step'=>'config')) ?>
-    <?php echo CHtml::submitButton('Continue Anyway', array('confirm'=>'You may encounter errors during the installer and issues with missing functionality or security features are possible.')) ?>
-    <?php echo CHtml::endForm() ?>
-<?php endif ?>
+
+<div class="row">
+    <div class="col-md-8">
+        <?php if($p['result']>0): ?>
+        Your server configuration satisfies all requirements.
+        <?php elseif($p['result']<0): ?>
+        Your server configuration satisfies the minimum requirements. Please pay attention to the warnings listed below if you intend to use the corresponding functionality.
+        <?php else: ?>
+        Unfortunately your server configuration does not satisfy the requirements.
+        <?php endif; ?>
+    </div>
+    <div class="col-md-4">
+    <?php if ($p['result'] != 0): ?>
+        <?php echo CHtml::beginForm(array('index', 'step'=>'config')) ?>
+        <?php echo CHtml::submitButton('Continue') ?>
+        <?php echo CHtml::endForm() ?>
+    <?php else: ?>
+        <?php echo CHtml::beginForm(array('index', 'step'=>'config')) ?>
+        <?php echo CHtml::submitButton('Continue Anyway', array('confirm'=>'You may encounter errors during the installer and issues with missing functionality or security features are possible.')) ?>
+        <?php echo CHtml::endForm() ?>
+    <?php endif ?>
+    </div>
+</div>
 </p>
 
 <b>Details</b><br/>

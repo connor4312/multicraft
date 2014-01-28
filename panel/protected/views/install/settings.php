@@ -45,7 +45,7 @@ $attr[] = set_t($p, 'theme', 'Theme', '', Controller::themeSelection());
 $attr[] = set_t($p, 'language', 'Language', '', Controller::languageSelection());
 if (@$p['config']['superuser'] != 'admin')
     $attr[] = set_t($p, 'superuser', 'Root Superuser', 'Please create a user named "admin" and then set this to "admin"');
-$attr[] = set_t($p, 'daemon_password', 'Password for daemon connections', 'Must be the same as "<b>password</b>" in your "<b>multicraft.conf</b>"');
+$attr[] = set_t($p, 'daemon_password', 'Password for daemon connections', 'Must be the same as password in your multicraft.conf');
 $attr[] = set_t($p, 'login_tries', 'Number of login attempts before blocking', '0 to disable');
 $attr[] = set_s($p, 'status_banner', 'Generate server status banners (requires GD)', '');
 

@@ -38,23 +38,33 @@ if ($p['daemon_db_driver'] == 'mysql')
 }
 ?></div>
 The default <b>start</b> command for Linux is:
-<div class="code">/home/minecraft/multicraft/bin/multicraft -v start</div>
+<code>/home/minecraft/multicraft/bin/multicraft -v start</code>
 For Windows running the multicraft.exe is sufficient.<br/>
 <br/>
 <br/>
 <h2>Detected Daemons</h2>
 <?php if ($this->p['daemons']): ?>
-One or more daemons have been detected. If you see at least one green box below you can complete the installation.
-<?php echo CHtml::beginForm(array('index', 'step'=>'done')) ?>
-<?php echo CHtml::submitButton('Continue') ?>
-<?php echo CHtml::endForm() ?>
+<div class="row">
+    <div class="col-md-8">One or more daemons have been detected. If you see at least one green box below you can complete the installation.</div>
+    <div class="col-md-4">
+        <?php echo CHtml::beginForm(array('index', 'step'=>'done')) ?>
+        <?php echo CHtml::submitButton('Continue') ?>
+        <?php echo CHtml::endForm() ?>
+    </div>
+</div>
 <?php else: ?>
-No daemon has been detected in the database. Make sure that your daemon is using the correct database and that it starts up correctly (you can replace -v with -nv to debug startup issues).<br/>
-<br/>
-As soon as you see at least one green box below you can complete the installation.
-<?php echo CHtml::beginForm(array('index', 'step'=>'connection')) ?>
-<?php echo CHtml::submitButton('Refresh') ?>
-<?php echo CHtml::endForm() ?>
+<div class="row">
+    <div class="col-md-8">
+        No daemon has been detected in the database. Make sure that your daemon is using the correct database and that it starts up correctly (you can replace -v with -nv to debug startup issues).<br/>
+        <br/>
+        As soon as you see at least one green box below you can complete the installation.
+    </div>
+    <div class="col-md-4">
+        <?php echo CHtml::beginForm(array('index', 'step'=>'connection')) ?>
+        <?php echo CHtml::submitButton('Refresh') ?>
+        <?php echo CHtml::endForm() ?>
+    </div>
+</div>
 <?php endif ?>
 <br/>
 Otherwise please refer to the <?php echo CHtml::link('Troubleshooting Guide', 'http://www.multicraft.org/site/page?view=troubleshooting') ?>.
