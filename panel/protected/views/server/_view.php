@@ -7,7 +7,7 @@
  *
  **/
 ?>
-<div class="row server-list" onclick="window.location='<?php echo CHTML::normalizeUrl(array('view', 'id'=>$data->id)) ?>'">
+<div class="row server-list" data-link="<?php echo CHTML::normalizeUrl(array('view', 'id'=>$data->id)) ?>">
     <?php
     $pl = 0;
     $img = $data->suspended ? '<i class="fa fa-times"></i>' : '<i class="fa fa-refresh fa-spin"></i>';

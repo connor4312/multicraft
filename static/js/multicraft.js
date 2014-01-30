@@ -33,6 +33,16 @@ $(document).ready(function() {
 
 	$('[data-focus]').focus();
 
+	$('[data-link]').click(function(e) {
+		var target = $(this).attr('data-link');
+		if (e.button === 0 && !e.ctrlKey) {
+			e.preventDefault();
+			window.location = target;
+		} else {
+			window.open(target);
+		}
+	});
+
 	$('.dial').each(function() {
 		var data = {};
 		var n = $(this).attr('data-append');
