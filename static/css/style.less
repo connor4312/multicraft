@@ -376,6 +376,12 @@ html, body {
 		width: @detailview-title-colwidth;
 	}
 
+	tr:before {
+		content: "";
+		display: block;
+		height: @input-height-base + (@table-cell-padding * 2);
+	}
+
 	.hintRow {
 		width: @detailview-help-colwidth;
 
