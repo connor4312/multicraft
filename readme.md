@@ -8,13 +8,15 @@ Until stated otherwise, content in this repository is proprietary and may be not
 You can install the panel from the files in the `panel.zip` file, or by compiling the panel yourself, from source.
 
 ###Compiling from Source
-You will first need the [Node Package Manager](https://npmjs.org/) installed on your system. Then, you will need Twitter's  [Bower](http://bower.io/) and [GruntJS](http://gruntjs.com/) CLI installed globally. These can be installed by running:
+You will first need the [Node Package Manager](https://npmjs.org/) installed on your system. 
+
+Then, you will need Twitter's  [Bower](http://bower.io/) and [GruntJS](http://gruntjs.com/) CLI installed globally. These can be installed by running:
 
 ```
     sudo npm install -g bower && npm install -g grunt-cli
 ```
 
-You will then need to install the dependencies to build the panel (including the LESS compiler, Uglify, Imagemin, and so on) as well as the assets it depends upon (Bootstrap, FontAwesome, and the jQuery Knob). To install the dependencies, simply run the following command which `cd`'d in the project directory:
+You will then need to install the dependencies to build the panel (including the LESS compiler, Uglify, Imagemin, and so on) as well as the assets it depends upon (Bootstrap, FontAwesome, and the jQuery Knob). To install the dependencies, simply run the following command while `cd`'d in the project directory:
 
 ```
    bower install && npm install
