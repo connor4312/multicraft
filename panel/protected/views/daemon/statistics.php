@@ -30,21 +30,21 @@ Yii::app()->clientScript->registerScriptFile('static/js/jquery.knob.js');
         <div class="stat">
             <span class="title"><?php echo Yii::t('admin', 'Active Servers') ?></span>
             <input type="text" data-width="100%" class="dial" data-readOnly=true data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="<?php echo $servers ?>" value="<?php echo $activeServers ?>">
-            <div class="info"><?php echo round($activeServers / $servers * 100) ?>% <?php echo Yii::t('admin', 'Of Total') ?></div>
+            <div class="info"><?php echo $servers ? round($activeServers / $servers * 100) : 0 ?>% <?php echo Yii::t('admin', 'Of Total') ?></div>
         </div>
     </div>
     <div class="col-md-3">
         <div class="stat">
             <span class="title"><?php echo ucwords(Yii::t('admin', 'Memory Assigned')) ?></span>
             <input type="text" data-width="100%" class="dial" data-readOnly=true data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="<?php echo $totalMemory ?>" value="<?php echo $memory ?>">
-            <div class="info"><?php echo round($memory / $totalMemory * 100) ?>% <?php echo Yii::t('admin', 'Of Total') ?></div>
+            <div class="info"><?php echo $totalMemory ? round($memory / $totalMemory * 100) : 0 ?>% <?php echo Yii::t('admin', 'Of Total') ?></div>
         </div>
     </div>
     <div class="col-md-3">
         <div class="stat">
             <span class="title"><?php echo ucwords(Yii::t('admin', 'Total memory')) ?></span>
             <input type="text" data-width="100%" class="dial" data-readOnly=true data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="<?php echo $memory ?>" value="<?php echo $activeMemory ?>">
-            <div class="info"><?php echo round($activeMemory / $memory * 100) ?>% <?php echo Yii::t('admin', 'Used') ?></div>
+            <div class="info"><?php echo $memory ? round($activeMemory / $memory * 100) : 0 ?>% <?php echo Yii::t('admin', 'Used') ?></div>
         </div>
     </div>
     <div class="col-md-3">
