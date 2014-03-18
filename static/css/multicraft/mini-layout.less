@@ -1,0 +1,74 @@
+/* Styling for the mini page container ****************************************/
+
+#mini {
+	margin: @mini-top-spacing auto 0;
+	width: @mini-width;
+	background: #fff;
+	padding: 0 @mini-content-padding;
+	border-radius: @mini-content-border-radius;
+	overflow: hidden;
+	box-shadow: @mini-content-shadow;
+	text-align: center;
+
+	#logo small {
+		display: block;
+		margin: -0.5em 0 1em;
+	}
+
+	.nav {
+		float: none;
+		margin: 0 auto -(@grid-gutter-width / 2);
+		display: inline-block;
+	}
+
+	#content {
+		padding: @grid-gutter-width / 2;
+		text-align: left;
+	}
+}
+
+/* Styling for the background of the mini page ********************************/
+
+#watermark-logo {
+	width: 100%;
+	height: @mini-background-height;
+	position: fixed;
+	left: 0;
+	margin: @mini-background-offset 0 0;
+	background: url('../img/watermark.png') center center no-repeat;
+	z-index: -100;
+	opacity: @mini-background-darkness;
+}
+
+/* Style for the menu, shown on the homepage **********************************/
+
+.introbar {
+
+	.fa {
+		width: 1em;
+		text-align: center;
+		color: @brand-primary;
+	}
+
+	a {
+		display: block;
+		font-size: 1.7em;
+		border-top: 1px solid @page-border-lighter-color;
+		margin: 15px -15px -15px;
+		line-height: 2.2em;
+		font-weight: 300;
+		color: @page-light-text-color;
+		padding: 0 0 0 30px;
+		.transition(0.3s);
+
+		&:hover {
+			color: @brand-primary-contrast;
+			background: @brand-primary;
+			text-decoration: none;
+
+			.fa {
+				color: @brand-primary-contrast;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+/* The Server list page *******************************************************/
+
+.server-list {
+	border: 1px solid @page-border-lighter-color;
+	border-right: 1px solid @brand-primary;
+	padding: 10px;
+	margin: 5px 10px;
+	cursor: pointer;
+	display: block;
+	color: @text-color;
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	&:hover {
+		background: @brand-primary;
+		color: @brand-primary-contrast;
+
+		a {
+			color: @brand-primary-contrast;
+		}
+	}
+}
+
+.suspended {
+	font-size: 0.6em;
+	color: #999;
+}
