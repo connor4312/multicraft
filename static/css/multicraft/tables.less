@@ -89,6 +89,20 @@ table {
 	a {
 		display: inline-block;
 		padding: 5px;
+
+		&.desc:before, &.asc:before {
+			font-family: FontAwesome;
+			display: inline;
+			margin-right: 0.25em;
+		}
+
+		&.asc:before {
+			content: @fa-var-caret-up;
+		}
+
+		&.desc:before {
+			content: @fa-var-caret-down;
+		}
 	}
 
 	ul {
