@@ -34,11 +34,9 @@ $this->menu = array(
     <div class="col-md-3">
         <?php if ($getPlayers): ?>
         <!-- PLAYERS -->
-        <table class="stdtable">
-            <tbody id="players-ajax">
-                <?php echo $data['players'] ?>
-            </tbody>
-        </table>
+        <div id="players-ajax">
+            <?php echo $data['players'] ?>
+        </div>
         <?php endif ?>
     </div>
     <div class="col-md-9">
@@ -61,7 +59,7 @@ $this->menu = array(
 
         <?php echo CHtml::endForm() ?>
         <?php endif ?>
-        <div id="console"></div>
+        <div id="console" data-type="chat"></div>
         <?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear chat'), '', array('type'=>'POST',
                 'data'=>array('ajax'=>'clearChat', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
                 'success'=>'js:chat_response')) ?>
@@ -71,7 +69,7 @@ $this->menu = array(
 
 <?php $this->printRefreshScript(); ?>
 <?php echo CHtml::script('
-    scheduleRefresh(function(d){multicraft.console(d, "chat");});
+    scheduleRefresh(function(d){multicraft.console(d);});
     function chat_response(data)
     {
         $("#message").focus();
@@ -85,6 +83,6 @@ $this->menu = array(
             $("#chat-error").hide()
             $("#message").val("")
         }
-        setTimeout(function() { refresh("chat", function(d){multicraft.console(d, "chat");});}, 500);
+        setTimeout(function() { refresh("chat", function(d){multicraft.console(d);});}, 500);
     }
     '); ?>

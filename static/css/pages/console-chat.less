@@ -20,7 +20,34 @@
 	}
 }
 
+span.user-current {
+	color: #999;
+	margin: -2em 0 0 0;
+	text-align: right;
+	font-weight: bold;
+	color: @brand-primary;
+
+	&:before {
+		font-family: FontAwesome;
+		display: inline;
+		margin-right: 0.25em;
+		content: @fa-var-star;
+	}
+}
+
 .sx-date {
+	color: @solarized-base1;
+}
+.sx-level-info {
+	color: @solarized-cyan;
+}
+.sx-level-warning {
+	color: @solarized-orange;
+}
+.sx-level-severe {
+	color: @solarized-magenta;
+}
+.sx-source-connection {
 	color: @solarized-base1;
 }
 .sx-source-server {
@@ -89,4 +116,9 @@
 .sx-col-black {
 	color: #000;
 }
-
+.sx-uname {
+	color: @solarized-cyan;
+}
+.sx-connection {
+	color: @solarized-base1;
+}

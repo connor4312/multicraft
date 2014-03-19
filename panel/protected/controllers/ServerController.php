@@ -974,25 +974,23 @@ class ServerController extends Controller
                 foreach ($players as $player):
                     
             ?>
-                    <tr class="<?php if (!($i % 2)) echo 'even'; else echo 'odd' ?>">
-                        <td>
-                            <?php
-                                $nick = '<span'.($this->ip == @$player['ip']
-                                    ? ' style="font-weight: bold; color: blue"' : '').'>'
-                                        .CHtml::encode(@$player['name']).'</span>';
-                                if (@$player['id'])
-                                    echo CHtml::link($nick, array('player/view', 'id'=>$player['id']));
-                                else
-                                    echo $nick;
+                    <div>
+                        <?php
+                            $nick = '<span'.($this->ip == @$player['ip']
+                                ? ' class="user-current"' : '').'>'
+                                    .CHtml::encode(@$player['name']).'</span>';
+                            if (@$player['id'])
+                                echo CHtml::link($nick, array('player/view', 'id'=>$player['id']));
+                            else
+                                echo $nick;
 
-                            ?>
-                            <?php if ($kick): ?>
-                                <div style="float: right">
-                                    <?php echo CHtml::link('Kick', 'javascript:kickPlayer(\''.addslashes(@$player['name']).'\')'); ?>
-                                </div>
-                            <?php endif ?>
-                        </td>
-                    </tr>
+                        ?>
+                        <?php if ($kick): ?>
+                            <div style="float: right">
+                                <a href="javascript:kickPlayer('<?php echo addslashes(@$player['name']) ?>')"><i class="fa fa-sign-out"></i></a>
+                            </div>
+                        <?php endif ?>
+                    </div>
             <?php
                 $i++;
                 endforeach;

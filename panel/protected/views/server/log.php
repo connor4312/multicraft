@@ -46,14 +46,14 @@ $this->menu = array(
 <?php echo CHtml::endForm() ?>
 <?php endif ?>
 <!-- LOG -->
-<div id="console"></div>
+<div id="console" data-type="log"></div>
 <?php echo CHtml::ajaxLink(Yii::t('mc', 'Clear log'), '', array('type'=>'POST',
     'data'=>array('ajax'=>'clearLog', Yii::app()->request->csrfTokenName=>Yii::app()->request->csrfToken,),
     'success'=>'js:command_response')) ?>
 
 <?php $this->printRefreshScript(); ?>
 <?php echo CHtml::script('
-    scheduleRefresh(function(d){multicraft.console(d, "log");});
+    scheduleRefresh(function(d){multicraft.console(d);});
     function command_response(data)
     {
         $("#command").focus();
@@ -67,5 +67,5 @@ $this->menu = array(
             $("#command-error").hide()
             $("#command").val("")
         }
-        setTimeout(function() { refresh("log", function(d){multicraft.console(d, "log");});}, 500);
+        setTimeout(function() { refresh("log", function(d){multicraft.console(d);});}, 500);
     }'); ?>

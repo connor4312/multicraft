@@ -122,7 +122,7 @@ class Controller extends CController
             )) ?>
 
     }
-    function set_data(data)
+    function set_data(data, cb)
     {
         for (var key in data)
         {
@@ -161,7 +161,7 @@ class Controller extends CController
             }
         }
         <?php echo ($callback ? $callback.'();' : '') ?>        
-        scheduleRefresh();
+        scheduleRefresh(cb);
     }
     function scheduleRefresh(cb)
     {
