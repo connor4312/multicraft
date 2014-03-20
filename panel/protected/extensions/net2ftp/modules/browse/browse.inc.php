@@ -361,14 +361,14 @@ function net2ftp_module_printBody() {
 			if ($net2ftp_globals["sortorder"] == "ascending") { 
 				$sortArray[$key]["title"]   = __("Click to sort by %1\$s in descending order", $value["text"]); 
 				$sortArray[$key]["onclick"] = "do_sort('" . $key . "','descending');";
-				$icon = "ascend.png";
+				$icon = "fa fa-caret-up";
 				$alt  = __("Ascending order"); 
 			}
 			// Descending
 			else {
 				$sortArray[$key]["title"]   = __("Click to sort by %1\$s in ascending order", $value["text"]); 
 				$sortArray[$key]["onclick"] = "do_sort('" . $key . "','ascending');";
-				$icon = "descend.png";
+				$icon = "fa fa-caret-down";
 				$alt  = __("Descending order"); 
 			}
 		}
@@ -385,12 +385,7 @@ function net2ftp_module_printBody() {
 // The icon to be printed is determined above
 // Now, print the full HTML depending on the browser agent, version and platform
 		if ($icon != "") {
-			if ($net2ftp_globals["browser_agent"] == "IE" && ($net2ftp_globals["browser_version"] == "5.5" || $net2ftp_globals["browser_version"] == "6") && $net2ftp_globals["browser_platform"] == "Win") {
-				$sortArray[$key]["icon"] = "<img src=\"$icon_directory/spacer.gif\"   alt=\"$alt\" style=\"border: 0px; width: 16px; height: 16px; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$icon_directory/$icon', sizingMethod='scale');\" />\n";
-			} 
-			else { 
-				$sortArray[$key]["icon"] = "<img src=\"$icon_directory/$icon\"        alt=\"$alt\" style=\"border: 0px; width: 16px; height: 16px;\" />\n"; 
-			}
+			$sortArray[$key]["icon"] = ' <i class="' . $icon . '"></i>';
 		}
 		else {
 				$sortArray[$key]["icon"] = "";

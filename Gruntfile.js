@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'static',
-          src: ['**/*.{jpg,ico,gif,png,js}'],
+          src: ['**/*.{jpg,ico,gif,png,js,eot,svg,ttf,woff}'],
           dest: 'panel/static'
         }, {
           expand: true,
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'static',
-          src: ['**/*.{jpg,ico}'],
+          src: ['**/*.{jpg,ico,eot,woff,ttf}'],
           dest: 'panel/static'
         }, {
           expand: true,
@@ -93,6 +93,16 @@ module.exports = function(grunt) {
         }]
       }
     },
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['**/*.svg'],
+          dest: 'panel/static',
+        }]
+      }
+    },
     compress: {
       pack: {
         options: {
@@ -108,7 +118,7 @@ module.exports = function(grunt) {
     },
     concurrent: {
       dev: ['copy:dev', 'less:dev'],
-      dist: ['copy:dist', 'less:dist', 'imagemin:dist', 'uglify:dist'],
+      dist: ['copy:dist', 'less:dist', 'imagemin:dist', 'uglify:dist', 'svgmin:dist'],
       watch: ['watch:copy', 'watch:less']
     },
     clean: {
@@ -141,6 +151,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-svgmin');
 
   grunt.registerTask('default', ['clean:statics', 'concurrent:dev']);
   grunt.registerTask('spy', ['clean:statics', 'concurrent:dev', 'concurrent:watch']);

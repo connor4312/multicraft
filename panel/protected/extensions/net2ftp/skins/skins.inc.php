@@ -33,7 +33,7 @@ function getSkinArray() {
 // -------------------------------------------------------------------------
 	$skinArray["mc"]["name"]             = __("Blue");
 	$skinArray["mc"]["iconset"]          = "nuvola";
-	$skinArray["mc"]["image_url"]        = $net2ftp_globals["application_rootdir_url"] . "/net2ftp/img";
+	$skinArray["mc"]["image_url"]        = $net2ftp_globals["application_rootdir_url"] . "/img/net2ftp";
 	$skinArray["mc"]["icon_size_mime"]   = "16";
 
 	return $skinArray;
@@ -125,203 +125,203 @@ function getMime($listline) {
 // Icon names
 // -------------------------------------------------------------------------
 	if ($last == "directory") {
-		$icon = "folder";
+		$icon = "fa fa-folder";
 		$type = __("Directory");
 	}
 	elseif ($last == "symlink") {
-		$icon = "folder_grey";
+		$icon = "fa fa-link";
 		$type = __("Symlink");
 	}
 
 // Web files
 	elseif ($last == "asp") {
-		$icon = "";
+		$icon = "icon icon-file-code";
 		$type = __("ASP script");
 	}
 	elseif ($last == "css") {
-		$icon = "stylesheet";
+		$icon = "icon icon-file-code";
 		$type = __("Cascading Style Sheet");
 	}
 	elseif ($last == "htm" || $last == "html") {
-		$icon = "html";
+		$icon = "icon icon-file-code";
 		$type = __("HTML file");
 	}
 	elseif ($last == "java") {
-		$icon = "source_java";
+		$icon = "icon icon-file-code";
 		$type = __("Java source file");
 	}
 	elseif ($last == "js") {
-		$icon = "";
+		$icon = "icon icon-file-code";
 		$type = __("JavaScript file");
 	}
 	elseif ($last == "phps") {
-		$icon = "php";
+		$icon = "icon icon-file-code";
 		$type = __("PHP Source");
 	}
 	elseif (substr($last,0,3) == "php") {
-		$icon = "php";
+		$icon = "icon icon-file-code";
 		$type = __("PHP script");
 	}
 	elseif ($last == "txt") {
-		$icon = "document";
+		$icon = "icon icon-file-default";
 		$type = __("Text file");
 	}
 
 // Images
 	elseif ($last == "bmp") {
-		$icon = "colors";
+		$icon = "icon icon-file-graphic";
 		$type = __("Bitmap file");
 	}
 	elseif ($last == "gif") {
-		$icon = "colors";
+		$icon = "icon icon-file-graphic";
 		$type = __("GIF file");
 	}
 	elseif ($last == "jpg" || $last == "jpeg") {
-		$icon = "colors";
+		$icon = "icon icon-file-graphic";
 		$type = __("JPEG file");
 	}
 	elseif ($last == "png") {
-		$icon = "colors";
+		$icon = "icon icon-file-graphic";
 		$type = __("PNG file");
 	}
 	elseif ($last == "tif" || $last == "tiff") {
-		$icon = "colors";
+		$icon = "icon icon-file-graphic";
 		$type = __("TIF file");
 	}
 	elseif ($last == "xcf") {
-		$icon = "gimp";
+		$icon = "icon icon-file-graphic";
 		$type = __("GIMP file");
 	}
 
 // Executables and scripts
 	elseif ($last == "exe" || $last == "com") {
-		$icon = "exec";
+		$icon = "icon icon-file-default";
 		$type = __("Executable");
 	}
 	elseif ($last == "sh") {
-		$icon = "terminal";
+		$icon = "icon icon-file-default";
 		$type = __("Shell script");
 	}
 
 // MS Office
 	elseif ($last == "doc") {
-		$icon = "";
+		$icon = "icon icon-file-work";
 		$type = __("MS Office - Word document");
 	}
 	elseif ($last == "xls") {
-		$icon = "";
+		$icon = "icon icon-file-excel";
 		$type = __("MS Office - Excel spreadsheet");
 	}
 	elseif ($last == "ppt") {
-		$icon = "";
+		$icon = "icon icon-file-graphic";
 		$type = __("MS Office - PowerPoint presentation");
 	}
 	elseif ($last == "mdb") {
-		$icon = "";
+		$icon = "icon icon-file-default";
 		$type = __("MS Office - Access database");
 	}
 	elseif ($last == "vsd") {
-		$icon = "";
+		$icon = "icon icon-file-default";
 		$type = __("MS Office - Visio drawing");
 	}
 	elseif ($last == "mpp") {
-		$icon = "";
+		$icon = "icon icon-file-default";
 		$type = __("MS Office - Project file");
 	}
 
 // OpenOffice 6
 	elseif ($last == "sxw") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Writer 6.0 document");
 	}
 	elseif ($last == "stw") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Writer 6.0 template");
 	}
 	elseif ($last == "sxc") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Calc 6.0 spreadsheet");
 	}
 	elseif ($last == "stc") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Calc 6.0 template");
 	}
 	elseif ($last == "sxd") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Draw 6.0 document");
 	}
 	elseif ($last == "std") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Draw 6.0 template");
 	}
 	elseif ($last == "sxi") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Impress 6.0 presentation");
 	}
 	elseif ($last == "sti") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Impress 6.0 template");
 	}
 	elseif ($last == "sxg") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Writer 6.0 global document");
 	}
 	elseif ($last == "sxm") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("OpenOffice - Math 6.0 document");
 	}
 
 // StarOffice 5
 	elseif ($last == "sdw") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarWriter 5.x document");
 	}
 	elseif ($last == "sgl") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarWriter 5.x global document");
 	}
 	elseif ($last == "sdc") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarCalc 5.x spreadsheet");
 	}
 	elseif ($last == "sda") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarDraw 5.x document");
 	}
 	elseif ($last == "sdd") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarImpress 5.x presentation");
 	}
 	elseif ($last == "sdp") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarImpress Packed 5.x file");
 	}
 	elseif ($last == "smf") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarMath 5.x document");
 	}
 	elseif ($last == "sds") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarChart 5.x document");
 	}
 	elseif ($last == "sdm") {
-		$icon = "openoffice";
+		$icon = "icon icon-file-office";
 		$type = __("StarOffice - StarMail 5.x mail file");
 	}
 
 // PDF and PS
 	elseif ($last == "pdf") {
-		$icon = "acroread";
+		$icon = "icon icon-file-pdf";
 		$type = __("Adobe Acrobat document");
 	}
 
 // Archives
 	elseif ($last == "arc") {
-		$icon = "tgz";
+		$icon = "icon icon-file-archive";
 		$type = __("ARC archive");
 	}
 	elseif ($last == "arj") {
-		$icon = "tgz";
+		$icon = "icon icon-file-archive";
 		$type = __("ARJ archive");
 	}
 	elseif ($last == "rpm") {
@@ -329,7 +329,7 @@ function getMime($listline) {
 		$type = __("RPM");
 	}
 	elseif ($last == "gz") {
-		$icon = "tgz";
+		$icon = "icon icon-file-archive";
 		$type = __("GZ archive");
 	}
 	elseif ($last == "tar") {
@@ -337,87 +337,71 @@ function getMime($listline) {
 		$type = __("TAR archive");
 	}
 	elseif ($last == "zip") {
-		$icon = "tgz";
+		$icon = "icon icon-file-archive";
 		$type = __("Zip archive");
 	}
 
 // Movies
 	elseif ($last == "mov") {
-		$icon = "video";
+		$icon = "icon icon-file-graphic";
 		$type = __("MOV movie file");
 	}
 	elseif ($last == "mpg" || $last == "mpeg") {
-		$icon = "video";
+		$icon = "icon icon-file-graphic";
 		$type = __("MPEG movie file");
 	}
 	elseif ($last == "rm" || $last == "ram") {
-		$icon = "realplayer";
+		$icon = "icon icon-file-graphic";
 		$type = __("Real movie file");
 	}
 	elseif ($last == "qt") {
-		$icon = "quicktime";
+		$icon = "icon icon-file-graphic";
 		$type = __("Quicktime movie file");
 	}
 
 // Flash
 	elseif ($last == "fla") {
-		$icon = "";
+		$icon = "icon icon-file-graphic";
 		$type = __("Shockwave flash file");
 	}
 	elseif ($last == "swf") {
-		$icon = "";
+		$icon = "icon icon-file-graphic";
 		$type = __("Shockwave file");
 	}
 
 
 // Sound
 	elseif ($last == "wav") {
-		$icon = "sound";
+		$icon = "icon icon-file-default";
 		$type = __("WAV sound file");
 	}
 
 // Fonts
 	elseif ($last == "ttf") {
-		$icon = "fonts";
+		$icon = "icon icon-file-default";
 		$type = __("Font file");
 	}
 
 // Default Extension
 	elseif ($last) {
-		$icon = "mime";
+		$icon = "icon icon-file-default";
 		$type = Yii::t('mc', "{file} File", array('{file}'=>strtoupper($last)));
 	}
 
 // Default File
 	else {
-		$icon = "mime";
+		$icon = "icon icon-file-default";
 		$type = __("File");
 	}
 
-	if ($icon == "") { $icon = "mime"; }
+	if ($icon == "") { $icon = "icon icon-file-default"; }
 	if ($type == "") { $type = __("File"); }
 
 // -------------------------------------------------------------------------
 // Return mime icon and mime type
 // -------------------------------------------------------------------------
 
-	// OpenLaszlo skin doesn't need HTML tags
-	if ($net2ftp_globals["skin"] == "openlaszlo") {
-		$mime["mime_icon"] = $icon . "_icon";
-	}
-	// Internet Explorer does not display transparent PNG images correctly.
-	// A solution is described here: http://support.microsoft.com/default.aspx?scid=kb;en-us;Q294714
-	elseif ($net2ftp_settings["fix_png"] == "yes" && $net2ftp_globals["browser_agent"] == "IE" && $net2ftp_globals["browser_platform"] == "Win" && ($net2ftp_globals["browser_version"] == "5.5" || $net2ftp_globals["browser_version"] == "6.0" || $net2ftp_globals["browser_version"] == "7.0")) { 
-		$icon .= ".png";
-		$icon_directory = $net2ftp_globals["application_rootdir_url"] . "/net2ftp/img/mime";
-		$mime["mime_icon"] = "<img src=\"$icon_directory/spacer.gif\" alt=\"icon\" style=\"width: " . $skinArray[$net2ftp_globals["skin"]]["icon_size_mime"] . "px; height: " . $skinArray[$net2ftp_globals["skin"]]["icon_size_mime"] . "px; border: 0px; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$icon_directory/$icon', sizingMethod='scale')\" />\n"; 
-	}
-	else { 
-		$icon .= ".png";
-		$icon_directory = $net2ftp_globals["application_rootdir_url"] . "/net2ftp/img/mime";
-		$mime["mime_icon"] = "<img src=\"$icon_directory/$icon\"      alt=\"icon\" style=\"width: " . $skinArray[$net2ftp_globals["skin"]]["icon_size_mime"] . "px; height: " . $skinArray[$net2ftp_globals["skin"]]["icon_size_mime"] . "px; border: 0px;\" />\n"; 
-	}
-
+	$mime["mime_icon"] = '<i class="' . $icon . '"></i>';
 	$mime["mime_type"] = $type;
 
 	return $mime;
@@ -486,66 +470,65 @@ function printActionIcon($action, $onclick, $unused = '', $a = false) {
 // -------------------------------------------------------------------------
 	if ($action == "back") {
 		$alt = __("Back");
-		$icon = "back";
+		$icon = "fa fa-chevron-left";
 		$accesskey = "b";
 	}
 	elseif ($action == "forward") {
 		$alt = __("Submit");
-		$icon = "button_ok";
+		$icon = "fa fa-check";
 		$accesskey = "v";
 	}
 	elseif ($action == "refresh") {
 		$alt = __("Refresh");
-		$icon = "reload";
+		$icon = "fa fa-refresh";
 		$accesskey = "r";
 	}
 	elseif ($action == "view_details") {
 		$alt = __("Details");
-		$icon = "view_detailed";
+		$icon = "fa fa-list";
 		$accesskey = "";
 	}
 	elseif ($action == "view_icons") {
 		$alt = __("Icons");
-		$icon = "view_icon";
+		$icon = "fa fa-star";
 		$accesskey = "";
 	}
 	elseif ($action == "listdirectories") {
 		$alt = __("List");
-		$icon = "view_tree";
+		$icon = "fa fa-list";
 		$accesskey = "";
 	}
 	elseif ($action == "logout") {
 		$alt = __("Logout");
-		$icon = "exit";
+		$icon = "fa fa-sign-out";
 		$accesskey = "l";
 	}
 	elseif ($action == "help") {
 		$alt = __("Help");
-		$icon = "info";
+		$icon = "fa fa-question";
 		$accesskey = "i";
 	}
 	elseif ($action == "bookmark") {
 		$alt = __("Bookmark");
-		$icon = "bookmark";
+		$icon = "fa fa-bookmark";
 		$accesskey = "h";
 	}
 	elseif ($action == "save") {
 		$alt = __("Save");
-		$icon = "filesave";
+		$icon = "fa fa-floppy-o";
 		$accesskey = "s";
 	}
 	elseif ($action == "up") {
 		$alt = __("Up");
-		$icon = "up";
+		$icon = "fa fa-chevron-up";
 		$accesskey = "u";
 	}
 	else {
 		$alt = __("Default");
-		$icon = "mime";
+		$icon = "icon icon-file-default";
 		$accesskey = "";
 	}
 
-	$icon .= ".png";
 	if (false && $accesskey != "") { 
 		$alt = $alt . " (accesskey $accesskey)";
 		$accesskeytag = "accesskey=\"$accesskey\"" ; 
@@ -564,9 +547,11 @@ function printActionIcon($action, $onclick, $unused = '', $a = false) {
 // Do not include a URL if $onclick is empty
 // -------------------------------------------------------------------------
 
+	$icon_total = '<i class="' . $icon . '"></i>' ;
+
     if (!$a)
     {
-        echo '<input type="submit" value="'.$alt.'" onclick="'.$onclick.'; return false" />';
+        echo '<button onclick="'.$onclick.'; return false" class="btn" />'. $icon_total . ' ' . $alt.'</button>';
         return;
     }
 
@@ -579,26 +564,13 @@ function printActionIcon($action, $onclick, $unused = '', $a = false) {
 		$href_end   = "";
 	}
 
-    echo $href_start.$alt.$href_end;
+    echo $href_start.$icon_total.' '.$alt.$href_end;
     return;
 
 // -------------------------------------------------------------------------
 // Return text (for mobile skin) or icon (for all other skins)
 // -------------------------------------------------------------------------
 
-	if ($skinArray[$net2ftp_globals["skin"]]["icon_size_mime"] == 0) {
-		$icon_total = "$href_start$action ($accesskey)$href_end\n"; 
-	}
-
-	// Internet Explorer does not display transparent PNG images correctly.
-	// A solution is described here: http://support.microsoft.com/default.aspx?scid=kb;en-us;Q294714
-
-	elseif ($net2ftp_settings["fix_png"] == "yes" && $net2ftp_globals["browser_agent"] == "IE" && $net2ftp_globals["browser_platform"] == "Win" && ($net2ftp_globals["browser_version"] == "5.5" || $net2ftp_globals["browser_version"] == "6.0" || $net2ftp_globals["browser_version"] == "7.0")) { 
-		$icon_total = "$href_start<img src=\"$icon_directory/spacer.gif\" alt=\"$alt\" onmouseover=\"this.style.margin='0px';this.style.width='34px';this.style.height='34px';\" onmouseout=\"this.style.margin='1px';this.style.width='32px';this.style.height='32px';\" style=\"border: 0px; margin: 1px; width: 32px; height: 32px; vertical-align: middle; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$icon_directory/$icon', sizingMethod='scale');\" />$href_end\n"; 
-	}
-	else { 
-		$icon_total = "$href_start<img src=\"$icon_directory/$icon\"      alt=\"$alt\" onmouseover=\"this.style.margin='0px';this.style.width='34px';this.style.height='34px';\" onmouseout=\"this.style.margin='1px';this.style.width='32px';this.style.height='32px';\" style=\"border: 0px; margin: 1px; width: 32px; height: 32px; vertical-align: middle;\" />$href_end\n"; 
-	}
 
 	echo $icon_total;
 

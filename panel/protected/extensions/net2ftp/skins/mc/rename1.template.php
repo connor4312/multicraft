@@ -2,7 +2,13 @@
 <!-- Template /skins/mc/rename1.template.php begin -->
 <?php for ($i=1; $i<=sizeof($list["all"]); $i++) { ?>
 <?php		printDirFileProperties($i, $list["all"][$i], "hidden", ""); ?>
-	<?php echo Yii::t('mc', "Old name: "); ?><b><?php echo $list["all"][$i]["dirfilename"]; ?></b><br />
-	<?php echo Yii::t('mc', "New name: "); ?><input type="text" class="input" name="newNames[<?php echo $i; ?>]" value="<?php echo $list["all"][$i]["dirfilename_html"]; ?>" /><br /><br />
+<div class="form-group">
+	<label class="col-md-3 control-label"><?php echo Yii::t('mc', "Old name: "); ?></label>
+	<div class="col-md-9"><input type="text" disabled class="form-control" value="<?php echo $list["all"][$i]["dirfilename"]; ?>"></div>
+</div>
+<div class="form-group">
+	<label class="col-md-3 control-label"><?php echo Yii::t('mc', "New name: "); ?></label>
+	<div class="col-md-9"><input type="text" class="form-control" name="newNames[<?php echo $i; ?>]" value="<?php echo $list["all"][$i]["dirfilename_html"]; ?>" /></div>
+</div>
 <?php } // end for ?>
 <!-- Template /skins/mc/rename1.template.php end -->

@@ -1,7 +1,7 @@
 <?php defined("NET2FTP") or die("Direct access to this location is not allowed."); ?>
 <!-- Template /skins/mc/manage.template.php begin -->
 	<div id="main">
-		<form name="<?php echo $formname; ?>" id="<?php echo $formname; ?>" action="<?php echo $net2ftp_globals["action_url"]; ?>" <?php if (isset($enctype)) { echo $enctype; } ?> method="post">
+		<form name="<?php echo $formname; ?>" id="<?php echo $formname; ?>" action="<?php echo $net2ftp_globals["action_url"]; ?>" <?php if (isset($enctype)) { echo $enctype; } ?> method="post" CLASS="form-horizontal">
 <?php			printLoginInfo(); ?>
 			<input type="hidden" name="<?php echo Yii::app()->request->csrfTokenName ?>" value="<?php echo Yii::app()->request->csrfToken ?>" />
 			<input type="hidden" name="state"     value="<?php echo $net2ftp_globals["state_html"]; ?>" />

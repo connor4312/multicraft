@@ -17,31 +17,26 @@ function format_bytes($size) {
 ?>
 <!-- Template /skins/mc/browse_main_details.template.php begin -->
 
-<script type="text/javascript"><!--\n"; 
+<script type="text/javascript"><!--\n; 
 function setColor_js(i, checkbox_hidden) {
     // i contains the row number
     // checkbox_hidden determines if the row has a checkbox, or hidden properties
 
 // Set the colors for the rows
-    if (i%2 == 1) { bgcolor_true = '#ABABAB'; fontcolor_true = '#000000'; bgcolor_false = '#f4f4f4'; fontcolor_false = '#000000'; }
-    else          { bgcolor_true = '#ABABAB'; fontcolor_true = '#000000'; bgcolor_false = '#f4f4f4'; fontcolor_false = '#000000'; }
+    bgcolor_true = window.multicraft.less['brand-primary'];
+    fontcolor_true = window.multicraft.less['brand-primary-contrast'];
+    bgcolor_false = 'inherit';
+    fontcolor_false = 'inherit';
 
 // Checkbox ==> set the colors depending on the checkbox status
 // Hidden ==> set the colors as for an unchecked checkbox
-    row_id = 'row' + i;
+    row_id = '#row' + i;
     checkbox_id = 'list_' + i + '_dirfilename';
     if (document.getElementById) {
         if (checkbox_hidden == 'checkbox' && document.getElementById(checkbox_id).checked == true) { 
-            document.getElementById(row_id).style.background = bgcolor_true;  document.getElementById(row_id).style.color = fontcolor_true; 
+            $(row_id).addClass('row-selected');
         } else { 
-            document.getElementById(row_id).style.background = bgcolor_false; document.getElementById(row_id).style.color = fontcolor_false; 
-        }
-    }
-    else if (document.all) {
-        if (checkbox_hidden == 'checkbox' && document.all[checkbox_id].checked == true) { 
-            document.all[row_id].style.background = bgcolor_true;  document.all[row_id].style.color = fontcolor_true; 
-        } else { 
-            document.all[row_id].style.background = bgcolor_false; document.all[row_id].style.color = fontcolor_false; 
+            $(row_id).removeClass('row-selected');
         }
     }
 }
@@ -59,57 +54,56 @@ function setColor_js(i, checkbox_hidden) {
 
 
 <?php if (isset($warning_directory) == true && $warning_directory != "") { ?>
-    <div class="warning-box"><div class="warning-text">
+    <div class="alert alert-warning">
     <?php echo $warning_directory; ?>
-    </div></div><br />
+    </div><br />
 <?php } ?>
 
 <?php if (isset($warning_consumption) == true && $warning_consumption != "") { ?>
-    <div class="warning-box"><div class="warning-text">
+    <div class="alert alert-warning">
     <?php echo $warning_consumption; ?>
-    </div></div><br />
+    </div><br />
 <?php } ?>
 
 <?php if (isset($warning_message) == true && $warning_message != "") { ?>
-    <div class="warning-box"><div class="warning-text">
+    <div class="alert alert-warning">
     <?php echo $warning_message; ?>
-    </div></div><br />
+    </div><br />
 <?php } ?>
 
-<table style="width: 100%; margin: 0px" border="0" cellpadding="2" cellspacing="0">
-<tr>
-    <td valign="top" style="text-align: <?php echo __("left"); ?>; padding: 0px">
-        <input type="button" class="smallbutton" value="<?php echo Yii::t('mc', 'Move') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'copymovedelete', 'move');" title="<?php echo Yii::t('mc', 'Move the selected entries') ?>" />
-        <input type="button" class="smallbutton" value="<?php echo Yii::t('mc', 'Delete') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'copymovedelete', 'delete');" title="<?php echo Yii::t('mc', 'Delete the selected entries') ?>" />
-        <input type="button" class="smallbutton" value="<?php echo Yii::t('mc', 'Rename') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'rename', '');" title="<?php echo Yii::t('mc', 'Rename the selected entries') ?>" />
-        <div style="margin-top: 3px;">
-<?php               if ($net2ftp_settings["functionuse_downloadzip"]    == "yes") { ?><input type="button" class="smallbutton" value="<?php echo Yii::t('mc', 'Download') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'downloadzip', '');" title="<?php echo Yii::t('mc', 'Download a zip file containing all selected entries') ?>" /> <?php } // end if ?>
-        </div>
-    </td>
-    <td valign="top" style="text-align: <?php echo __("right"); ?>; padding: 0px">
-    </td>
-</tr>
-</table>
 
-<table align="center" style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
-    <tr class="browse_rows_heading">
-        <td style="width: 20px;"><a href="javascript:CheckAll(document.BrowseForm);"  title="Click to check or uncheck all rows (accesskey t)" accesskey="t"><?php echo Yii::t('mc', "All"); ?></a></td>
-        <td colspan="1" width="20"></td>
-        <td colspan="1" width="250"><a href="javascript:<?php echo $sortArray["dirfilename"]["onclick"]; ?>" title="<?php echo $sortArray["dirfilename"]["title"]; ?>"><?php echo $sortArray["dirfilename"]["text"]; ?></a><?php echo $sortArray["dirfilename"]["icon"]; ?></td>
-        <td colspan="1"><a href="javascript:<?php echo $sortArray["type"]["onclick"];        ?>" title="<?php echo $sortArray["type"]["title"];        ?>"><?php echo $sortArray["type"]["text"];        ?></a><?php echo $sortArray["type"]["icon"];        ?></td>
-        <td colspan="1"><a href="javascript:<?php echo $sortArray["size"]["onclick"];        ?>" title="<?php echo $sortArray["size"]["title"];        ?>"><?php echo $sortArray["size"]["text"];        ?></a><?php echo $sortArray["size"]["icon"];        ?></td>
-        <td colspan="1"><a href="javascript:<?php echo $sortArray["mtime"]["onclick"];       ?>" title="<?php echo $sortArray["mtime"]["title"];       ?>"><?php echo $sortArray["mtime"]["text"];       ?></a><?php echo $sortArray["mtime"]["icon"];       ?></td>
-        <td colspan="1"></td>
-    </tr>
+<div class="row">
+    <div class="col-md-6">
+        <input type="button" class="btn btn-default" value="<?php echo Yii::t('mc', 'Move') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'copymovedelete', 'move');" title="<?php echo Yii::t('mc', 'Move the selected entries') ?>" />
+        <input type="button" class="btn btn-default" value="<?php echo Yii::t('mc', 'Rename') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'rename', '');" title="<?php echo Yii::t('mc', 'Rename the selected entries') ?>" />
+        <?php               if ($net2ftp_settings["functionuse_downloadzip"]    == "yes") { ?><input type="button" class="btn btn-default" value="<?php echo Yii::t('mc', 'Download') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'downloadzip', '');" title="<?php echo Yii::t('mc', 'Download a zip file containing all selected entries') ?>" /> <?php } // end if ?>
+    </div>
+    <div class="col-md-6 text-right">
+        <input type="button" class="btn btn-danger" value="<?php echo Yii::t('mc', 'Delete') ?>" onclick="submitBrowseForm('<?php echo $directory_js; ?>', '', 'copymovedelete', 'delete');" title="<?php echo Yii::t('mc', 'Delete the selected entries') ?>" />
+    </div>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th style="width: 20px;"><a href="javascript:CheckAll(document.BrowseForm);"  title="Click to check or uncheck all rows (accesskey t)" accesskey="t"><?php echo Yii::t('mc', "All"); ?></a></th>
+            <th colspan="1" width="20"></th>
+            <th colspan="1" width="250"><a href="javascript:<?php echo $sortArray["dirfilename"]["onclick"]; ?>" title="<?php echo $sortArray["dirfilename"]["title"]; ?>"><?php echo $sortArray["dirfilename"]["text"]; ?></a><?php echo $sortArray["dirfilename"]["icon"]; ?></th>
+            <th colspan="1"><a href="javascript:<?php echo $sortArray["type"]["onclick"];        ?>" title="<?php echo $sortArray["type"]["title"];        ?>"><?php echo $sortArray["type"]["text"];        ?></a><?php echo $sortArray["type"]["icon"];        ?></th>
+            <th colspan="1"><a href="javascript:<?php echo $sortArray["size"]["onclick"];        ?>" title="<?php echo $sortArray["size"]["title"];        ?>"><?php echo $sortArray["size"]["text"];        ?></a><?php echo $sortArray["size"]["icon"];        ?></th>
+            <th colspan="1"><a href="javascript:<?php echo $sortArray["mtime"]["onclick"];       ?>" title="<?php echo $sortArray["mtime"]["title"];       ?>"><?php echo $sortArray["mtime"]["text"];       ?></a><?php echo $sortArray["mtime"]["icon"];       ?></th>
+            <th colspan="1"></th>
+        </tr>
+    </thead>
 
 <?php /* ----- Up ----- */ ?>
         <tr class="browse_rows_even">
             <td></td>
             <td title="<?php echo Yii::t('mc', "Go to the parent directory"); ?>" style="cursor: pointer; cursor: hand;" onclick="javascript:submitBrowseForm('<?php echo $updirectory_js; ?>', '', 'browse', 'main');">
-<?php               printMime("icon", array("dirorfile" => "d")); ?>
+                <i class="fa fa-chevron-up"></i>
             </td>
             <td colspan="1" title="<?php echo Yii::t('mc', "Go to the parent directory"); ?>" style="cursor: pointer; cursor: hand;" onclick="javascript:submitBrowseForm('<?php echo $updirectory_js; ?>', '', 'browse', 'main');">
-                <a href="javascript:submitBrowseForm('<?php echo $updirectory_url; ?>','','browse','main');"><?php echo Yii::t('mc', "Up"); ?> ..</a>
+                <a href="javascript:submitBrowseForm('<?php echo $updirectory_url; ?>','','browse','main');"><?php echo Yii::t('mc', "Up"); ?></a>
             </td>
             <td></td>
             <td></td>
@@ -277,9 +271,9 @@ function setColor_js(i, checkbox_hidden) {
 </form>
 
 <?php /* ----- Statistics ----- */ ?>
-<div style="font-size: 90%; margin-top: 10px; float:left">
+<div class="muted text-right">
 <?php echo $list["stats"]["directories"]["total_number"].' '.Yii::t('mc', 'Directories').', '
-    .$list["stats"]["files"]["total_number"].' '.Yii::t('mc', 'Files').' ('.$list["stats"]["files"]["total_size_formated"].')' ?>
+    .$list["stats"]["files"]["total_number"].' '.Yii::t('mc', 'Files').' ('.$list["stats"]["files"]["total_size_formated"].')' ?>. <?php echo Yii::t('mc', "Powered by"); ?> net2ftp.
 </div>
 
     </div>
