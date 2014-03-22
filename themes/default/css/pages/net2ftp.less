@@ -1,0 +1,67 @@
+/* Styling for Net2ftp ********************************************************/
+
+.row-selected {
+	a {
+		color: #fff;
+	}
+
+	td {
+		color: #fff;
+		background: @brand-primary !important;
+		border-bottom: 1px solid contrast(@brand-primary, lighten(@brand-primary, 10%), darken(@brand-primary, 10%));
+	}
+}
+
+/* Icomoon file type icons ****************************************************/
+@font-face {
+	font-family: 'net2ftp';
+	src:url('../font/net2ftp.eot?wz8pwk');
+	src:url('../font/net2ftp.eot?#iefixwz8pwk') format('embedded-opentype'),
+		url('../font/net2ftp.woff?wz8pwk') format('woff'),
+		url('../font/net2ftp.ttf?wz8pwk') format('truetype'),
+		url('../font/net2ftp.svg?wz8pwk#net2ftp') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family: 'net2ftp';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-file-default:before {
+	content: "\e601";
+}
+.icon-file-pdf:before {
+	content: "\e602";
+}
+.icon-file-office:before {
+	content: "\e603";
+}
+.icon-file-word:before {
+	content: "\e604";
+}
+.icon-file-excel:before {
+	content: "\e605";
+}
+.icon-file-archive:before {
+	content: "\e606";
+}
+.icon-file-graphic:before {
+	content: "\e607";
+}
+.icon-file-code:before {
+	content: "\e608";
+}
+.icon-file-stylesheet:before {
+	content: "\e609";
+}

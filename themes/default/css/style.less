@@ -1,0 +1,110 @@
+/* Font Awesome ***************************************************************/
+@import "../../bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: '../font';
+
+/* Theme Variables - You should not have to change anything except this section,
+   at least for your basic theming needs **************************************/
+
+@brand-primary-contrast: contrast(@brand-primary);
+
+// Main page colors
+@page-bg: #fff;
+@page-shadow: 0 0 100px rgba(0, 0, 0, 0.75);
+@page-shadow-length: 150px;
+@page-border-standard-color: #ccc;
+@page-border-lighter-color: #ddd;
+@page-light-text-color: #555;
+@page-muted-color: #888;
+
+// Colors for the page header
+@header-color-primary: #fff;
+@header-color-secondary: #ccc;
+
+// Titles
+@title-font-size: 20px;
+
+// Settings for the page sidebar
+@sidebar-bg: #F5F5F5;
+@sidebar-link-color: #777;
+@sidebar-title-color: #999;
+@sidebar-title-size: 1.2em;
+@sidebar-hover-color: @brand-primary;
+@sidebar-hover-background: #fff;
+
+// Footer settings
+@footer-height: 50px;
+@footer-margin: 30px;
+@footer-bg-start: tint(@body-bg, 50%);
+@footer-bg-end: @body-bg;
+@footer-bg-border: #ccc;
+@footer-color: #bbb;
+@footer-link-color: #aaa;
+
+// "Mini" page setting
+@mini-width: 400px;
+@mini-top-spacing: 100px;
+@mini-content-padding: 15px;
+@mini-content-border-radius: @border-radius-base * 2;
+@mini-content-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+@mini-background-darkness: 0.05;
+@mini-background-height: 676px;
+@mini-background-offset: -100px;
+
+// Detailview settings
+@detailview-title-colwidth: 25%;
+@detailview-help-colwidth: 2em;
+@detailview-help-size: 1.25em; // Must be in em's
+@detailview-btn-max-width: 300px;
+
+// Settings for the console, and syntax highlight colors
+@console-max-height: 500px;
+
+@solarized-base03:    #002b36;
+@solarized-base02:    #073642;
+@solarized-base01:    #586e75;
+@solarized-base00:    #657b83;
+@solarized-base0:     #839496;
+@solarized-base1:     #93a1a1;
+@solarized-base2:     #fff;
+@solarized-base3:     #eee;
+@solarized-yellow:    #b58900;
+@solarized-orange:    #cb4b16;
+@solarized-red:       #dc322f;
+@solarized-magenta:   #d33682;
+@solarized-violet:    #6c71c4;
+@solarized-blue:      #268bd2;
+@solarized-cyan:      #2aa198;
+@solarized-green:     #859900;
+
+/* "Scooper" to transmit LESS variables for JS use *****************************/
+#scooper {
+	font-family: @font-family-sans-serif;
+	content: "headings-font-weight:@{headings-font-weight}|brand-primary:@{brand-primary}|body-bg:@{body-bg}|page-bg:@{page-bg}|brand-primary-contrast:@{brand-primary-contrast}";
+	display: none;
+}
+
+// bootstrap.less is responsible for importing Bootstrap, and setting variables
+// and overrides for Bootstrap itself.
+@import "multicraft/bootstrap.less";
+// page.less is responsible for declaring styles to be used in the whole-page
+// layout, namely the header and footer portions of the page.
+@import "multicraft/page.less";
+// mini-layout.less declares styling for the "mini" pages, such as "Login".
+@import "multicraft/mini-layout.less";
+// tables.less styles the grid-view and list-view tables, used to show content
+// on most Multicraft pages, and their associated components
+@import "multicraft/tables.less";
+// zii.less styles and/or overrides components of the Zii framework.
+@import "multicraft/zii.less";
+
+
+// Styling for the console/chat pages, specifically the syntax highlighting
+@import "pages/console-chat.less";
+// Styling for the "About" page
+@import "pages/about.less";
+// Styling for the server listing page, specifically the servers layout
+@import "pages/server-list.less";
+// Styling for the statistics page
+@import "pages/statistics.less";
+// Styling for net2ftp, and loads icon fonts for filetypes
+@import "pages/net2ftp.less";

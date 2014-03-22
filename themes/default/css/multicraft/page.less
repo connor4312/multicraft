@@ -1,0 +1,144 @@
+/* Styling for the sticky footer and general page display *********************/
+html, body {
+	height: 100%;
+}
+
+#page {
+	min-height: 100%;
+	margin-bottom: -(@footer-height + @footer-margin);
+	overflow: auto;
+
+	&:after {
+		content: "";
+		display: block;
+		height: (@footer-height + @footer-margin);
+	}
+
+	> .container {
+		background: @page-bg;
+		position: relative;
+
+		&:before {
+			content: "";
+			width: 100%;
+			height: @page-shadow-length;
+			position: absolute;
+			box-shadow: @page-shadow;
+			z-index: -5;
+			border-radius: 0 0 25% 25%;
+		}
+	}
+}
+
+/* Styles for the page header *************************************************/
+
+#header {
+	#gradient.vertical(@brand-primary, darken(@brand-primary, 10%));
+
+	h1 {
+		margin: 0;
+		line-height: 2em;
+		font-size: 3em;
+		padding: 0 0.5em;
+		color: @header-color-primary;
+
+		small {
+			color: @header-color-secondary;
+			font-size: 0.4em;
+			margin-left: 0.4em;
+		}
+	}
+}
+
+/* Adjustment for full-width navbar *******************************************/
+
+#navbar {
+	margin: 0 -(@grid-gutter-width / 2);
+}
+
+
+/* Styling for the page sidebar ***********************************************/
+
+#sidebar {
+	position: absolute;
+	height: 100%;
+	background: @sidebar-bg;
+
+	@media (max-width: @screen-md-min) {
+		position: static;
+		margin-top: 0px;
+	}
+
+	a {
+		color: @sidebar-link-color;
+		display: block;
+		padding: 5px (@grid-gutter-width / 2);
+		border-bottom: 1px solid darken(@sidebar-bg, 10%);
+		border-top: 1px solid lighten(@sidebar-bg, 10%);
+
+		&:hover {
+			text-decoration: none;
+			background: @sidebar-hover-background;
+			color: @sidebar-hover-color;
+			text-shadow: 0 -1px 0 #fff;
+			border-right: 1px solid @sidebar-hover-color;
+		}
+	}
+
+	.fa {
+		width: 1em;
+		text-align: center;
+	}
+
+	li {
+		list-style-type: none;
+
+		ul {
+			margin: 0;
+			background: lighten(@sidebar-bg, 10%);
+
+			a {
+				border-bottom-color: darken(@sidebar-bg, 5%);
+			}
+		}
+	}
+
+	ul {
+		margin: 0 -(@grid-gutter-width / 2);
+		padding: 0;
+	}
+
+	.portlet-title {
+		font-size: @sidebar-title-size;
+		color: @sidebar-title-color;
+		margin: 10px 0 0;
+		font-weight: @headings-font-weight;
+		line-height: 2.5em;
+	}
+}
+
+/* Start the content styling **************************************************/
+
+#content {
+	position: relative;
+	min-height: @page-shadow-length;
+
+	> h1:first-child, > h2:first-child, > h3:first-child {
+		margin-top: 0;
+	}
+}
+
+/* Styling for the page footer ************************************************/
+
+footer {
+	margin-top: @footer-margin;
+	line-height: @footer-height;
+	text-align: center;
+	border-top: 1px solid @footer-bg-border;
+	#gradient.vertical(@footer-bg-start, @footer-bg-end);
+	color: @footer-color;
+
+	a {
+		color: @footer-link-color;
+	}
+}

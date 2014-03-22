@@ -1,0 +1,61 @@
+@import "../../../bower_components/bootstrap/less/bootstrap.less";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,700);
+
+@font-family-sans-serif:  'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@headings-font-weight:    300;
+@brand-primary:           #2CB2FF;
+@body-bg:                 #D9D9D9;
+
+/* Bootstrap mixin overrides **************************************************/
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      opacity: 1;
+      background-color: @page-bg;
+      border-color: @border;
+      border-width: 2px;
+      color: contrast(@page-bg, darken(@page-bg, 30%), lighten(@page-bg, 30%));
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: #fff;
+  }
+}
+
+/* Tweaks to Bootstrap core stuff ******************************************/
+
+.col-toppad {
+  padding-top: @grid-gutter-width / 2;
+}
+
+.muted {
+  color: #999;
+  font-size: 0.8em;
+}
