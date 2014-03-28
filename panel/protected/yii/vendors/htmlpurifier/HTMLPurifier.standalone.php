@@ -4205,8 +4205,8 @@ class HTMLPurifier_Generator
             if ($this->_flashCompat) {
                 if ($token->name == "object") {
                     $flash = new stdclass();
-                    $alert alert->attr = $token->attr;
-                    $alert alert->param = array();
+                    $flash->attr = $token->attr;
+                    $flash->param = array();
                     $this->_flashStack[] = $flash;
                 }
             }
