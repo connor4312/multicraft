@@ -4,30 +4,31 @@ html, body {
 }
 
 #page {
-	min-height: 100%;
-	margin-bottom: -(@footer-height + @footer-margin);
-	overflow: auto;
+    min-height: 100%;
+    margin-bottom: -(@footer-height + @footer-margin);
+    overflow: auto;
 
-	&:after {
-		content: "";
-		display: block;
-		height: (@footer-height + @footer-margin);
-	}
+    &:after {
+        content: "";
+        display: block;
+        height: (@footer-height + @footer-margin);
+    }
 
-	> .container {
-		background: @page-bg;
-		position: relative;
+    > .container {
+        background: @page-bg;
+        position: relative;
+    }
+}
 
-		&:before {
-			content: "";
-			width: 100%;
-			height: @page-shadow-length;
-			position: absolute;
-			box-shadow: @page-shadow;
-			z-index: -5;
-			border-radius: 0 0 25% 25%;
-		}
-	}
+.shadow {
+    height: @page-shadow-length;
+    position: absolute;
+    box-shadow: @page-shadow;
+    z-index: -5;
+    border-radius: 0 0 25% 25%;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 /* Styles for the page header *************************************************/

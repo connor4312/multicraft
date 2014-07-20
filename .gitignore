@@ -33,8 +33,13 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+.idea
 
 # Dependencies #
 ################
 node_modules
 bower_components
+
+# Development Files
+###################
+/static
