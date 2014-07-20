@@ -8,7 +8,6 @@
  **/
 $this->pageTitle=Yii::app()->name . ' - '.Yii::t('admin', 'Minecraft Manager Settings');
 $this->breadcrumbs=array(
-    Yii::t('admin', 'Settings')=>array('index'),
     Yii::t('admin', 'Settings'),
 );
 

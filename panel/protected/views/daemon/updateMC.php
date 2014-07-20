@@ -121,3 +121,4 @@ $this->menu=array(
 <?php echo Yii::t('admin', '<b>.conf file</b>: Contains server binary specific configuration and download links') ?><br/>
 <?php echo Yii::t('admin', '<b>JAR File</b>: The server binary itself') ?>
 </div>
+<br/>

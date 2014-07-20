@@ -207,7 +207,7 @@ class CDetailView extends CWidget
 
 			if (strlen(@$attribute['hint']))
 			{
-				$tr['{hint}'] = '<a class="hint" data-content="' . $attribute['hint'] . '"><i class="fa fa-question"></i></a>';
+				$tr['{hint}'] = '<a class="hint" data-content="' . htmlentities($attribute['hint'], ENT_QUOTES) . '"><i class="fa fa-question"></i></a>';
 			}
 
 			else

@@ -1,4 +1,4 @@
-multicraft = {}; // Globally scoped object for talking to other incline Yii Js
+multicraft = {}; // Globally scoped object for talking to other inline Yii Js
 
 $(document).ready(function() {
 
@@ -27,7 +27,9 @@ $(document).ready(function() {
 	/* Page bindings and effects **********************************************/
 	$('.hint').popover({
 		trigger: 'hover',
-		delay: 100,
+		delay: {show: 100, hide: 500},
+        html: true,
+        placement: 'left',
 		container: 'body'
 	});
 
@@ -77,7 +79,7 @@ $(document).ready(function() {
 
 	var $console = $('#console');
 
-	if ($console) {
+	if ($console.length) {
 		// $console.on('click', '.sx-ip-addr', function() {
 		// 	var ip = $(this).html();
 		// 	$.get('http://freegeoip.net/json/' + ip, function(data) {
