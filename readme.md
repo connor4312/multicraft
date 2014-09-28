@@ -2,8 +2,6 @@
 
 This repository contains a Multicraft panel with significant improvements and adjustments over the original Multicraft panel, namely a complete port to Bootstrap and a sane build system.
 
-Until stated otherwise, content in this repository is proprietary and may be not used or distributed outside except for in evaluative purposes, by parties other than xhost.ch.
-
 ##Installation
 The build process is fairly straightforward. First, you'll need [Node.js](http://nodejs.org/download/) installed on your system. Then, run `node build.js`. The script will ask you for the theme you want to install (from the `themes` directory), and complete the compilation process from there by itself. It will put the compiled panel into `panel.zip`, which is then ready to be run on your web server.
 
