@@ -44,6 +44,8 @@ Styles may be customized very easily, simply by changing [LESS](lesscss.org) var
 
 ## License
 
+This is subject to the same terms and conditions as Multicraft is, and is copyright by xhost.ch. Other than that:
+
 ```
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
