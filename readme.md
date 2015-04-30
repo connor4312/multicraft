@@ -1,3 +1,9 @@
+# Don't use this!
+
+Multicraft 2.0, which is based upon this theme has officially entered prerelease. You can [download it here](http://multicraft.org/site/page?view=news) - it fixes a couple bugs which remained in this repo, and includes a precompiled theme for you.
+
+Contact [their support](http://multicraft.org/site/contact) if you have any questions ;)
+
 # Multicraft
 
 This repository contains a Multicraft panel with significant improvements and adjustments over the original Multicraft panel, namely a complete port to Bootstrap and a sane build system.
